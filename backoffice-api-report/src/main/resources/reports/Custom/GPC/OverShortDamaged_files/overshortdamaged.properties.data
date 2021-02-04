@@ -1,0 +1,37 @@
+# Resource Bundle file.
+#
+report_title=Over Short and Damaged Summary Report
+group_id=Site/Group:
+from_date=From Date
+to_date=To Date
+site_no=Site #
+purchase_order=PO #
+date=Date
+order_qty=Order Qty
+asn_qty=ASN Qty
+order_cost=Order Cost
+adjusted_qty=Adj Qty
+adjusted_cost=Adjusted Cost
+disc_cost=Discrepancy Cost
+disc_qty=Disc Qty
+adjust_type=Type
+recv_qty=Rcv Qty
+item_no=Item
+class=Class
+description=Description
+report_title_detail=Over Short and Damaged Detail Report
+product_line=Product Line
+group_code=Group Code
+adjust_qty=Adj Qty
+receive_disc_qty=Receiving Discrepancy Quantity:
+receive_disc_amt=Receiving Discrepancy Amount:
+adj_disc_qty=Adjustment Discrepancy Quantity:
+adj_disc_amt=Adjustment Discrepancy Amount:
+reason=Reason
+rtv_qty=RTV Qty
+rtv_disc_qty=RTV Discrepancy Quantity:
+rtv_disc_amt=RTV Discrepancy Amount:
+total_disc_qty=Total Discrepancy Quantity:
+total_disc_amt=Total Discrepancy Amount:
+actual_qty=Act Qty
+asn_id=ASN ID

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder>
+    <parent>/public/Tomax/MMSO</parent>
+    <name>Receiving</name>
+    <label>Receiving</label>
+    <creationDate>2017-01-31T09:54:57.000-07:00</creationDate>
+    <updateDate>2014-07-18T07:11:57.000-06:00</updateDate>
+    <folder>Reports</folder>
+</folder>

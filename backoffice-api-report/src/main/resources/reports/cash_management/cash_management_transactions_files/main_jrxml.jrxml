@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cash_management" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efc639fa-762a-469f-a6f1-057e97e43000">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Cash_management/Reports/cash_management_transactions"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository/"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CT 209"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Cash_management/Reports/cash_management_transactions_files/main_jrxml"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Column Header_1" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail_totals" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="p_group" class="java.lang.String"/>
+	<parameter name="p_date" class="java.util.Date"/>
+	<parameter name="p_print_zero_amts" class="java.lang.String"/>
+	<parameter name="p_description" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  site.full_name
+          ,safedetl.site_no
+          ,safedetl.safedetl_no
+          ,safedetl.tran_time    -- actual post date/time of transac
+          ,safedetl.tran_dt      -- logical date of transaction
+          --COR 18507 Replaced auth id with user created.
+          ,DECODE(safedetl.tran_type, 'd', safedetl.User_Modified, safedetl.employee_id) employee_id
+          ,safedetl_tender.name
+          ,safedetl.gl_type
+          ,DECODE(safedetl.tran_type, 'd' , 'Cash Drawer #' || safedetl.cashbox_no, safedetl.comment_txt) comment_txt
+          ,safedetl.tran_type
+          ,safedetl_tender.amt
+          ,tender_name.report_name
+          ,safedetl.cashbox_no
+          ,c.declare_dt
+	,DECODE(safedetl.tran_type, 'D','In_Store to Drawer',
+           DECODE(safedetl.tran_type, 'P','Drawer to In-Store',
+           DECODE(safedetl.tran_type, 'S','Cash Drawer Set-up',
+           DECODE(safedetl.tran_type, 'L','Safe to In-Store',
+           DECODE(safedetl.tran_type, 'B','In-Store to Safe',
+           DECODE(safedetl.tran_type, 'X','Funds Received',
+           DECODE(safedetl.tran_type, 'F','Float at Check In',
+           DECODE(safedetl.tran_type, 'c','Charges at POS',
+           DECODE(safedetl.tran_type, 'W','Bank Deposit',
+           DECODE(safedetl.tran_type, 'T','Safe Receipt',
+           DECODE(safedetl.tran_type, 'd','Cash Drawer Declared',
+           DECODE(safedetl.tran_type, 's',
+              (DECODE(lower(substr(comment_txt,1,4)),'cash','Cash Drawer Set-up',
+                DECODE(lower(substr(comment_txt,1,4)),NULL,'Cash Drawer Set-up','IGNORE'))),
+           DECODE(safedetl.tran_type,'R',
+              (DECODE(lower(substr(comment_txt,1,4)),'cash','Cash Drawer Reconciled',
+                DECODE(lower(substr(comment_txt,1,4)),NULL,'Cash Drawer Reconciled','Safe Reconciliation'))),
+              safedetl.tran_type))))))))))))) tran_type_str
+	,to_char(safedetl.tran_time,'YYYY-MM-DD HH:MM:SS') || safedetl.tran_type   dup_str
+   FROM    safedetl
+          ,safedetl_tender
+          ,site
+          ,tender_name
+          ,cshbox c
+
+   WHERE   safedetl.tran_dt = $P{p_date}
+   AND     safedetl.site_no IN
+              (SELECT sitgrp.site_no
+               FROM   sitgrp
+               WHERE  sitgrp.group_id = $P{p_group})
+   AND     safedetl.site_no = site.site_no
+   AND     safedetl.site_no = safedetl_tender.site_no(+)
+   AND     safedetl.safedetl_no = safedetl_tender.safedetl_no(+)
+   AND     safedetl_tender.name = tender_name.name(+)
+   AND     safedetl_tender.name(+) <> 'STRCPN_TNDR'  -- Store coupons
+   AND     safedetl_tender.amt(+) <> 0
+   AND     (safedetl.tran_type != 's' OR
+           	(safedetl.tran_type = 's'
+           	AND (lower(substr(comment_txt,1,4)) = 'cash' OR lower(substr(comment_txt,1,4))IS NULL)))
+   AND     ((tmxgbl.get_flag('INCLUDE_AR_CHARGES') = 'Y') OR (tmxgbl.get_flag('INCLUDE_AR_CHARGES') = 'N' AND tender_name.NAME not in ('CUSTCHG_TNDR',b_cash_management.get_corecharge_tender_name)))
+   AND     c.cashbox_no(+) = safedetl.cashbox_no AND c.site_no(+) = safedetl.site_no
+   ORDER BY safedetl.site_no, safedetl.tran_time, safedetl.safedetl_no]]>
+	</queryString>
+	<field name="FULL_NAME" class="java.lang.String"/>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="SAFEDETL_NO" class="java.math.BigDecimal"/>
+	<field name="TRAN_TIME" class="java.sql.Timestamp"/>
+	<field name="TRAN_DT" class="java.sql.Timestamp"/>
+	<field name="EMPLOYEE_ID" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="GL_TYPE" class="java.lang.String"/>
+	<field name="COMMENT_TXT" class="java.lang.String"/>
+	<field name="TRAN_TYPE" class="java.lang.String"/>
+	<field name="AMT" class="java.math.BigDecimal"/>
+	<field name="REPORT_NAME" class="java.lang.String"/>
+	<field name="CASHBOX_NO" class="java.math.BigDecimal"/>
+	<field name="DECLARE_DT" class="java.sql.Timestamp"/>
+	<field name="TRAN_TYPE_STR" class="java.lang.String"/>
+	<field name="DUP_STR" class="java.lang.String"/>
+	<variable name="dup_str" class="java.lang.String"/>
+	<group name="Site" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{SITE_NO}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="duplicate_str">
+		<groupExpression><![CDATA[$F{DUP_STR}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement style="Parameter" x="0" y="26" width="60" height="15" uuid="1c23b55c-14c0-4848-8d21-7b0bf571d39f"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Site Group:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="60" y="26" width="30" height="15" uuid="ce3588d7-d30f-4822-a6b5-02aebd31f454"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_group}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement style="Parameter" mode="Transparent" x="0" y="24" width="210" height="35" uuid="79c6a811-3d90-4036-be2e-9f223c80415b"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="411" y="0" width="161" height="21" uuid="17dfbc57-076a-4133-b420-157df49e179b"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Report Title" x="0" y="0" width="270" height="20" uuid="d328c65c-af5a-4b4e-811a-365ad434ad9a">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Cash Management Transactions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="41" width="60" height="15" uuid="1373634d-eb30-437c-973f-d97b8cbed892"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement style="Parameter" x="60" y="41" width="100" height="15" uuid="18dcc229-7cb1-49d9-8041-8d0cd8498054"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="90" y="26" width="100" height="15" uuid="22a4bab0-d7ae-4835-a287-86ad6bdccefc"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column Header" x="0" y="25" width="100" height="20" uuid="c0723934-b4c9-4790-81c8-30891dc9b52e"/>
+				<text><![CDATA[Date and Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="100" y="25" width="100" height="20" uuid="ea37b057-0f0d-4f52-ae23-9247031cc0bb"/>
+				<text><![CDATA[Transaction Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="200" y="25" width="50" height="20" uuid="4eaad266-27df-49b3-9a5d-803441e70498"/>
+				<text><![CDATA[Auth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="250" y="25" width="70" height="20" uuid="13c20948-2121-4e08-b3b1-34bb02dcce1f"/>
+				<text><![CDATA[Tender Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="320" y="25" width="70" height="20" uuid="46827ea8-20ee-43c4-b56c-47f0c2c8a0ee"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="390" y="25" width="50" height="20" uuid="3f8242d9-2be6-410d-a1c3-ae52c9a18869"/>
+				<text><![CDATA[Declared]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="440" y="25" width="100" height="20" uuid="4440f944-e664-4bff-b041-9162f5b8f3e4"/>
+				<text><![CDATA[Comment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="540" y="25" width="31" height="20" uuid="6a1585bf-d35e-4c87-b13e-4eacc9bcf6e8"/>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="15" uuid="1e25d5d0-fa4d-487b-b694-7ac429d85297"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Site:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="0" width="30" height="15" uuid="68fd6945-71f9-4896-8582-e055ce3eb8a7"/>
+				<textFieldExpression><![CDATA[$F{SITE_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="130" height="15" uuid="1104e83b-1e13-42fc-9501-1ddef5f7b25a"/>
+				<textFieldExpression><![CDATA[$F{FULL_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField pattern="MMM dd, yyyy  hh:mm:ss aaa">
+				<reportElement style="Detail" mode="Transparent" x="0" y="0" width="100" height="11" uuid="b71c0a19-e3e9-443a-ac14-f99f8420f109">
+					<printWhenExpression><![CDATA[$V{duplicate_str_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAN_TIME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" mode="Transparent" x="100" y="0" width="100" height="11" uuid="cf11afe4-faa0-4976-a80c-3272e35519f2">
+					<printWhenExpression><![CDATA[$V{duplicate_str_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAN_TYPE_STR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Transparent" x="200" y="0" width="50" height="11" uuid="5eed94c0-7448-475b-b27b-1d7c8c96b517">
+					<printWhenExpression><![CDATA[$V{duplicate_str_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMPLOYEE_ID}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Transparent" x="251" y="0" width="69" height="11" uuid="349bb369-bdc2-46eb-acd9-98a1bce11522"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REPORT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Transparent" x="320" y="0" width="70" height="11" uuid="656ee431-1a38-4aaf-8dc2-839df47edd4c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Transparent" x="440" y="0" width="100" height="11" uuid="272624b1-4132-40ff-9083-098eab5d9fc2">
+					<printWhenExpression><![CDATA[$V{duplicate_str_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMMENT_TXT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Transparent" x="540" y="0" width="32" height="11" uuid="276a9e9d-4dd1-49e0-bfa2-f3d3cfbabf22">
+					<printWhenExpression><![CDATA[$V{duplicate_str_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GL_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Transparent" x="390" y="0" width="50" height="11" uuid="6ff12986-4175-401b-96a7-4145c8b02ecd">
+					<printWhenExpression><![CDATA[$V{duplicate_str_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DECLARE_DT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="0" y="0" width="136" height="17" uuid="8458c4a8-5c8f-4980-b18a-275aa89a1b92"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="536" y="0" width="36" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="d9900e10-ff2a-4627-9591-2f1462a7b653"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None">
+					<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="CP1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="436" y="0" width="100" height="17" uuid="0a2cffb0-bf8d-4a18-ae51-2c2046e53ae6"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,24 @@
+# Resource Bundle file.
+#
+report_title=Landed Cost Items
+vendor_id=Vendor ID
+element_id=Element ID
+vendor_item=Vendor Item
+sku_no=SKU #
+description=Description
+element=Element
+rate_type=Rate Type
+rate=Rate
+price=Price
+base_cost=Base Cost
+vendor_cost=Vendor Cost
+landed_cost=Landed Cost AMT
+gmperc=GM %
+address=Address:
+phone=Phone:
+site_no=Site #
+inherited=Inherited
+group_id=Site/Group
+sort_by=Sort By
+landed_cost_tot=Total Landed Cost
+lc_gmperc=Total GM %

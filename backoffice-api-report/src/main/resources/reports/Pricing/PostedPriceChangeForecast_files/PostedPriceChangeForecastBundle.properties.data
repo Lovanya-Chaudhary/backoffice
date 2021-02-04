@@ -1,0 +1,24 @@
+# Resource Bundle file.
+#
+reporttitle=Posted Price Change Forecast Report
+GroupID=Group ID
+FromDate=From Apply Date
+ToDate=To Apply Date
+ApplySite=Apply Site
+ApplyDate=Apply Date
+Effect=$ Effect
+ProdCode=Product Code
+SKU=SKU #
+UPC=UPC
+VI=Vendor Item
+MFG=MFG Code
+Desc=Description
+Old=Old
+New=New
+Price=Price
+QOH=QOH
+Batch=Batch
+Site=Site
+ID=ID
+restricted=Restricted to Items with Qty on Hand
+allItems=Showing all Items, even those with no Qty on Hand

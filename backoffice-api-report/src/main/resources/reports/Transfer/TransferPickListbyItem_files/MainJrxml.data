@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TransferPickListByItem" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="transfer_pick_list_Resources" whenResourceMissingType="Empty" uuid="b1ee80dc-953d-47e2-8fac-261bf3160d0c">
+	<property name="ireport.jasperserver.url" value="http://ice209app01.aws.tomax.com:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Transfer/Reports/TransferPickListbyItem_files/MainJrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Transfer/Reports/TransferPickListbyItem"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ice209DB"/>
+	<style name="Group1 Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.7" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="OnServer" class="java.lang.Boolean" isForPrompting="false">
+		<parameterDescription><![CDATA[Are we running on server]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{REPORT_CONTEXT} != null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_xfer_site_no" class="java.math.BigDecimal"/>
+	<parameter name="to_xfer_site_no" class="java.math.BigDecimal"/>
+	<parameter name="from_xfer_no" class="java.math.BigDecimal"/>
+	<parameter name="to_xfer_no" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="ship_site_no" class="java.math.BigDecimal"/>
+	<parameter name="recv_site_no" class="java.lang.String"/>
+	<parameter name="flag_items_no_qty_avail" class="java.lang.String"/>
+	<parameter name="print_line_item_notes" class="java.lang.String"/>
+	<parameter name="number_transfer_pages" class="java.lang.String"/>
+	<parameter name="print_price_cost" class="java.lang.String"/>
+	<parameter name="sort_items_by" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="sort_identifier_by" class="java.lang.String"/>
+	<parameter name="secondary_display_item" class="java.lang.String"/>
+	<parameter name="sort_items_byWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{sort_items_by} != null ?
+($P{sort_items_by}.equals("L") ? " plist_loc1, plist_shelf, plist_placement, " :
+   $P{sort_items_by}.equals("P") ? " plist_prod_code, " :
+      $P{sort_items_by}.equals("V") ? " plist_vendor_id, " :
+      	$P{sort_items_by}.equals("N") ? " plist_loc1, plist_shelf, plist_placement, plist_attr1_val asc, plist_price_list_seq asc, plist_mfg_cd, " : " ") : " "]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sort_identifier_byWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{sort_identifier_by}.equals('S') ? " plist_sku_no " :
+	$P{sort_identifier_by}.equals('U') ? " plist_upc " :
+		$P{sort_identifier_by}.equals('M') ? " plist_mfg_cd " :
+			$P{sort_identifier_by}.equals('V') ? " plist_vendor_item " : " plist_sku_no "]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+plist_ship_site
+,plist_prod_code
+,plist_loc1
+,plist_shelf
+,plist_placement
+,plist_sku_no
+   ,plist_tot_ent_qty
+   ,plist_sell_um
+   ,plist_sku_desc
+   ,plist_sku_lookup
+   ,plist_wip
+   ,plist_attr1_val
+   ,plist_attr2_val
+   ,plist_price_list_seq
+   ,plist_mfg_cd
+   ,plist_dept_no
+   ,plist_class_no
+   ,plist_line_no
+   ,plist_pkg_desc
+   ,plist_weighed_item_fl
+   ,plist_unit_price1
+   ,plist_qoh
+   ,plist_qor
+   ,plist_upc
+   ,plist_site_name
+   ,plist_use_serial_fl
+   ,plist_xfer_status
+   ,plist_vendor_id 
+   ,plist_vendor_name
+   ,plist_vendor_item
+   ,plist_repl_cost
+FROM(
+SELECT  distinct 
+	xfh.ship_site_no		AS plist_ship_site
+   ,inv.dept_no||'/'||inv.class_no||'/'||inv.line_no AS plist_prod_code
+   ,il.location_id                AS plist_loc1
+   ,il.shelf_id                AS plist_shelf
+   ,il.placement_id                AS plist_placement
+   ,inv.sku_no                    AS plist_sku_no
+   ,sum(xfd.enter_qty)            AS plist_tot_ent_qty
+   ,inv.sell_um                   AS plist_sell_um
+   ,inv.description               AS plist_sku_desc
+   ,inv.lookup_desc               AS plist_sku_lookup
+   ,inv.warehouse_inner_pack      AS plist_wip
+   ,inv.attribute1_value                   AS plist_attr1_val
+   ,inv.attribute2_value                   AS plist_attr2_val  
+   ,inv.price_list_seq				AS plist_price_list_seq
+   ,inv.mfg_cd                    AS plist_mfg_cd
+   ,inv.dept_no                   AS plist_dept_no
+   ,inv.class_no                  AS plist_class_no
+   ,inv.line_no                   AS plist_line_no
+   ,inv.pkg_desc                  AS plist_pkg_desc
+   ,inv.weighed_item_fl           AS plist_weighed_item_fl
+   ,ibs.unit_price1               AS plist_unit_price1
+   ,ibs.qty_on_hand               AS plist_qoh
+   ,ibs.qty_rsvd                  AS plist_qor
+   ,ipc.upc_id                    AS plist_upc
+   ,alt.name                      AS plist_site_name
+   ,inv.use_serial_fl             AS plist_use_serial_fl
+   ,xfh.xfer_status               AS plist_xfer_status
+   ,b_vendor.get_primary_vendor(inv.sku_no,xfh.ship_site_no) AS plist_vendor_id 
+   ,ven.name						AS plist_vendor_name
+   ,b_item.get_item_id(inv.sku_no,'V')      AS plist_vendor_item  
+   ,decode((select config_fl from configflag where site_no = xfh.ship_site_no and name = 'XFER_USE_SHIP_SITE_REP_COST'),'Y'
+ 	 ,avg_cost.avg_cost(inv.sku_no,xfh.ship_site_no,'A'), avg_cost.avg_cost(inv.sku_no,xfh.recv_site_no,'A')) AS plist_repl_cost
+FROM ALTSITE alt
+JOIN XFER_HDR xfh ON xfh.recv_site_no = alt.site_no
+JOIN XFER_DTL xfd ON xfd.xfer_site_no = xfh.xfer_site_no AND xfd.xfer_no = xfh.xfer_no 
+JOIN ALTSITE  alt ON alt.site_no  = xfh.ship_site_no
+JOIN INVTORY  inv ON inv.sku_no = xfd.sku_no
+JOIN INVBYSIT ibs ON ibs.sku_no = inv.sku_no AND ibs.site_no = alt.site_no  
+JOIN ITEMUPC  ipc ON ipc.sku_no = inv.sku_no AND ipc.upc_seq = 1 
+LEFT OUTER JOIN ITEM_LOCATION il ON  xfd.xfer_site_no = il.site_no AND xfd.sku_no = il.sku_no
+LEFT OUTER JOIN VENDOR ven ON ven.vendor_id = b_vendor.get_primary_vendor(inv.sku_no,xfh.ship_site_no)
+WHERE 1=1 
+    AND $P{sort_items_by} in ('L','N')
+        AND (($P{from_xfer_site_no} is null and $P{to_xfer_site_no} is null
+            	AND xfh.xfer_no = xfh.xfer_no)
+        	OR ($P{from_xfer_site_no} is null and $P{to_xfer_site_no} is not null
+            	AND (xfh.xfer_site_no < $P{to_xfer_site_no} AND xfh.xfer_no = xfh.xfer_no
+                	OR xfh.xfer_site_no = $P{to_xfer_site_no} AND xfh.xfer_no <= $P{to_xfer_no})) 
+       		OR ($P{from_xfer_site_no} is not null and $P{to_xfer_site_no} is not null 
+				AND $P{from_xfer_site_no} = $P{to_xfer_site_no} 
+				AND xfh.xfer_site_no = $P{from_xfer_site_no}
+					AND xfh.xfer_no   >= $P{from_xfer_no} AND xfh.xfer_no <= $P{to_xfer_no})
+       		OR ($P{from_xfer_site_no} is not null and $P{to_xfer_site_no} is not null 
+				AND $P{from_xfer_site_no} <> $P{to_xfer_site_no}
+					AND ((xfh.xfer_site_no = $P{from_xfer_site_no} AND xfh.xfer_no   >= $P{from_xfer_no})
+						or
+               			(xfh.xfer_site_no = $P{to_xfer_site_no} AND xfh.xfer_no   <= $P{to_xfer_no})
+               			or
+               			(xfh.xfer_site_no > $P{from_xfer_site_no} and xfh.xfer_site_no < $P{to_xfer_site_no} AND xfh.xfer_no = xfh.xfer_no))))
+       AND ($P{ship_site_no} IS NULL 
+       		OR ($P{ship_site_no} IS NOT NULL AND xfh.ship_site_no  = $P{ship_site_no}))
+       AND ($P{recv_site_no} IS NULL 
+       		OR ($P{recv_site_no} IS NOT NULL AND xfh.recv_site_no  in ($P!{recv_site_no})))
+       AND xfh.xfer_status    NOT IN ('S', 'X', 'C')
+group by xfh.ship_site_no,inv.dept_no||'/'||inv.class_no||'/'||inv.line_no, il.location_id, il.shelf_id, il.placement_id, inv.sku_no
+      ,inv.sell_um,inv.description,inv.lookup_desc,inv.warehouse_inner_pack
+      ,inv.attribute1_value, inv.attribute2_value, inv.price_list_seq, inv.mfg_cd
+      ,inv.dept_no,inv.class_no,inv.line_no,inv.pkg_desc,inv.weighed_item_fl,ibs.unit_price1,ibs.qty_on_hand,ibs.qty_rsvd
+      ,ipc.upc_id,alt.name,inv.use_serial_fl,xfh.xfer_status
+      ,b_vendor.get_primary_vendor(inv.sku_no,xfh.ship_site_no)  ,ven.name ,b_item.get_item_id(inv.sku_no,'V')
+  	 ,avg_cost.avg_cost(inv.sku_no,xfh.ship_site_no,'A')
+  	 ,avg_cost.avg_cost(inv.sku_no,xfh.recv_site_no,'A')
+UNION
+SELECT  
+distinct 
+	xfh.ship_site_no	AS plist_ship_site
+       ,inv.dept_no||'/'||inv.class_no||'/'||inv.line_no as plist_prod_code
+   ,null                          AS plist_loc1
+   ,null               			AS plist_shelf
+   ,null            				AS plist_placement
+   ,inv.sku_no                    AS plist_sku_no
+   ,sum(xfd.enter_qty)            AS plist_tot_ent_qty
+   ,inv.sell_um                   AS plist_sell_um
+   ,inv.description               AS plist_sku_desc
+   ,inv.lookup_desc               AS plist_sku_lookup
+   ,inv.warehouse_inner_pack      AS plist_wip
+   ,inv.attribute1_value                   AS plist_attr1_val
+   ,inv.attribute2_value                   AS plist_attr2_val  
+   ,inv.price_list_seq				AS plist_price_list_seq
+   ,inv.mfg_cd                    AS plist_mfg_cd
+   ,inv.dept_no                   AS plist_dept_no
+   ,inv.class_no                  AS plist_class_no
+   ,inv.line_no                   AS plist_line_no
+   ,inv.pkg_desc                  AS plist_pkg_desc
+   ,inv.weighed_item_fl           AS plist_weighed_item_fl
+   ,ibs.unit_price1               AS plist_unit_price1
+   ,ibs.qty_on_hand               AS plist_qoh
+   ,ibs.qty_rsvd                  AS plist_qor
+   ,ipc.upc_id                    AS plist_upc
+   ,alt.name                      AS plist_site_name
+   ,inv.use_serial_fl             AS plist_use_serial_fl
+   ,xfh.xfer_status               AS plist_xfer_status
+   ,b_vendor.get_primary_vendor(inv.sku_no,xfh.ship_site_no) AS plist_vendor_id 
+   ,ven.name						AS plist_vendor_name
+   ,b_item.get_item_id(inv.sku_no,'V')      AS plist_vendor_item  
+   ,decode((select config_fl from configflag where site_no = xfh.ship_site_no and name = 'XFER_USE_SHIP_SITE_REP_COST'),'Y'
+ 	 ,avg_cost.avg_cost(inv.sku_no,xfh.ship_site_no,'A'), avg_cost.avg_cost(inv.sku_no,xfh.recv_site_no,'A')) AS plist_repl_cost
+FROM ALTSITE alt
+JOIN XFER_HDR xfh ON xfh.recv_site_no = alt.site_no
+JOIN XFER_DTL xfd ON xfd.xfer_site_no = xfh.xfer_site_no AND xfd.xfer_no = xfh.xfer_no
+JOIN ALTSITE  alt ON alt.site_no  = xfh.ship_site_no
+JOIN INVTORY  inv ON inv.sku_no = xfd.sku_no
+JOIN INVBYSIT ibs ON ibs.sku_no = inv.sku_no AND ibs.site_no = alt.site_no  
+JOIN ITEMUPC  ipc ON ipc.sku_no = inv.sku_no AND ipc.upc_seq = 1 
+LEFT OUTER JOIN VENDOR ven ON ven.vendor_id = b_vendor.get_primary_vendor(inv.sku_no,xfh.ship_site_no)
+WHERE 1=1 
+    AND $P{sort_items_by} not in ('L' ,'N')
+       AND (($P{from_xfer_site_no} is null and $P{to_xfer_site_no} is null
+            	AND xfh.xfer_no = xfh.xfer_no)
+        	OR ($P{from_xfer_site_no} is null and $P{to_xfer_site_no} is not null
+            	AND (xfh.xfer_site_no < $P{to_xfer_site_no} AND xfh.xfer_no = xfh.xfer_no
+                	OR xfh.xfer_site_no = $P{to_xfer_site_no} AND xfh.xfer_no <= $P{to_xfer_no})) 
+       		OR ($P{from_xfer_site_no} is not null and $P{to_xfer_site_no} is not null 
+				AND $P{from_xfer_site_no} = $P{to_xfer_site_no} 
+					AND xfh.xfer_site_no = $P{from_xfer_site_no}
+					AND xfh.xfer_no   >= $P{from_xfer_no} AND xfh.xfer_no <= $P{to_xfer_no})
+       		OR ($P{from_xfer_site_no} is not null and $P{to_xfer_site_no} is not null 
+				AND $P{from_xfer_site_no} <> $P{to_xfer_site_no}
+					AND ((xfh.xfer_site_no = $P{from_xfer_site_no} AND xfh.xfer_no   >= $P{from_xfer_no})
+						or
+               			(xfh.xfer_site_no = $P{to_xfer_site_no} AND xfh.xfer_no   <= $P{to_xfer_no})
+               			or
+               			(xfh.xfer_site_no > $P{from_xfer_site_no} and xfh.xfer_site_no < $P{to_xfer_site_no} AND xfh.xfer_no = xfh.xfer_no))))
+       AND ($P{ship_site_no} IS NULL 
+       		OR ($P{ship_site_no} IS NOT NULL AND xfh.ship_site_no  = $P{ship_site_no}))
+       AND ($P{recv_site_no} IS NULL 
+       		OR ($P{recv_site_no} IS NOT NULL AND xfh.recv_site_no  in ($P!{recv_site_no})))
+       AND xfh.xfer_status    NOT IN ('S', 'X', 'C')
+group by xfh.ship_site_no,inv.dept_no||'/'||inv.class_no||'/'||inv.line_no, inv.sku_no
+      ,inv.sell_um,inv.description,inv.lookup_desc,inv.warehouse_inner_pack
+      ,inv.attribute1_value, inv.attribute2_value, inv.price_list_seq, inv.mfg_cd
+      ,inv.dept_no,inv.class_no,inv.line_no,inv.pkg_desc,inv.weighed_item_fl,ibs.unit_price1,ibs.qty_on_hand,ibs.qty_rsvd
+      ,ipc.upc_id,alt.name,inv.use_serial_fl,xfh.xfer_status
+      ,b_vendor.get_primary_vendor(inv.sku_no,xfh.ship_site_no) , ven.name, b_item.get_item_id(inv.sku_no,'V')
+ 	 ,avg_cost.avg_cost(inv.sku_no,xfh.ship_site_no,'A')
+  	 ,avg_cost.avg_cost(inv.sku_no,xfh.recv_site_no,'A')
+)
+order by
+	$P!{sort_items_byWhere}
+	$P!{sort_identifier_byWhere}]]>
+	</queryString>
+	<field name="PLIST_PROD_CODE" class="java.lang.String"/>
+	<field name="PLIST_SKU_NO" class="java.math.BigDecimal"/>
+	<field name="PLIST_SELL_UM" class="java.lang.String"/>
+	<field name="PLIST_SKU_DESC" class="java.lang.String"/>
+	<field name="PLIST_SKU_LOOKUP" class="java.lang.String"/>
+	<field name="PLIST_WIP" class="java.math.BigDecimal"/>
+	<field name="PLIST_MFG_CD" class="java.lang.String"/>
+	<field name="PLIST_DEPT_NO" class="java.math.BigDecimal"/>
+	<field name="PLIST_CLASS_NO" class="java.math.BigDecimal"/>
+	<field name="PLIST_LINE_NO" class="java.math.BigDecimal"/>
+	<field name="PLIST_PKG_DESC" class="java.lang.String"/>
+	<field name="PLIST_WEIGHED_ITEM_FL" class="java.lang.String"/>
+	<field name="PLIST_LOC1" class="java.lang.String"/>
+	<field name="PLIST_UNIT_PRICE1" class="java.math.BigDecimal"/>
+	<field name="PLIST_QOH" class="java.math.BigDecimal"/>
+	<field name="PLIST_QOR" class="java.math.BigDecimal"/>
+	<field name="PLIST_UPC" class="java.lang.String"/>
+	<field name="PLIST_SITE_NAME" class="java.lang.String"/>
+	<field name="PLIST_USE_SERIAL_FL" class="java.lang.String"/>
+	<field name="PLIST_XFER_STATUS" class="java.lang.String"/>
+	<field name="PLIST_VENDOR_ID" class="java.lang.String"/>
+	<field name="PLIST_VENDOR_ITEM" class="java.lang.String"/>
+	<field name="PLIST_TOT_ENT_QTY" class="java.math.BigDecimal"/>
+	<field name="PLIST_SHIP_SITE" class="java.math.BigDecimal"/>
+	<field name="PLIST_REPL_COST" class="java.math.BigDecimal"/>
+	<field name="PLIST_VENDOR_NAME" class="java.lang.String"/>
+	<field name="PLIST_ATTR1_VAL" class="java.lang.String"/>
+	<field name="PLIST_ATTR2_VAL" class="java.lang.String"/>
+	<field name="PLIST_PRICE_LIST_SEQ" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PLIST_SHELF" class="java.lang.String"/>
+	<field name="PLIST_PLACEMENT" class="java.lang.String"/>
+	<group name="Group vendor" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{sort_items_by} == 'L' ? $F{PLIST_LOC1} : 
+$P{sort_items_by} == 'N' ? $F{PLIST_LOC1} : 
+	$P{sort_items_by} == 'P' ? $F{PLIST_PROD_CODE} :
+		$P{sort_items_by} == 'V' ? $F{PLIST_VENDOR_ID} : ""]]></groupExpression>
+		<groupHeader>
+			<band height="15">
+				<textField isBlankWhenNull="true">
+					<reportElement style="Detail" x="0" y="0" width="180" height="14" isRemoveLineWhenBlank="true" uuid="01864f92-5956-4aeb-a5b6-f768e94dc7c2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{sort_items_by} == 'L' ? "Location: " + $F{PLIST_LOC1} : 
+($P{sort_items_by} == 'N' ? "Location: " + $F{PLIST_LOC1} : 
+	($P{sort_items_by} == 'P' ? "Product Code: " + $F{PLIST_PROD_CODE} :
+		($P{sort_items_by} == 'V' ? "Vendor: " + $F{PLIST_VENDOR_ID} + "  " + $F{PLIST_VENDOR_NAME} : 
+			null)))]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="5"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement style="Report Title" x="0" y="0" width="230" height="20" isRemoveLineWhenBlank="true" uuid="d562af05-13c4-4925-bc24-ccd5a6ea9c89">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{title}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="593" y="0" width="185" height="45" isRemoveLineWhenBlank="true" uuid="341f00a2-9e2a-406a-a18e-e2ea7c544bdd">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{OnServer}.booleanValue() ? "repo:logo.png" : 
+"Common/Resources/logo.png"]]></imageExpression>
+			</image>
+			<textField pattern="###0">
+				<reportElement style="Parameter" x="85" y="75" width="30" height="15" uuid="83e03ca2-6c53-406d-bb17-3bb1f96257bc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{from_xfer_site_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="0" y="75" width="85" height="15" isRemoveLineWhenBlank="true" uuid="4c886210-be2c-4559-9f19-68ece5a19f74">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{from_xfer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="0" y="90" width="85" height="15" isRemoveLineWhenBlank="true" uuid="df6f423b-64fb-4e17-99f4-4f04a15ac86a">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{to_xfer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="0" y="45" width="85" height="15" isRemoveLineWhenBlank="true" uuid="04111a4e-0d8c-4d22-9331-9f37a74615ac">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{shipping_site}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="0" y="60" width="85" height="15" isRemoveLineWhenBlank="true" uuid="19306c0f-c89f-40a3-9816-c1b4c662c3d2">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{receiving_site}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement style="Parameter" x="85" y="45" width="115" height="15" uuid="e554b472-3548-4bd9-ba2a-a614d13c43d2">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{ship_site_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="85" y="60" width="100" height="15" uuid="2457dea0-7aab-494b-aaf7-09d5fe4b6061">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{recv_site_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="0" y="30" width="185" height="15" isRemoveLineWhenBlank="true" uuid="61ff73ce-b2b0-4101-8e07-58203b89d948">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{parameters}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.###;###0.###-">
+				<reportElement style="Parameter" x="135" y="75" width="100" height="15" uuid="c444701a-9dde-424f-9ab7-b985a671e233">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{from_xfer_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement style="Parameter" x="115" y="75" width="20" height="15" uuid="cf4a760f-d839-40dc-b156-5ccad37686f9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[" - "]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement style="Parameter" x="115" y="90" width="20" height="15" uuid="6d681bbb-faad-4b27-a71d-09fb063a002b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[" - "]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.###;###0.###-">
+				<reportElement style="Parameter" x="135" y="90" width="100" height="15" uuid="0d11b7d4-0fd4-4e0c-90f0-992d8df73033">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{to_xfer_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement style="Parameter" x="85" y="90" width="30" height="15" uuid="c6f4b662-9638-4e74-8b5c-bf67339148f4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{to_xfer_site_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement style="Column Header" x="740" y="0" width="60" height="25" isRemoveLineWhenBlank="true" uuid="492250e6-107f-4093-9775-a741fec635f5">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{ship_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="390" y="0" width="70" height="25" isRemoveLineWhenBlank="true" uuid="8187df97-a3d2-4453-98e2-af8caa37efff">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{product_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="325" y="0" width="65" height="25" isRemoveLineWhenBlank="true" uuid="5a783103-809d-445c-83cc-dab61a4ada61">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{vendor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement style="Column Header" x="540" y="0" width="50" height="25" uuid="686aa040-79e2-4b65-b5a7-b78dabbaee78">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{print_price_cost} == 'P' ? $R{price_and_cost} : ' ']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="590" y="0" width="50" height="25" isRemoveLineWhenBlank="true" uuid="3731c3ac-bcaf-43a1-bb8b-18c54261f607">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{pack_desc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="690" y="0" width="50" height="25" isRemoveLineWhenBlank="true" uuid="3e3afe32-af48-4aad-90a7-e4b254df43f2">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{qty_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="640" y="0" width="50" height="25" isRemoveLineWhenBlank="true" uuid="27aadd62-126f-4a61-bef9-9ddbe699575b">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{inner_pack}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="460" y="0" width="80" height="25" isRemoveLineWhenBlank="true" uuid="91d28f19-8f82-4a32-b1ee-63fd4bd4b96a">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{location}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="0" y="0" width="150" height="25" isRemoveLineWhenBlank="true" uuid="5d8ec10f-e3be-471a-b0cf-8f031e4fecf6">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{sort_identifier_by} == 'S' ? $R{sku_no}:
+	($P{sort_identifier_by} == 'U' ? $R{upc_id}:
+	($P{sort_identifier_by} == 'M' ? $R{mfg_cd}:
+	($P{sort_identifier_by} == 'V' ? $R{vendor_item}: $R{sku_no})))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="150" y="0" width="150" height="25" isRemoveLineWhenBlank="true" uuid="8d362886-eba0-49e6-86f8-335d25c8dfd6">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{secondary_display_item} == 'S' ? $R{sku_no}:
+	($P{secondary_display_item} == 'U' ? $R{upc_id}:
+	($P{secondary_display_item} == 'M' ? $R{mfg_cd}:
+	($P{secondary_display_item} == 'V' ? $R{vendor_item}: $R{sku_no})))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="300" y="0" width="25" height="25" uuid="d4b17122-d8ea-4355-9d47-b5e659260c71">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[$V{COLUMN_NUMBER} > 1]]></printWhenExpression>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="77" splitType="Prevent">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement style="Detail" x="325" y="0" width="65" height="14" uuid="94d3a090-cdc2-4376-972c-6fbfa9fef8a9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLIST_VENDOR_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="390" y="0" width="70" height="14" uuid="c3ca72d7-d9e1-4f97-936c-3f949f885fde">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLIST_PROD_CODE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="460" y="0" width="80" height="14" uuid="062c4991-be04-41ea-a0ff-16fb72033b67">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLIST_LOC1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="14" width="540" height="14" uuid="f90c71c4-bd3d-4f5d-9e7d-b823eb05791c">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["                              " + $F{PLIST_SKU_DESC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#">
+				<reportElement key="" style="Detail" x="540" y="0" width="50" height="14" uuid="625c7fa1-4863-4557-a379-876ecd49c461">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{print_price_cost} == 'P' ? $F{PLIST_UNIT_PRICE1} : ' ']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="590" y="0" width="50" height="14" uuid="2bf32aa9-f4f9-40eb-b299-0c987e0a7359">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLIST_PKG_DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="640" y="0" width="50" height="14" uuid="66bc5453-fe65-43a8-a28f-be291eee0779">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLIST_WIP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="690" y="0" width="50" height="14" uuid="7a0c9006-ce84-45e8-b075-c4c4ed959de9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLIST_TOT_ENT_QTY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="0" y="0" width="150" height="14" uuid="66e64b09-69ed-4dea-b40b-11fa1b40e712">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{sort_identifier_by} == 'S' ? $F{PLIST_SKU_NO}:
+	($P{sort_identifier_by} == 'U' ? $F{PLIST_UPC}:
+	($P{sort_identifier_by} == 'M' ? $F{PLIST_MFG_CD}:
+	($P{sort_identifier_by} == 'V' ? $F{PLIST_VENDOR_ITEM}: $F{PLIST_SKU_NO})))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="740" y="0" width="40" height="14" uuid="2b5217f5-5c5f-4965-8f9c-a8a29c445bf4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="780" y="0" width="20" height="14" uuid="09ca1460-2aef-4f13-9a04-863793967973">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement style="Detail" x="0" y="28" width="800" height="14" isRemoveLineWhenBlank="true" uuid="341cdc64-366a-4c16-9d5f-0454beccc6dc">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="from_xfer_site_no">
+					<subreportParameterExpression><![CDATA[$P{from_xfer_site_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="from_xfer_no">
+					<subreportParameterExpression><![CDATA[$P{from_xfer_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="to_xfer_site_no">
+					<subreportParameterExpression><![CDATA[$P{to_xfer_site_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="to_xfer_no">
+					<subreportParameterExpression><![CDATA[$P{to_xfer_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ship_site_no">
+					<subreportParameterExpression><![CDATA[$P{ship_site_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="recv_site_no">
+					<subreportParameterExpression><![CDATA[$P{recv_site_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sku_no">
+					<subreportParameterExpression><![CDATA[$F{PLIST_SKU_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sort_items_by">
+					<subreportParameterExpression><![CDATA[$P{sort_items_by}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="flag_items_no_qty_avail">
+					<subreportParameterExpression><![CDATA[$P{flag_items_no_qty_avail}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="print_line_item_notes">
+					<subreportParameterExpression><![CDATA[$P{print_line_item_notes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{OnServer}.booleanValue() ? "repo:transfer_no_subreport.jrxml" : 
+"transfer_no_subreport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="150" y="0" width="150" height="14" uuid="dd752d1c-b60e-4c8c-b422-d9753b6039a1">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{secondary_display_item} == 'S' ? $F{PLIST_SKU_NO}:
+	($P{secondary_display_item} == 'U' ? $F{PLIST_UPC}:
+	($P{secondary_display_item} == 'M' ? $F{PLIST_MFG_CD}:
+	($P{secondary_display_item} == 'V' ? $F{PLIST_VENDOR_ITEM}: $F{PLIST_SKU_NO})))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="300" y="0" width="25" height="14" uuid="22fabf5e-eb52-4222-81ab-633c76e45c8d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement style="Detail" x="0" y="56" width="800" height="16" isRemoveLineWhenBlank="true" uuid="34f9a1a4-8b56-4e4a-a790-a98646b6858c">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<subreportParameter name="sku_no">
+					<subreportParameterExpression><![CDATA[$F{PLIST_SKU_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="site_no">
+					<subreportParameterExpression><![CDATA[$F{PLIST_SHIP_SITE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{OnServer}.booleanValue() ? "repo:haz_item_notes_subreport.jrxml" : 
+"haz_item_notes_subreport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement style="Detail" positionType="Float" x="0" y="42" width="800" height="14" isRemoveLineWhenBlank="true" uuid="95d1deed-0b5b-41bb-8bca-f240e8b16308">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{PLIST_USE_SERIAL_FL} == "Y"]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="total_qty">
+					<subreportParameterExpression><![CDATA[$F{PLIST_TOT_ENT_QTY}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{OnServer}.booleanValue() ? "repo:serial_item_subreport.jrxml" : 
+"serial_item_subreport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="#,##0.00#">
+				<reportElement key="" style="Detail" x="540" y="14" width="50" height="14" uuid="3374e55e-41e0-46ee-a826-692ee8c49129">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{print_price_cost} == 'P' ? $F{PLIST_REPL_COST} : ' ']]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#">
+				<reportElement key="" style="Detail" x="590" y="14" width="210" height="14" uuid="34fa96cd-e095-47b0-ba5e-1ba19d0135fe">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement style="Page Footer" x="0" y="0" width="110" height="17" uuid="e90d78b8-cde7-4856-ab1d-64a87beb7103">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="" style="Page Footer" x="616" y="0" width="100" height="17" uuid="70280809-5ded-4ea0-8af6-8e8e9db4cef7">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="" style="Page Footer" x="716" y="0" width="36" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="59e220e4-5cc2-4eba-bb55-d4ff00f2f711"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None">
+					<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="CP1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2015-07-14T14:18:51 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	      xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+	      name="User" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+	      isIgnorePagination="true" uuid="14d6e63d-7aaa-4367-8303-0680b6d6f88c">
+    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+    <property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows " value="true"/>
+    <property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+    <style name="Header" forecolor="#000000" backcolor="rgba(255, 255, 255, 0.0)" hTextAlign="Left" fontSize="16" isBold="true">
+	<box padding="5"/>
+    </style>
+    <style name="Table" backcolor="rgba(255, 255, 255, 0.0)" pattern="" isBlankWhenNull="true">
+	<pen lineStyle="Solid" lineColor="#000000"/>
+	<box padding="2">
+	    <topPen lineWidth="1" lineStyle="Solid"/>
+	    <leftPen lineWidth="1" lineStyle="Solid"/>
+	    <bottomPen lineWidth="1" lineStyle="Solid"/>
+	    <rightPen lineWidth="1" lineStyle="Solid"/>
+	</box>
+    </style>
+    <style name="TableHead" backcolor="#333333" forecolor="#ffffff" mode="Opaque" pattern="" isBlankWhenNull="true">
+	<pen lineStyle="Solid" lineColor="#000000"/>
+	<box padding="2">
+	    <topPen lineColor="#000000" lineWidth="1" lineStyle="Solid"/>
+	    <leftPen lineColor="#000000" lineWidth="1" lineStyle="Solid"/>
+	    <bottomPen lineColor="#000000" lineWidth="1" lineStyle="Solid"/>
+	    <rightPen lineColor="#000000" lineWidth="1" lineStyle="Solid"/>
+	</box>
+    </style>
+    <title>
+	<band height="55" splitType="Stretch" >
+	    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+	    <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+	    <textField>
+		<reportElement style="Header" stretchType="RelativeToBandHeight" x="0" y="0" width="555" height="35" uuid="1cb5ce41-9e2b-43b5-9b70-a152647869a8"/>
+		<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+	    </textField>
+	    <textField pattern="MMMMM dd, yyyy">
+		<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="35" width="555" height="20" uuid="f7022c52-8399-4ba9-8503-4111a7e02192"/>
+		<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+	    </textField>
+	    <line> 
+		<reportElement x="0" y="-1" width="1" height="1"> 
+		<propertyExpression name="net.sf.jasperreports.export.xls.sheet.name"><![CDATA[$P{ReportTitle}]]></propertyExpression> 
+		</reportElement> 
+		</line>
+	</band>
+    </title>
+    <columnHeader>
+	<band height="30" splitType="Stretch">
+	    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+	    <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+
+	</band>
+    </columnHeader>
+    <detail>
+
+    </detail>
+</jasperReport>

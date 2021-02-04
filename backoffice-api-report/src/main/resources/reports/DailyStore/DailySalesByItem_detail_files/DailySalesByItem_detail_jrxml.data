@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="daily_sale_item_detail" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/DailyStore/Reports/DailySalesByItem_detail"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Column Header_1" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail_totals" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="p_group" class="java.lang.String"/>
+	<parameter name="p_tran_dt" class="java.util.Date"/>
+	<parameter name="p_zerosales" class="java.lang.String"/>
+	<parameter name="p_filter" class="java.lang.String"/>
+	<parameter name="p_attrib_id" class="java.lang.String"/>
+	<parameter name="p_attrib_name" class="java.lang.String"/>
+	<parameter name="p_attrib_value" class="java.lang.String"/>
+	<parameter name="p_by_desc" class="java.lang.String"/>
+	<parameter name="p_disp_mlw_desig" class="java.lang.String"/>
+	<parameter name="p_userpref" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\chansen\\AppData\\Local\\Temp\\jstmp\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ds.site_no
+      ,ds.tran_dt
+      ,inv.DEPT_NO
+      ,inv.CLASS_NO
+      ,inv.LINE_NO
+      ,inv.SKU_NO
+	,inv.sell_um
+	,inv.weighed_item_fl
+	,s.full_name	full_name
+	,0		shrink_amt
+	,0		gm_amt
+	,dp.description	dept_desc
+	,dp.deptgrp_no
+	,dg.description	dg_desc
+	,ga.description	group_desc
+      ,nvl(B_ITEM.GET_SKU_TYPE(INV.SKU_NO, INV.LINK_SKU_NO, INV.WEIGHED_ITEM_FL),' ') SKU_TYPE
+      ,inv.DESCRIPTION	inv_desc
+      ,inv.SELL_UM		Unit
+      ,upc_view.QTY_ON_HAND	Avail
+      ,upc_view.QTY_RSVD	Resrvd
+      ,(upc_view.QTY_ON_ORD
+   + upc_view.QTY_ON_BACKORD
+   + upc_view.QTY_IN_TRANSIT)	Expctd
+      ,ds.sales_units
+   + ds.markdown_units
+   + ds.promo_units
+   - ds.returns_units        Sold
+      ,ds.SALES_AMT
+   + ds.markdown_amt
+   + ds.promo_amt
+   - returns_amt             Net_Sales
+      ,ds.cogs_amt               COGS_AMT
+      ,ds.sales_amt              sales_amt
+      ,upc_view.price1           price1
+      ,ds.SALES_UNITS            Sales_Units
+      ,ds.MARKDOWN_UNITS         Markdown_Units
+      ,ds.RETURNS_UNITS          Returns_Units
+      ,ds.PROMO_UNITS          Promo_Units
+      ,ds.MARKDOWN_AMT         Markdown_Amt
+      ,ds.PROMO_AMT            Promo_Amt
+      ,ds.RETURNS_AMT          Returns_Amt
+      ,nvl(inv.mfg_cd,' ')	mfg_cd
+      ,upc_view.upc_id
+      ,vbps.get_vendor_item(inv.SKU_NO, ds.site_no) vendor_item
+  FROM INVTORY  inv
+JOIN DLYSALES ds ON ds.sku_no = inv.sku_no
+--      ,DLYSALES ds
+JOIN site s ON s.site_no = ds.site_no
+JOIN dept dp ON dp.dept_no = inv.dept_no
+JOIN deptgrp dg ON dp.deptgrp_no = dg.deptgrp_no
+JOIN groups_all ga ON ga.group_id = '1'
+      ,(SELECT inv.sku_no
+              ,ibs.qty_on_hand
+              ,ibs.qty_rsvd
+              ,ibs.qty_on_ord
+              ,ibs.qty_on_backord
+              ,ibs.qty_in_transit
+              ,ibs.price1
+              ,ibs.site_no
+              ,DECODE(upc.upc_id,NULL,'n/a',upc_id) AS upc_id
+          FROM ITEMUPC  upc
+              ,INVTORY  inv
+              ,INVBYSIT ibs
+         WHERE inv.sku_no      = upc.sku_no (+)
+          AND inv.sku_no      = ibs.sku_no
+           AND upc.type_cd (+) = 'U'
+           AND upc.upc_seq (+) = 1) upc_view
+where
+       ds.site_no IN (SELECT distinct sg.site_no FROM v_sitgrp sg WHERE sg.group_id = $P{p_group})
+       AND ds.sku_no  = inv.sku_no
+       AND inv.sku_no = upc_view.sku_no
+       AND ds.site_no = upc_view.site_no
+       AND ds.tran_dt = $P{p_tran_dt}
+-- zero net sales
+      AND ($P{p_zerosales} = 'N' OR ($P{p_zerosales} = 'Y'
+          AND ((ds.SALES_AMT + ds.markdown_amt + ds.promo_amt - returns_amt) != 0 or ds.cogs_amt != 0)))
+-- All items
+      AND ($P{p_filter} = 'A'
+          OR ($P{p_filter} = 'P' AND ds.promo_units > 0))
+-- attribute_id and name
+ 	AND ($P{p_attrib_id} IS NULL OR ($P{p_attrib_id} IS NOT NULL AND ds.sku_no IN (SELECT sku_no
+		from item_attribute_value iav
+		WHERE iav.attribute_id = $P{p_attrib_id})))
+-- attribute value
+	AND ($P{p_attrib_value} IS NULL OR ($P{p_attrib_value} IS NOT NULL AND ds.sku_no IN (SELECT sku_no
+		from ITEM_ATTRIBUTE_VALUE iav
+		WHERE attribute_id = $P{p_attrib_id} AND attribute_value = $P{p_attrib_value} AND iav.sku_no = ds.sku_no)))
+order by ds.site_no,inv.dept_no,
+CASE    WHEN $P{p_by_desc} = 'D'  then inv.description   END,
+CASE    WHEN $P{p_by_desc} = 'N'  then inv.sku_no   END]]>
+	</queryString>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="TRAN_DT" class="java.sql.Timestamp"/>
+	<field name="DEPT_NO" class="java.math.BigDecimal"/>
+	<field name="CLASS_NO" class="java.math.BigDecimal"/>
+	<field name="LINE_NO" class="java.math.BigDecimal"/>
+	<field name="SKU_NO" class="java.math.BigDecimal"/>
+	<field name="SELL_UM" class="java.lang.String"/>
+	<field name="WEIGHED_ITEM_FL" class="java.lang.String"/>
+	<field name="FULL_NAME" class="java.lang.String"/>
+	<field name="SHRINK_AMT" class="java.math.BigDecimal"/>
+	<field name="GM_AMT" class="java.math.BigDecimal"/>
+	<field name="DEPT_DESC" class="java.lang.String"/>
+	<field name="DEPTGRP_NO" class="java.math.BigDecimal"/>
+	<field name="DG_DESC" class="java.lang.String"/>
+	<field name="GROUP_DESC" class="java.lang.String"/>
+	<field name="SKU_TYPE" class="java.lang.String"/>
+	<field name="INV_DESC" class="java.lang.String"/>
+	<field name="UNIT" class="java.lang.String"/>
+	<field name="AVAIL" class="java.math.BigDecimal"/>
+	<field name="RESRVD" class="java.math.BigDecimal"/>
+	<field name="EXPCTD" class="java.math.BigDecimal"/>
+	<field name="SOLD" class="java.math.BigDecimal"/>
+	<field name="NET_SALES" class="java.math.BigDecimal"/>
+	<field name="COGS_AMT" class="java.math.BigDecimal"/>
+	<field name="SALES_AMT" class="java.math.BigDecimal"/>
+	<field name="PRICE1" class="java.math.BigDecimal"/>
+	<field name="SALES_UNITS" class="java.math.BigDecimal"/>
+	<field name="MARKDOWN_UNITS" class="java.math.BigDecimal"/>
+	<field name="RETURNS_UNITS" class="java.math.BigDecimal"/>
+	<field name="PROMO_UNITS" class="java.math.BigDecimal"/>
+	<field name="MARKDOWN_AMT" class="java.math.BigDecimal"/>
+	<field name="PROMO_AMT" class="java.math.BigDecimal"/>
+	<field name="RETURNS_AMT" class="java.math.BigDecimal"/>
+	<field name="MFG_CD" class="java.lang.String"/>
+	<field name="UPC_ID" class="java.lang.String"/>
+	<field name="VENDOR_ITEM" class="java.lang.String"/>
+	<variable name="qty_sold_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Site" calculation="Sum">
+		<variableExpression><![CDATA[$F{SALES_UNITS}+$F{MARKDOWN_UNITS}+$F{PROMO_UNITS}-$F{RETURNS_UNITS}]]></variableExpression>
+	</variable>
+	<variable name="amt_sold_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Site" calculation="Sum">
+		<variableExpression><![CDATA[$F{SALES_AMT}+$F{MARKDOWN_AMT}+$F{PROMO_AMT}-$F{RETURNS_AMT}]]></variableExpression>
+	</variable>
+	<variable name="cogs_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Site" calculation="Sum">
+		<variableExpression><![CDATA[$F{COGS_AMT}]]></variableExpression>
+	</variable>
+	<variable name="shrink_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Site" calculation="Sum">
+		<variableExpression><![CDATA[$F{SHRINK_AMT}]]></variableExpression>
+	</variable>
+	<variable name="margin_amt_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Site" calculation="Sum">
+		<variableExpression><![CDATA[($F{SALES_AMT}+$F{MARKDOWN_AMT}+$F{PROMO_AMT}-$F{RETURNS_AMT})
+- $F{COGS_AMT}]]></variableExpression>
+	</variable>
+	<variable name="dept_qty_sold_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Dept" calculation="Sum">
+		<variableExpression><![CDATA[$F{SALES_UNITS}+$F{MARKDOWN_UNITS}+$F{PROMO_UNITS}-$F{RETURNS_UNITS}]]></variableExpression>
+	</variable>
+	<variable name="dept_amt_sold_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Dept" calculation="Sum">
+		<variableExpression><![CDATA[$F{SALES_AMT}+$F{MARKDOWN_AMT}+$F{PROMO_AMT}-$F{RETURNS_AMT}]]></variableExpression>
+	</variable>
+	<variable name="dept_cogs_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Dept" calculation="Sum">
+		<variableExpression><![CDATA[$F{COGS_AMT}]]></variableExpression>
+	</variable>
+	<variable name="dept_shrink_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Dept" calculation="Sum">
+		<variableExpression><![CDATA[$F{SHRINK_AMT}]]></variableExpression>
+	</variable>
+	<variable name="dept_margin_amt_total" class="java.math.BigDecimal" resetType="Group" resetGroup="Dept" calculation="Sum">
+		<variableExpression><![CDATA[($F{SALES_AMT}+$F{MARKDOWN_AMT}+$F{PROMO_AMT}-$F{RETURNS_AMT})
+- ($F{COGS_AMT} + $F{SHRINK_AMT})]]></variableExpression>
+	</variable>
+	<variable name="returned_discounts" class="java.math.BigDecimal"/>
+	<group name="Site">
+		<groupExpression><![CDATA[$F{SITE_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<staticText>
+					<reportElement x="5" y="0" width="29" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Site:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="34" y="0" width="36" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="70" y="0" width="140" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FULL_NAME}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="75">
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement style="Detail_totals" x="445" y="0" width="40" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{qty_sold_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="485" y="0" width="65" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{amt_sold_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="550" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{cogs_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="600" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{shrink_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="650" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{margin_amt_total}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="345" y="0" width="100" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Total For All Dept]]></text>
+				</staticText>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="700" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{amt_sold_total} == 0 ? 0 :
+(($V{amt_sold_total}-($V{cogs_total}+$V{shrink_total}))/
+$V{amt_sold_total}) * 100]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="0" y="15" width="750" height="60"/>
+					<subreportParameter name="p_shrink_total">
+						<subreportParameterExpression><![CDATA[$V{shrink_total}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="p_site_no">
+						<subreportParameterExpression><![CDATA[$F{SITE_NO}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="p_net_sales_total">
+						<subreportParameterExpression><![CDATA[$V{amt_sold_total}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="p_tran_dt">
+						<subreportParameterExpression><![CDATA[$F{TRAN_DT}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="p_margin_total">
+						<subreportParameterExpression><![CDATA[$V{margin_amt_total}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="p_cogs_total">
+						<subreportParameterExpression><![CDATA[$V{cogs_total}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<returnValue subreportVariable="discount_amt_total" toVariable="returned_discounts"/>
+					<subreportExpression><![CDATA["repo:dly_sales_item_subreport1.jrxml"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Dept">
+		<groupExpression><![CDATA[$F{DEPT_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="59">
+				<staticText>
+					<reportElement style="Column Header" x="20" y="43" width="25" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Cls]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="45" y="43" width="25" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Line]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="185" y="43" width="110" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="0" width="65" height="15"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dept Group:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="15" width="65" height="15"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dept:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="75" y="15" width="25" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPT_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="75" y="0" width="25" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPTGRP_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column Header" x="650" y="38" width="50" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Margin Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="485" y="43" width="65" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Net Sales]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="445" y="43" width="40" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Sold]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="700" y="33" width="50" height="25"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Margin   %]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="600" y="43" width="50" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Shrinkage]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="550" y="38" width="50" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Cost of Sales]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="295" y="43" width="30" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Unit]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DG_DESC}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="15" width="100" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPT_DESC}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column Header" x="325" y="43" width="40" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Avail]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="365" y="43" width="40" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Resrvd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="405" y="43" width="40" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Expctd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="366" y="28" width="80" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Q U A N T I T Y]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Column Header" x="70" y="43" width="90" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{p_userpref}.equals("S") ? 'SKU #' :
+ ( $P{p_userpref}.equals("U") ? 'UPC #' :
+  ( $P{p_userpref}.equals("V") ? 'Vendor Item' : 'MFG #' ) )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="160" y="43" width="25" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{p_disp_mlw_desig}.equals('Y') ?
+'MLW' :
+' ']]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="447" y="36" width="40" height="1"/>
+				</line>
+				<line>
+					<reportElement x="325" y="36" width="40" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement style="Detail_totals" x="445" y="0" width="40" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dept_qty_sold_total}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="300" y="0" width="40" height="15"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dept:]]></text>
+				</staticText>
+				<textField pattern="#,##0;-#,##0">
+					<reportElement x="340" y="0" width="30" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPT_NO}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="485" y="0" width="65" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dept_amt_sold_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="550" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dept_cogs_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="600" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dept_shrink_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="650" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dept_margin_amt_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail_totals" x="700" y="0" width="50" height="15"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dept_amt_sold_total} == 0 ? 0 :
+(($V{dept_amt_sold_total}-($V{dept_cogs_total}+$V{dept_shrink_total}))/
+$V{dept_amt_sold_total}) * 100]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="370" y="0" width="40" height="15"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement style="Report Title" x="0" y="0" width="234" height="20"/>
+				<textElement/>
+				<text><![CDATA[Daily Sales by Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="71" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Sort by Desc:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="100" y="71" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_by_desc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Parameter" x="223" y="56" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Disp M/L/W:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="323" y="56" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_disp_mlw_desig}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="26" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Site/Group:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="41" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="56" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Include Items:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="100" y="26" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_group}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="100" y="41" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_tran_dt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="100" y="56" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_filter} == 'A' ? 'All Items' :
+$P{p_filter} == 'P' ? 'Promo Items' :
+$P{p_filter} == 'R' ? 'Retail Variance Items' :
+'All Items']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Parameter" x="223" y="26" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Attribute Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="223" y="41" width="100" height="15"/>
+				<textElement/>
+				<text><![CDATA[Attribute Value:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="323" y="26" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_attrib_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="323" y="41" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_attrib_value}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Parameter" x="223" y="71" width="147" height="15"/>
+				<textElement/>
+				<text><![CDATA[Exclude Items Zero Net Sales:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="370" y="71" width="53" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_zerosales}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="24" width="442" height="64"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="591" y="0" width="161" height="21"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="20" y="0" width="25" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CLASS_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="45" y="0" width="25" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LINE_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="185" y="0" width="110" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INV_DESC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement style="Detail" x="700" y="0" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{NET_SALES}) == 0 ? 0 :
+($F{NET_SALES} - $F{COGS_AMT})/($F{NET_SALES})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement style="Detail" x="650" y="0" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{SALES_AMT}+$F{MARKDOWN_AMT}+$F{PROMO_AMT}-$F{RETURNS_AMT})
+- ($F{COGS_AMT} + $F{SHRINK_AMT})]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement style="Detail" x="445" y="0" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALES_UNITS}+$F{MARKDOWN_UNITS}+$F{PROMO_UNITS}-$F{RETURNS_UNITS}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{WEIGHED_ITEM_FL}.equals('Y')?  '###0.00;-###0.00' : '###0;-###0']]></patternExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement style="Detail" x="600" y="0" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHRINK_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement style="Detail" x="485" y="0" width="65" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALES_AMT}+$F{MARKDOWN_AMT}+$F{PROMO_AMT}-$F{RETURNS_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement style="Detail" x="550" y="0" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COGS_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="70" y="0" width="90" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_userpref}.equals("S") ? ($F{SKU_NO} == null ? "" : $F{SKU_NO} +" ") :
+ ( $P{p_userpref}.equals("U") ? $F{UPC_ID} :
+  ( $P{p_userpref}.equals("V") ? $F{VENDOR_ITEM} : $F{MFG_CD} ) )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="295" y="0" width="30" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SELL_UM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="405" y="0" width="40" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXPCTD}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{WEIGHED_ITEM_FL}.equals('Y')?  '###0.00;-###0.00' : '###0;-###0']]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="325" y="0" width="40" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AVAIL}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{WEIGHED_ITEM_FL}.equals('Y')?  '###0.00;-###0.00' : '###0;-###0']]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="365" y="0" width="40" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RESRVD}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{WEIGHED_ITEM_FL}.equals('Y')?  '###0.00;-###0.00' : '###0;-###0']]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="160" y="0" width="25" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_disp_mlw_desig}.equals('Y') ?
+$F{SKU_TYPE} :
+' ']]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="0" y="0" width="136" height="17"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="714" y="0" width="36" height="17" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None">
+					<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="CP1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="614" y="0" width="100" height="17"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Prevent">
+			<subreport>
+				<reportElement x="0" y="0" width="750" height="20"/>
+				<subreportParameter name="p_net_sales_total">
+					<subreportParameterExpression><![CDATA[$V{amt_sold_total}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_tran_dt">
+					<subreportParameterExpression><![CDATA[$P{p_tran_dt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_attrib_name">
+					<subreportParameterExpression><![CDATA[$P{p_attrib_name}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_attrib_id">
+					<subreportParameterExpression><![CDATA[$P{p_attrib_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_attrib_value">
+					<subreportParameterExpression><![CDATA[$P{p_attrib_value}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_group">
+					<subreportParameterExpression><![CDATA[$P{p_group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["repo:dly_sales_item_subreport2.jrxml"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

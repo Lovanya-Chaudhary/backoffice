@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dly_sales_item_subreport2" language="groovy" pageWidth="752" pageHeight="572" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/DailyStore/Reports/DailySalesByItem_detail"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository"/>
+	<parameter name="p_tran_dt" class="java.util.Date"/>
+	<parameter name="p_group" class="java.lang.String"/>
+	<parameter name="p_attrib_id" class="java.lang.String"/>
+	<parameter name="p_attrib_name" class="java.lang.String"/>
+	<parameter name="p_attrib_value" class="java.lang.String"/>
+	<parameter name="p_net_sales_total" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT    d.dept_no,
+    d.description,
+    sum(ds.sales_amt + ds.markdown_amt + ds.promo_amt - returns_amt) net_sales
+FROM dept d, site s, invtory inv, dlysales ds
+WHERE ds.tran_dt = $P{p_tran_dt}
+   and ds.site_no in (SELECT sg.site_no FROM v_sitgrp sg WHERE sg.group_id = $P{p_group})
+  and ds.sku_no = inv.sku_no
+  and s.site_no = ds.site_no
+  and inv.dept_no = d.dept_no
+  AND ($P{p_attrib_id} IS NULL OR ($P{p_attrib_id} IS NOT NULL AND ds.sku_no IN (SELECT sku_no
+         from item_attribute_value iav
+         WHERE iav.attribute_id = $P{p_attrib_id})))
+  AND ($P{p_attrib_value} IS NULL OR ($P{p_attrib_value} IS NOT NULL AND ds.sku_no IN (SELECT sku_no
+           from ITEM_ATTRIBUTE_VALUE iav
+           WHERE attribute_id = $P{p_attrib_id} AND attribute_value = $P{p_attrib_value} AND iav.sku_no = ds.sku_no)))
+having sum(ds.sales_amt + ds.markdown_amt + ds.promo_amt - returns_amt) > 0
+GROUP BY d.dept_no, d.description
+ORDER BY d.dept_no]]>
+	</queryString>
+	<field name="DEPT_NO" class="java.math.BigDecimal"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="NET_SALES" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="376" y="5" width="50" height="15"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[% of Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="5" width="165" height="15"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Sales Percentage by  Department]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="0" width="40" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEPT_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="150" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="376" y="0" width="50" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_net_sales_total} == 0 ? 0 :
+100 * ($F{NET_SALES} / $P{p_net_sales_total})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

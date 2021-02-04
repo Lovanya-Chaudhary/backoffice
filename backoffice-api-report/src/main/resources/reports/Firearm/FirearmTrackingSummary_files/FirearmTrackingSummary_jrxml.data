@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.5.0-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FirearmTrackSummary" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="772" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="ccd31a65-3710-4517-9f05-a92d491709f0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Firearm/FirearmTrackingSummary"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository/"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="TMX_TIME_INTERVAL" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["previous_week"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_BREAKDOWN_BY" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["empty"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_MERCHANDISE_HIERARCHY" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_MERCH_HIERARCHY_LEVEL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_LOCATION_HIERARCHY" class="java.lang.Long" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_LOC_HIERARCHY_LEVEL" class="java.lang.Long" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDMUserRoleHierarchy" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDMUserRoleSites" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vendor_id" class="java.lang.String"/>
+	<parameter name="group_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ALL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="begin_date" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="end_date" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="allStatus" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Y"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="availStatus" class="java.lang.String"/>
+	<parameter name="rsvdStatus" class="java.lang.String"/>
+	<parameter name="intranStatus" class="java.lang.String"/>
+	<parameter name="rtvStatus" class="java.lang.String"/>
+	<parameter name="lostStatus" class="java.lang.String"/>
+	<parameter name="soldStatus" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Y"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="actionAttribute" class="java.lang.String"/>
+	<parameter name="caliberAttribute" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mfgAttribute" class="java.lang.String"/>
+	<parameter name="importerAttribute" class="java.lang.String"/>
+	<parameter name="modelAttribute" class="java.lang.String"/>
+	<parameter name="availableNow" class="java.lang.String">
+		<defaultValueExpression><![CDATA["N"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sku_no" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT gd.sku_no skuno, gd.serial_no serialno,  gd.seq_no, gd.type_cd,
+             gh.vendor_id as vendorid, gh.model, gh.importer,
+             gh.action, gh.caliber_gauge, gh.manufacturer,gd.cert_no as certificateno,
+             gd.tran_dt, gd.site_no,gd.type_cd process,  gd.new_status, nvl(gd.cust_id, ' ') cust_id, gd.ttsn,
+             nvl(gd.cust_name,' ') cust_name, nvl(gd.cust_line1,' ') cust_line1,
+             nvl(gd.cust_city,' ') cust_city, nvl(gd.cust_state,' ') cust_state,
+             nvl(gd.cust_zip,' ') cust_zip, gd.ffl_name fflname, gd.ffl_id fflid, gd.comment_text comments,
+             f.ffl_id site_fln, gd.customer_license_id as cust_fln, g.description group_desc,
+             f1.ffl_id vendor_ffl, f1.name vendor_name,  f1.name || ' ' || f1.adr1 || ' ' || f1.city || ' ' || f1.state || ' ' || f1.zip rcvdfrom, gd.tran_dt rcptdate,
+	     f2.ffl_id vendor_ffl, f2.name vendor_name,  f2.name || ' ' || f2.adr1 || ' ' || f2.city || ' ' || f2.state || ' ' || f2.zip xrcvdfrom
+   FROM gunlog_dtl gd
+   JOIN gunlog_hdr gh ON gh.sku_no =gd.sku_no
+   LEFT OUTER JOIN vendor v ON v.vendor_id = gh.vendor_id
+   LEFT OUTER JOIN ffl f ON f.site_no = gd.site_no
+               AND f.type = 'SITE'
+   LEFT OUTER JOIN ffl f1 ON  f1.vendor_id   IN (SELECT vendor_id FROM rcvdoc rd WHERE (doc_no, site_no) = (SELECT  ref_doc_no, ref_doc_site_no FROM gunlog_dtl gd2 WHERE gd2.sku_no = gd.sku_no AND gd2.ffl_id = f1.ffl_id AND gd2.serial_no = gd.serial_no AND type_cd IN ('RCVPO','RCVDS')))
+               AND f1.type = 'VENDOR' AND f1.site_no IS NULL AND f1.active_fl = 'Y'
+   LEFT OUTER JOIN ffl f2 ON f2.ffl_id = gd.ffl_id
+               AND f2.type = 'SITE' AND f2.active_fl = 'Y'
+   LEFT OUTER JOIN customer c ON c.customer_id = gd.cust_id
+   JOIN groups g ON g.group_id = $P{group_id}
+WHERE 1=1
+  AND gd.seq_no = (select max(seq_no) from gunlog_dtl gd1 where gd1.sku_no = gd.sku_no and gd1.serial_no = gd.serial_no and gd1.site_no = gd.site_no)
+  AND gd.tran_dt between $P{begin_date} and $P{end_date}
+  AND gd.site_no in (select site_no from sitgrp where group_id = $P{group_id})
+  AND ($P{vendor_id} IS NOT NULL AND $P{vendor_id} = (SELECT vendor_id FROM rcvdoc rd WHERE  (doc_no, site_no) IN (SELECT  ref_doc_no, ref_doc_site_no FROM gunlog_dtl gd2 WHERE gd2.sku_no = gd.sku_no AND gd2.serial_no = gd.serial_no AND gd2.type_cd IN ('RCVPO','RCVDS')))
+      OR ($P{vendor_id} IS NULL))
+  AND f.active_fl = 'Y'
+  AND nvl(gh.action,'~') = decode($P{actionAttribute}, NULL, nvl(gh.action,'~'), $P{actionAttribute})
+  AND nvl(gh.manufacturer,'~') = decode($P{mfgAttribute}, NULL, nvl(gh.manufacturer,'~'), $P{mfgAttribute})
+  AND nvl(gh.caliber_gauge,'~') = decode($P{caliberAttribute}, NULL, nvl(gh.caliber_gauge,'~'), $P{caliberAttribute})
+  AND nvl(gh.model,'~') = decode($P{modelAttribute}, NULL, nvl(gh.model,'~'), $P{modelAttribute})
+  AND nvl(gh.importer,'~') = decode($P{importerAttribute}, NULL, nvl(gh.importer,'~'), $P{importerAttribute})
+  AND ($P{allStatus} = 'Y' OR ($P{allStatus} = 'N' AND (($P{availStatus} = 'Y' AND gd.new_status = 'AVAIL')
+                                                 OR  ($P{rsvdStatus}   = 'Y' AND gd.new_status = 'RSVD')
+                                                 OR  ($P{intranStatus} = 'Y' AND gd.new_status = 'INTRN')
+                                                 OR  ($P{rtvStatus}    = 'Y' AND gd.new_status = 'RTV')
+                                                 OR  ($P{lostStatus}   = 'Y' AND gd.new_status = 'LOST')
+                                               OR  ($P{soldStatus}   = 'Y' AND gd.new_status = 'SOLD'))))
+    AND (($P{availableNow} = 'Y' and new_status in ('AVAIL','RETRN'))
+        OR ($P{availableNow} = 'N'))
+order by gd.site_no, gh.manufacturer, gd.sku_no, gd.serial_no, gd.seq_no]]>
+	</queryString>
+	<field name="SKUNO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SERIALNO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SEQ_NO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TYPE_CD" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="VENDORID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MODEL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IMPORTER" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ACTION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CALIBER_GAUGE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MANUFACTURER" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CERTIFICATENO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TRAN_DT" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SITE_NO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROCESS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NEW_STATUS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TTSN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_NAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_LINE1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_CITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_STATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_ZIP" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FFLNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FFLID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMMENTS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SITE_FLN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUST_FLN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GROUP_DESC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="VENDOR_FFL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="VENDOR_NAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RCVDFROM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RCPTDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="XRCVDFROM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="comments">
+		<groupExpression><![CDATA[$F{SITE_NO}.toString() + $F{SKUNO}.toString() + $F{SERIALNO}.toString() + $F{SEQ_NO}.toString()]]></groupExpression>
+		<groupFooter>
+			<band height="14">
+				<printWhenExpression><![CDATA[$F{COMMENTS}.length() > 0 ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" x="3" y="0" width="769" height="13" uuid="7bee26a0-2cea-44e3-aeb9-b934df1523f3">
+						<printWhenExpression><![CDATA[$F{COMMENTS}.length() > 0 ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{COMMENTS}.length() > 0 ? "  Comments: " + $F{COMMENTS} : ""]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band height="68">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Parameter" x="259" y="38" width="492" height="14" uuid="7614a943-f16b-4c71-a129-b312b2b4eb15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($P{mfgAttribute} != null && $P{mfgAttribute}.length() > 0) ? $P{mfgAttribute} : "") +
+(($P{importerAttribute} != null && $P{importerAttribute}.length() > 0) ? (" / " + $P{importerAttribute}) : "") +
+(($P{modelAttribute} != null && $P{modelAttribute}.length() > 0) ? (" / " + $P{modelAttribute}) : "") +
+(($P{actionAttribute} != null && $P{actionAttribute}.length() > 0) ? (" / " + $P{actionAttribute}): "") +
+(($P{caliberAttribute} != null && $P{caliberAttribute}.length() > 0) ? (" / " + $P{caliberAttribute}) : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="206" y="24" width="53" height="14" uuid="92ce6832-7145-4464-86bb-c6060bb4d29e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Status:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="79" y="24" width="100" height="14" uuid="5db1c2ba-1381-47fe-be7d-6bfe070ec71b"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vendor_id}.length() < 1 ? "ALL" : $P{vendor_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Parameter" x="137" y="53" width="9" height="14" uuid="5e0a8963-6f05-40cd-8bf0-de22e6a97268"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[ - ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="79" y="38" width="37" height="14" uuid="0742ed7b-aa00-42ec-956a-ff4249caa49d"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{group_id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement style="Parameter" mode="Transparent" x="146" y="53" width="65" height="14" uuid="cc97bf81-6945-4df0-91b9-7203b167071c"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{end_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="2" y="53" width="77" height="14" uuid="2620ec4c-510f-4da0-9ff9-0cfaa7a2c7eb"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date Range:"]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement style="Parameter" x="79" y="53" width="58" height="14" uuid="adc4e255-766b-452c-bc84-3b9d502b26e3"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{begin_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 1" style="Parameter" x="2" y="24" width="77" height="14" uuid="adf2ddd8-b3bd-4595-a32a-7ef198288ba1"/>
+				<box leftPadding="0"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Firearm Vendor: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="206" y="38" width="53" height="14" uuid="bbb5c97b-cd9c-4375-ab6d-802635881ebe"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Attributes:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="2" y="38" width="77" height="14" uuid="264d3a86-6ed9-463d-a3a4-e2acbe7f704c"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Site/Group: "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Parameter" x="259" y="24" width="493" height="14" uuid="1e4edc77-1803-4992-b586-0a92ffaa57b0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{availableNow}.equals("Y")  ? "AVAILABLE NOW" : ($P{allStatus}.equals("Y")      ? "ALL      " :
+(($P{availStatus}.equals("Y")  ? "AVAILABLE / " : "") +
+ ($P{rsvdStatus}.equals("Y")   ? "RESERVED / " : "") +
+ ($P{intranStatus}.equals("Y") ? "IN TRANSIT / " : "") +
+ ($P{rtvStatus}.equals("Y")    ? "RTV / " : "") +
+ ($P{lostStatus}.equals("Y")   ? "LOST / " : "") +
+ ($P{soldStatus}.equals("Y")   ? "SOLD " :"")))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Report Title" style="Report Title" x="1" y="1" width="590" height="21" uuid="7539853d-a18a-4601-857e-cb691480973f"/>
+				<textFieldExpression><![CDATA["Firearm Report - Summary"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="591" y="1" width="161" height="21" uuid="7154ccfb-223b-4598-bce6-f74669ef32d3"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50">
+			<textField>
+				<reportElement style="Column Header" x="31" y="27" width="37" height="22" uuid="e98450d9-6837-4435-81a0-915782972998"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SKU #"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="200" y="27" width="42" height="22" uuid="36618886-cc1b-4a65-aba5-6f3d4b1c6e9e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="150" y="27" width="50" height="22" uuid="ab745910-747d-4c80-8989-80b0f20a987b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Serial #"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="242" y="27" width="32" height="22" uuid="f07d0a89-5e9e-4d49-899a-5ebe99780ebb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cal/\nGauge"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="68" y="27" width="50" height="22" uuid="8131aa5d-9a42-4bd2-a063-dc76b8e7dc2e"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MFG/\nImporter"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="274" y="27" width="62" height="22" uuid="ef469783-5984-4e82-a375-12648ddc6d71"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Certificate #"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Group1 Header" x="0" y="0" width="336" height="26" uuid="075c3e9b-fe7a-44b4-9911-6e8e2c7a16ae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Description of Firearm"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Group1 Header" x="423" y="0" width="152" height="26" uuid="4a7589dc-ce67-423d-8d8f-0570b7f18f29"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Acquisition"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Group1 Header" x="576" y="0" width="162" height="26" uuid="b448f975-3a60-41fc-b965-d927b16f2809"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Disposition"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="336" y="27" width="35" height="22" uuid="637ca12d-3164-439c-92be-cacef1ff48eb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="423" y="27" width="104" height="22" uuid="401be82b-14ab-4b30-8438-c4b8d94e0f84"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Received From"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="575" y="27" width="119" height="22" uuid="8a1d1395-2eef-418b-a626-0b097e70627b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="118" y="27" width="32" height="22" uuid="39be0ddd-fc24-4f3b-b88f-eb55ab037f15"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Model"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="694" y="27" width="44" height="22" uuid="8d7a64d9-f2e2-4acc-8142-15847ae64f9c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FLN"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="527" y="27" width="48" height="22" uuid="14391a1e-a426-43e0-ac61-4952eb370669"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FLN"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Group1 Header" x="739" y="0" width="33" height="26" uuid="f1510d4e-5ea5-4e14-92b5-05cff4fcb6ad"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Current\nStatus"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Group1 Header" x="337" y="0" width="85" height="26" uuid="ceec718c-d084-4dc8-8a4f-2c6bcfac2ef3"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Process"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="1" y="27" width="30" height="22" uuid="d41294a7-5e86-40f3-8c27-36f90798a926"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Site"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column Header" x="371" y="27" width="52" height="22" uuid="1992fdef-e2c4-4e53-b89b-e5c051188777"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Process"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14">
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="30" y="0" width="38" height="13" forecolor="#000000" uuid="59eb4bf1-6ef7-406b-acfb-a09e464f00e8"/>
+				<box leftPadding="0" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SKUNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="199" y="0" width="43" height="13" forecolor="#000000" uuid="789d750a-6c49-451a-a51b-604ab1dc4ecb"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACTION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="150" y="0" width="49" height="13" forecolor="#000000" uuid="f7f744af-e696-4cc4-97da-d463f50b9730"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SERIALNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="242" y="0" width="32" height="13" forecolor="#000000" uuid="81256473-941a-4ab7-b594-ea168a067d82"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CALIBER_GAUGE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="68" y="0" width="49" height="13" forecolor="#000000" uuid="a2f839e8-9c36-4d11-9e17-16b35ceec9a4"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MANUFACTURER} + ($F{IMPORTER} != null ? ("/" + $F{IMPORTER}) : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="274" y="0" width="62" height="13" forecolor="#000000" uuid="c14d404e-2c28-49a3-ac6b-35457d81ebae"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CERTIFICATENO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" mode="Opaque" x="575" y="0" width="119" height="13" uuid="e5ecd5c3-d0bf-48ae-a490-7ad420c633a7"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCESS}.equals("SALE") ? $F{CUST_NAME} + " " + $F{CUST_LINE1} + " " + $F{CUST_CITY} + " " + $F{CUST_STATE} + " " + $F{CUST_ZIP} :
+$F{PROCESS}.equals("RTV")  ? $F{CUST_NAME} + " " + $F{CUST_LINE1} + " " + $F{CUST_CITY} + " " + $F{CUST_STATE} + " " + $F{CUST_ZIP} :
+$F{PROCESS}.equals("XFER") ? $F{CUST_NAME} + " " + $F{CUST_LINE1} + " " + $F{CUST_CITY} + " " + $F{CUST_STATE} + " " + $F{CUST_ZIP} :
+""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" mode="Opaque" x="738" y="0" width="34" height="13" uuid="cfd42fe4-d14e-4992-8d24-2eff60324f90"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NEW_STATUS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="117" y="0" width="33" height="13" uuid="69a89a5a-6e92-4e25-9f41-b2b45a28809a"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MODEL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="423" y="0" width="104" height="13" uuid="b97ba687-fa7f-4b6c-8503-1dcb7d4f0ce2"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCESS}.equals("RCVPO") ? $F{RCVDFROM}:
+$F{PROCESS}.equals("RCVDS") ? $F{RCVDFROM}:
+$F{PROCESS}.equals("RCVXF") ? $F{XRCVDFROM} :
+$F{PROCESS}.equals("RCVRV") ? $F{RCVDFROM} :
+$F{PROCESS}.equals("RETRN") ? $F{CUST_NAME} + " " + $F{CUST_LINE1} + " " + $F{CUST_CITY} + " " + $F{CUST_STATE} + " " + $F{CUST_ZIP}:
+""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="527" y="0" width="48" height="13" forecolor="#000000" uuid="bc913ae5-c869-4d5d-95eb-2e648c6b38e6"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCESS}.equals("RCVPO") ?$F{FFLID}:
+$F{PROCESS}.equals("RCVDS") ?$F{FFLID}:
+$F{PROCESS}.equals("RCVXF") ?$F{FFLID} :
+$F{PROCESS}.equals("RCVRV") ?$F{FFLID} :
+$F{PROCESS}.equals("RETRN") ?$F{CUST_FLN} :
+" "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="694" y="0" width="44" height="13" forecolor="#000000" uuid="2f025e2f-faa3-4e14-a4f0-0dfe1c094f6e"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCESS}.equals("XFER") ?$F{CUST_FLN} + ($F{TTSN} != null ? ("/" + $F{TTSN}) : ""):
+$F{PROCESS}.equals("RTV") ? $F{CUST_FLN} :
+$F{PROCESS}.equals("SALE") ? $F{CUST_FLN} == null ? ($F{TTSN} != null ?  $F{TTSN} : "") :
+                                                    $F{CUST_FLN} + ($F{TTSN} != null ? ("/" + $F{TTSN}) : "") : " "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="0" y="0" width="30" height="13" forecolor="#000000" uuid="a8df4a95-3306-445b-be64-0d258d05f49d"/>
+				<box leftPadding="0" rightPadding="3"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SITE_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="371" y="0" width="52" height="13" forecolor="#000000" uuid="841af366-c064-45ce-86ab-304a5e758203"/>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCESS}.equals("ADJSR") ? "Adjust" :
+($F{PROCESS}.equals("SALE" ) ? "Sale" :
+($F{PROCESS}.equals("RETRN") ? "Return" :
+($F{PROCESS}.equals("XFER")  ? "Transfer" :
+($F{PROCESS}.equals("RCVPO") ? "PO Receiving" :
+($F{PROCESS}.equals("RCVDS") ? "DSD Receiving" :
+($F{PROCESS}.equals("RSRV")   ? "Reserved" :
+($F{PROCESS}.equals("ADJPI")  ? "Physical Inv" :
+($F{PROCESS}.equals("RTV")    ? "Return to Vendor" :
+($F{PROCESS}.equals("ADJR")   ? "Receiving Adjustment" :
+($F{PROCESS}.equals("ADJX")   ? "Autoshrink Adj" :
+($F{PROCESS}.equals("RCVRV")  ? "RTV Return Receipt" :
+($F{PROCESS}.equals("RCVXF")  ? "Transfer Received" :
+$F{PROCESS}))))))))))))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yy">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="336" y="0" width="35" height="13" uuid="b3f3dddb-ab81-4c62-9e34-593854eefda0"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RCPTDATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23">
+			<textField evaluationTime="Report">
+				<reportElement style="Page Footer" x="674" y="0" width="77" height="20" uuid="7f561b94-5aaa-48af-b69a-fafbb2311c33"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="555" y="0" width="104" height="20" uuid="53322dd0-089c-401d-9093-97032254388d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="659" y="0" width="15" height="20" uuid="89c3ac2a-be08-49f0-9ee0-8fb8b4be73b7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy.MM.dd &apos;at&apos; HH:mm:ss z">
+				<reportElement style="Page Footer" x="0" y="0" width="375" height="20" uuid="65ed7f16-a7e8-4581-9605-586bbd78ac4b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,23 @@
+error:
+   errors: 
+   
+       GENERIC_ERROR: 
+          status: 500
+          error_code: GENERIC_ERROR
+          message: System Error. Please try after some time.
+       RNET_ERROR: 
+          status: 500
+          error_code: RNET_ERROR
+          message: System Error. Please try after some time.
+       ILLEGAL_ARGUMENT: 
+          status: 400
+          error_code: ILLEGAL_ARGUMENT
+          message: Validation error.
+       METHOD_ARGUMENT_NOT_VALID: 
+          status: 400
+          error_code: METHOD_ARGUMENT_NOT_VALID
+          message: Validation error.
+       Illegal_State: 
+          status: 400
+          error_code: Illegal_State
+          message: Could not compile subreport %s.       

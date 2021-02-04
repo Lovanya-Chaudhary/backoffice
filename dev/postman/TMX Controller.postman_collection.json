@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "91a7c8e3-054f-4407-9e59-a8f23eefb9b4",
+		"name": "TMX Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tmx global flag",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/tmxgblflag?config_name=AUTO_SKU",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"tmxgblflag"
+					],
+					"query": [
+						{
+							"key": "config_name",
+							"value": "AUTO_SKU"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmx global site config",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/tmxgblsite/1?config_name=MAX_SKU",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"tmxgblsite",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						},
+						{
+							"key": "config_name",
+							"value": "MAX_SKU"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmx global num",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/tmxgblnum?config_name=MAX_SKU",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"tmxgblnum"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						},
+						{
+							"key": "config_name",
+							"value": "MAX_SKU"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmx global text",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/tmxgbltext?config_name=REPORT_UM",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"tmxgbltext"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						},
+						{
+							"key": "config_name",
+							"value": "REPORT_UM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmx global hq site",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/hqsite",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"hqsite"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmx global current site",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/currentsite",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"currentsite"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmx global owner id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/tmxglobal/ownerid",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"tmxglobal",
+						"ownerid"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

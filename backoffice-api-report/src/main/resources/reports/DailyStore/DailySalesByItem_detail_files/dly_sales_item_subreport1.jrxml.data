@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dly_sales_item_subreport1" language="groovy" pageWidth="752" pageHeight="572" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/DailyStore/Reports/DailySalesByItem_detail"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository"/>
+	<style name="Detail_totals" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="p_site_no" class="java.math.BigDecimal"/>
+	<parameter name="p_tran_dt" class="java.util.Date"/>
+	<parameter name="p_net_sales_total" class="java.math.BigDecimal"/>
+	<parameter name="p_cogs_total" class="java.math.BigDecimal"/>
+	<parameter name="p_shrink_total" class="java.math.BigDecimal"/>
+	<parameter name="p_margin_total" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[select tran_dt, discount_amt, scoupon_amt, dcoupon_amt, bottle_deposit_amt, bottle_return_amt
+from dlysite
+where site_no = $P{p_site_no} and tran_dt = $P{p_tran_dt}]]>
+	</queryString>
+	<field name="TRAN_DT" class="java.sql.Timestamp"/>
+	<field name="DISCOUNT_AMT" class="java.math.BigDecimal"/>
+	<field name="SCOUPON_AMT" class="java.math.BigDecimal"/>
+	<field name="DCOUPON_AMT" class="java.math.BigDecimal"/>
+	<field name="BOTTLE_DEPOSIT_AMT" class="java.math.BigDecimal"/>
+	<field name="BOTTLE_RETURN_AMT" class="java.math.BigDecimal"/>
+	<variable name="discount_amt_total" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DISCOUNT_AMT} + $F{SCOUPON_AMT} + $F{DCOUPON_AMT}
+    + $F{BOTTLE_RETURN_AMT} - $F{BOTTLE_DEPOSIT_AMT}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="345" y="12" width="100" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Less Store Coupons]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="24" width="100" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Less Double Coupons]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="0" width="100" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Less Transaction Discounts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="36" width="100" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[+/- Link Charges]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="510" y="0" width="40" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCOUNT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="510" y="12" width="40" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCOUPON_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="510" y="24" width="40" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DCOUPON_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="510" y="36" width="40" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BOTTLE_RETURN_AMT} - $F{BOTTLE_DEPOSIT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail_totals" x="600" y="48" width="50" height="15"/>
+				<box rightPadding="2">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_shrink_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail_totals" x="485" y="48" width="65" height="15"/>
+				<box rightPadding="2">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_net_sales_total} - $V{discount_amt_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail_totals" x="550" y="48" width="50" height="15"/>
+				<box rightPadding="2">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_cogs_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail_totals" x="650" y="48" width="50" height="15"/>
+				<box rightPadding="2">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_margin_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="345" y="48" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Total Sales:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail_totals" x="700" y="48" width="50" height="15"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{p_net_sales_total} - $V{discount_amt_total}) == 0 ? 0 :
+(($P{p_net_sales_total}-($P{p_cogs_total}+$P{p_shrink_total}))/
+($P{p_net_sales_total} - $V{discount_amt_total})) * 100]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

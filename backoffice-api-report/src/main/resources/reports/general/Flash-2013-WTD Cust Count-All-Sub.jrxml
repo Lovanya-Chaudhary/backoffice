@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="0" bottomMargin="0">
+	<parameter name="date" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[Date]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tyday" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[This Year Day]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lwday" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[Last Week Day]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lyday" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[Last Year Day]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tyswk" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[This Year Start Week]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lwswk" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[Last Week Start Week]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lyswk" class="java.util.Date" isForPrompting="false">
+		<parameterDescription><![CDATA[Last Year Start Week]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.sql.Date(new java.util.Date().getTime())]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  'WTD Cust Count' as "Group"
+       , 1 AS "Sort"
+       , 'This Year' as "Description"
+       , 4 as "Heading"
+       , case when site_no = 38 then sum(customer_count_no) else 0 END as "SGS"
+       , case when site_no = 39 then sum(customer_count_no) else 0 END as "BGS"       
+       , case when site_no = 38 or site_no = 39 then sum(customer_count_no) else 0 END as "TOT COL"
+
+
+       , case when site_no = 41 then sum(customer_count_no) else 0 END as "TGS"    
+       , case when site_no = 42 then sum(customer_count_no) else 0 END as "MGS"           
+       , case when site_no = 41
+		 or site_no = 42 then sum(customer_count_no) else 0 END as "TOT TOL"
+       , case when site_no = 22 then sum(customer_count_no) else 0 END as "SFM"      
+       , case when site_no = 38 or site_no = 39
+         or site_no = 41
+         or site_no = 42 or site_no = 22 then sum(customer_count_no) else 0 END as "TOTAL"
+
+from dlysite
+where (tran_dt <= TRUNC($P{tyday}) and tran_dt >= TRUNC($P{tyswk}))
+and customer_count_no > 0
+group by site_no
+
+Union
+
+select 'WTD Cust Count' as "Group"
+       , 2 AS "Sort"
+       , 'Last Week' as "Description"
+       , 4 as "Heading"
+       , case when site_no = 38 then sum(customer_count_no) else 0 END as "SGS"
+       , case when site_no = 39 then sum(customer_count_no) else 0 END as "BGS"       
+       , case when site_no = 38 or site_no = 39 then sum(customer_count_no) else 0 END as "TOT COL"
+
+       , case when site_no = 41 then sum(customer_count_no) else 0 END as "TGS"    
+       , case when site_no = 42 then sum(customer_count_no) else 0 END as "MGS"           
+       , case when site_no = 41
+		 or site_no = 42 then sum(customer_count_no) else 0 END as "TOT TOL"
+       , case when site_no = 22 then sum(customer_count_no) else 0 END as "SFM"     
+       , case when site_no = 38 or site_no = 39
+         or site_no = 41
+         or site_no = 42 or site_no = 22 then sum(customer_count_no) else 0 END as "TOTAL"
+
+from dlysite
+where (tran_dt <= TRUNC($P{lwday}) and tran_dt >= TRUNC($P{lwswk}))
+and customer_count_no > 0
+group by site_no
+
+Union
+
+select  'WTD Cust Count' as "Group"
+       , 3 AS "Sort"
+       , 'Last Year' as "Description"
+       , 4 as "Heading"
+       , case when site_no = 38 then sum(customer_count_no) else 0 END as "SGS"
+       , case when site_no = 39 then sum(customer_count_no) else 0 END as "BGS"       
+       , case when site_no = 38 or site_no = 39 then sum(customer_count_no) else 0 END as "TOT COL"
+
+
+       , case when site_no = 41 then sum(customer_count_no) else 0 END as "TGS"    
+       , case when site_no = 42 then sum(customer_count_no) else 0 END as "MGS"           
+       , case when site_no = 41
+		 or site_no = 42 then sum(customer_count_no) else 0 END as "TOT TOL"
+       , case when site_no = 22 then sum(customer_count_no) else 0 END as "SFM"       
+       , case when site_no = 38 or site_no = 39
+         or site_no = 41
+         or site_no = 42 or site_no = 22 then sum(customer_count_no) else 0 END as "TOTAL"
+
+from dlysite
+where (tran_dt <= TRUNC($P{lyday}) and tran_dt >= TRUNC($P{lyswk}))
+and customer_count_no > 0
+group by site_no
+
+Union
+
+select  'WTD Cust Count' as "Group"
+       , 4 AS "Sort"
+       , '% Chg TY vs LY' as "Description"
+       , 4 as "Heading"
+       , case when pc.Combo1 = 38 then round(pc.Chg, 1) else 0 END as "SGS"
+       , case when pc.Combo1 = 39 then round(pc.Chg, 1) else 0 END as "BGS"       
+       , case when pc.Combo1 = 3839  then round(pc.Chg, 1) else 0 END as "TOT COL"
+
+       , case when pc.Combo1 = 41 then round(pc.Chg, 1) else 0 END as "TGS"    
+       , case when pc.Combo1 = 42 then round(pc.Chg, 1) else 0 END as "MGS"           
+       , case when pc.Combo1 = 404142 then round(pc.Chg, 1) else 0 END as "TOT TOL"
+       , case when pc.Combo1 = 22 then round(pc.Chg, 1) else 0 END as "SFM"        
+       , case when pc.Combo1 = 2242 then round(pc.Chg, 1) else 0 END as "TOTAL"
+
+from (
+select int.Combo as Combo1
+           , case when (sum(int.TY) > 0) and (sum(int.LY) > 0) then 
+            ((sum(int.TY)-sum(int.LY))/(sum(int.LY)))* 100 
+            else 0 END as Chg 
+from
+  (select i.site_no as Combo
+       ,sum(i.TY) as TY
+       ,sum(i.LY) as LY
+       from (select site_no
+	    ,tran_dt
+      	    ,customer_count_no as TY
+      	    ,0 as LY
+      	    from dlysite
+            where (tran_dt <= TRUNC($P{tyday}) and tran_dt >= TRUNC($P{tyswk}))
+      	    and customer_count_no > 0
+     	    and site_no <> 40
+      	    and site_no <> 36
+
+           union all
+       
+           select site_no
+	         ,tran_dt
+                 ,0 as TY
+                 ,customer_count_no as LY
+           from dlysite
+           where (tran_dt <= TRUNC($P{lyday}) and tran_dt >= TRUNC($P{lyswk}))
+           and customer_count_no > 0
+     	   and site_no <> 40
+           and site_no <> 36)i
+group by i.site_no
+
+UNION
+
+select 2242 as Combo
+       ,sum(t.TY) as TY
+       ,sum(t.LY) as LY
+ from(select sum(customer_count_no) as "TY"
+       , 0 as "LY"
+       from dlysite
+       where (tran_dt <= TRUNC($P{tyday}) and tran_dt >= TRUNC($P{tyswk})) 
+                 and customer_count_no > 0
+     	    	 and site_no <> 40
+                 and site_no <> 36
+                 
+        union all
+        
+       select 0 as "TY"
+       , sum(customer_count_no) as "LY"
+
+       from dlysite
+       where (tran_dt <= TRUNC($P{lyday}) and tran_dt >= TRUNC($P{lyswk}))
+                 and customer_count_no > 0
+     	    	 and site_no <> 40
+                 and site_no <> 36 )t       
+UNION        
+            
+select s.combo as Combo
+       , sum(TY)as TY
+       , sum(LY)as LY
+       from(select site_no
+                      ,case when site_no = 38 then 3839
+                             when site_no = 39 then 3839
+
+                             when site_no = 41 then 404142
+                             when site_no = 42 then 404142
+                             else 0 END as Combo  
+                      , customer_count_no as "TY"
+                      , 0 as "LY"
+                 from dlysite
+                 where (tran_dt <= TRUNC($P{tyday}) and tran_dt >= TRUNC($P{tyswk}))
+                 and customer_count_no > 0
+     	    	 and site_no <> 40
+                 and site_no <> 36
+
+                 Union all
+
+                 select site_no as "Site"
+                     ,case when site_no = 38 then 3839
+                             when site_no = 39 then 3839
+
+                             when site_no = 41 then 404142
+                             when site_no = 42 then 404142
+                             else 0 END as Combo                                               
+                      , 0 as "TY"
+                      , customer_count_no as "LY"
+                 from dlysite
+                 where (tran_dt <= TRUNC($P{lyday}) and tran_dt >= TRUNC($P{lyswk}))
+                 and customer_count_no > 0
+     	   	 and site_no <> 40  
+                 and site_no <> 36)s
+where s.Combo > 0                                
+group by s.Combo )int 
+group by int.Combo
+order by int.Combo
+)pc
+
+order by 2, 3]]>
+	</queryString>
+	<field name="Group" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Sort" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Heading" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SGS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BGS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOT COL" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TGS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MGS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOT TOL" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SFM" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOTAL" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="SFM_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{SFM}]]></variableExpression>
+	</variable>
+	<variable name="SGS_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{SGS}]]></variableExpression>
+	</variable>
+	<variable name="BGS_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{BGS}]]></variableExpression>
+	</variable>
+	<variable name="TOT COL_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOT COL}]]></variableExpression>
+	</variable>
+	<variable name="TGS_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{TGS}]]></variableExpression>
+	</variable>
+	<variable name="MGS_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{MGS}]]></variableExpression>
+	</variable>
+	<variable name="TOT TOL_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOT TOL}]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Sort" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+	</variable>
+	<group name="Group">
+		<groupExpression><![CDATA[$F{Group}]]></groupExpression>
+		<groupHeader>
+			<band height="18">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Group}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Sort">
+		<groupExpression><![CDATA[$F{Sort}]]></groupExpression>
+		<groupHeader>
+			<band height="14">
+				<textField>
+					<reportElement x="6" y="0" width="83" height="14"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{Description}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement x="94" y="0" width="53" height="14"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{SFM_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement x="147" y="0" width="53" height="14"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{SGS_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement x="200" y="0" width="53" height="14"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{BGS_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement mode="Opaque" x="255" y="0" width="53" height="14" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{TOT COL_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement x="310" y="0" width="53" height="14"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{TGS_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement x="365" y="0" width="53" height="14"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{MGS_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement mode="Opaque" x="425" y="0" width="58" height="14" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{TOT TOL_1}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Sort">
+					<reportElement mode="Opaque" x="484" y="0" width="58" height="14" backcolor="#CCFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{TOTAL_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band/>
+	</background>
+</jasperReport>

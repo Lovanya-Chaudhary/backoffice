@@ -1,0 +1,279 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.1</version>
+		<relativePath />
+	</parent>
+
+	<groupId>com.rediron.platform</groupId>
+	<artifactId>backoffice-api-parent</artifactId>
+	<name>backoffice-api :: Parent POM</name>
+	<description>Back Office API Parent POM</description>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<inceptionYear>2020</inceptionYear>
+	<url>https://redirontech.atlassian.net/</url>
+	<organization>
+		<name>RedIron Technologies</name>
+		<url>http://www.redirontech.com</url>
+	</organization>
+
+	<modules>
+		<module>backoffice-api-core-lib</module>
+		<module>backoffice-api-report</module>
+		<module>backoffice-api-core</module>
+		<module>backoffice-api-rpm</module>
+	</modules>
+
+	<developers>
+		<developer>
+			<name>Jai Ruwari</name>
+			<email>Jai.Ruwari@redirontech.com</email>
+		</developer>
+	</developers>
+
+	<distributionManagement>
+
+		<repository>
+			<id>retailnet-releases</id>
+			<name>Retail.net Internal Releases</name>
+			<url>https://nexus2.redirontech.net/nexus/content/repositories/retailnet-releases</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>retailnet-snapshots</id>
+			<name>Retail.net Internal Snapshots</name>
+			<url>https://nexus2.redirontech.net/nexus/content/repositories/retailnet-snapshots</url>
+		</snapshotRepository>
+
+	</distributionManagement>
+
+	<scm>
+		<connection>scm:git:ssh://git@bitbucket.org/redirontech/backoffice-react-poc.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<versions.jboss.client>7.5.0.Final-redhat-21</versions.jboss.client>
+		<versions.rnet.commons>2.2.18</versions.rnet.commons>
+		<additionalparam>-Xdoclint:none</additionalparam>
+		<!-- <security-api-common.version>2.3.2-SNAPSHOT</security-api-common.version> -->
+		<versions.rnet-domain>2.33.1-SNAPSHOT</versions.rnet-domain>
+	</properties>
+
+	<dependencies>
+	
+	<dependency>
+			<groupId>com.tomax.domain</groupId>
+			<artifactId>rnet-domain-all-client</artifactId>
+			<version>${versions.rnet-domain}</version>
+			<type>pom</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.tomax.domain</groupId>
+			<artifactId>rnet-domain-test</artifactId>
+			<version>${versions.rnet-domain}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.tomax.domain</groupId>
+					<artifactId>rnet-domain-test</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.tomax.persistence</groupId>
+					<artifactId>rnet-persistence-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.rediron.platform</groupId>
+			<artifactId>backoffice-api-security-lib</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
+		<!-- jboss 7 -->
+		<dependency>
+			<groupId>org.jboss.as</groupId>
+			<artifactId>jboss-as-ejb-client-bom</artifactId>
+			<version>${versions.jboss.client}</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!--TODO- Needs to do clean-up for unused plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.17</version>
+				</plugin>
+				<plugin>
+					<groupId>com.google.code.maven-replacer-plugin</groupId>
+					<artifactId>replacer</artifactId>
+					<version>1.5.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>rpm-maven-plugin</artifactId>
+					<version>2.1.5</version>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugin</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.8</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.2.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>1.3.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m5.1</version>
+				<configuration>
+					<!-- Enable this to push to origin using SSH keys -->
+					<enableSshAgent>true</enableSshAgent>
+					<!-- Keep your maven submodules at the same version as the parent POM -->
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<!-- Whether to turn off maven deployment. If false the "deploy" goal 
+						is called. If true the "install" goal is called -->
+					<noDeploy>true</noDeploy>
+					<flowInitContext>
+						<masterBranchName>master</masterBranchName>
+						<developBranchName>develop</developBranchName>
+						<versionTagPrefix>backoffice-api-</versionTagPrefix>
+					</flowInitContext>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<forced>true</forced>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-Build>svn-${buildNumber}</Implementation-Build>
+						</manifestEntries>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+					<testFailureIgnore>${testFailureIgnore}</testFailureIgnore>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+					<!--<excludedGroups>com.tomax.api.category.ExcludedTests</excludedGroups> -->
+					<includes>
+						<include>**/*Test*.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<skipMultiThreadWarning>true</skipMultiThreadWarning>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PendingPriceChanges_promosSub" pageWidth="750" pageHeight="612" orientation="Landscape" columnWidth="750" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="PriceChangesBundle">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<style name="Report Title" isDefault="false" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" isDefault="false" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" isDefault="false" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" isDefault="false" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" isDefault="false" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" isDefault="false" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" isDefault="false" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style isDefault="false" style="Detail" backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" isDefault="false" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" isDefault="false" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="from_date" class="java.util.Date"/>
+	<parameter name="to_date" class="java.util.Date"/>
+	<parameter name="report_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA["U"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="userPref" class="java.lang.String">
+		<defaultValueExpression><![CDATA["S"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="showUpc" class="java.lang.String">
+		<defaultValueExpression><![CDATA["N"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="showPriors" class="java.lang.String">
+		<defaultValueExpression><![CDATA["N"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="promoaplWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{report_code}.equals("F") ?
+" AND not exists (select ad_id from promoapl where ad_id = ad.ad_id and ad_site_no = ad.site_no) "
+: " AND exists (select ad_id from promoapl where ad_id = ad.ad_id and ad_site_no = ad.site_no) "]]></defaultValueExpression>
+	</parameter>
+	<parameter name="site_no" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ad.site_no
+  ,ad.ad_id
+  ,ad.start_dt
+  ,CASE when pc.stop_dt = ad.original_stop_dt then null
+     ELSE pc.stop_dt
+   END except_dt
+  ,ad.original_stop_dt ad_stop_dt
+  ,ad.description ad_desc
+  ,pc.group_id
+  ,g.description group_desc
+  ,pc.sku_no sku_no
+  ,i.mfg_cd mfg_cd
+  ,  DECODE($P{userPref},'V',b_item.get_item_id(pc.sku_no,'V'),'') vendor_item
+  ,iu.upc_id upc_id
+  , DECODE(pc.sku_no,null,(DECODE(pc.line_no,NULL,( DECODE(pc.class_no,NULL,( DECODE(pc.dept_no,NULL,DECODE(pc.deptgrp_no,NULL,'','DeptGrp '||pc.deptgrp_no)
+  ,pc.dept_no ))
+  ,pc.dept_no||'-' ||pc.class_no) )
+  ,pc.dept_no||'-' ||pc.class_no||'-'||pc.line_no)
+  ),i.dept_no||'-'||i.class_no||'-'||i.line_no) dcl
+, DECODE(pc.sku_no,null,(DECODE(pc.line_no,NULL,(DECODE(pc.class_no,NULL,(DECODE(pc.dept_no,NULL,DECODE(pc.deptgrp_no,NULL,'All Items'
+,(select description from deptgrp where deptgrp_no = pc.deptgrp_no))
+,(select description from dept where dept_no = pc.dept_no)))
+,(select description from class where class_no = pc.class_no and dept_no = pc.dept_no)))
+,(select description from line where line_no = pc.line_no and class_no = pc.class_no and dept_no = pc.dept_no))),i.description) description
+, CASE when NVL(pc.price1,0) > 0 then
+     CASE when NVL(pc.price_qty1,0) > 0 then null
+       ELSE to_char(pc.markdown_pct,'990.00') END
+   ELSE to_char(pc.markdown_pct,'990.00')
+  END percent
+, CASE when NVL(pc.price1,0) > 0 then
+     CASE when NVL(pc.price_qty1,0) > 0 then pc.price_qty1||'/'||LTRIM(to_char(pc.price1, '99999990.00')) END
+  END price1_str
+, CASE when NVL(pc.price2,0) > 0 then
+     CASE when NVL(pc.price_qty2,0) > 0 then pc.price_qty2||'/'||LTRIM(to_char(pc.price2, '99999990.00')) END
+  END price2_str
+, CASE when NVL(pc.price3,0) > 0 then
+     CASE when NVL(pc.price_qty3,0) > 0 then pc.price_qty3||'/'||LTRIM(to_char(pc.price3, '99999990.00')) END
+  END price3_str
+, CASE when NVL(pc.pkg_price1,0) > 0 then
+     CASE when NVL(pc.pkg_price_qty1,0) > 0 then pc.pkg_price_qty1||'/'||LTRIM(to_char(pc.pkg_price1, '99999990.00')) END
+  END pkg_price1_str
+, CASE when NVL(pc.pkg_price2,0) > 0 then
+     CASE when NVL(pc.pkg_price_qty2,0) > 0 then pc.pkg_price_qty2||'/'||LTRIM(to_char(pc.pkg_price2, '99999990.00')) END
+  END pkg_price2_str
+, CASE when NVL(pc.pkg_price3,0) > 0 then
+     CASE when NVL(pc.pkg_price_qty3,0) > 0 then pc.pkg_price_qty3||'/'||LTRIM(to_char(pc.pkg_price3, '99999990.00')) END
+  END pkg_price3_str
+,pc.sel_itemizer1_fl itemizer1
+,pc.sel_itemizer2_fl itemizer2
+,pc.itemizer_status_id
+,pc.mix_match_no
+FROM pricechg pc
+inner join groups g on pc.group_id = g.group_id
+left outer join itemupc iu on iu.sku_no = pc.sku_no and iu.upc_seq = 1
+left outer join invtory i on i.sku_no = pc.sku_no
+left outer join dept d on i.dept_no = d.dept_no
+inner join adhdr ad on ad.ad_id = pc.ad_id and ad.site_no = pc.ad_site_no
+  AND pc.stop_dt >= $P{from_date}
+  AND pc.start_dt <= $P{to_date}
+AND (pc.group_id IN (select group_id from imingrp) or pc.ad_site_no = $P{site_no})
+$P!{promoaplWhere}
+ORDER BY ad.start_dt,  pc.group_id, pc.sku_no, pc.dept_no, pc.class_no, pc.line_no]]>
+	</queryString>
+	<field name="SITE_NO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AD_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="START_DT" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EXCEPT_DT" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AD_STOP_DT" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AD_DESC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GROUP_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GROUP_DESC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SKU_NO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MFG_CD" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="VENDOR_ITEM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UPC_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DCL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESCRIPTION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERCENT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE1_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE2_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE3_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PKG_PRICE1_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PKG_PRICE2_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PKG_PRICE3_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ITEMIZER1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ITEMIZER2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ITEMIZER_STATUS_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MIX_MATCH_NO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="START_DT" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{START_DT}]]></groupExpression>
+		<groupHeader>
+			<band height="63">
+				<textField pattern="MM/dd/yyyy">
+					<reportElement style="Group1 Header" x="41" y="0" width="64" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{START_DT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd/yyyy">
+					<reportElement style="Group1 Header" x="143" y="0" width="67" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{AD_STOP_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="210" y="0" width="49" height="20"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.adsite}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="259" y="0" width="29" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="288" y="0" width="28" height="20"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.ad}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="316" y="0" width="434" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{AD_ID} + " - " + $F{AD_DESC}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="0" y="0" width="41" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.start}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="105" y="0" width="38" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.stop}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToTallestObject" x="689" y="20" width="60" height="25"/>
+					<box leftPadding="3" rightPadding="3">
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.exceptdate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToTallestObject" x="689" y="45" width="60" height="15"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.except}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" x="659" y="20" width="30" height="40"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.mm}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToTallestObject" x="589" y="45" width="70" height="15"/>
+					<box leftPadding="3" rightPadding="3">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.itemizerclass}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToTallestObject" x="578" y="45" width="11" height="15"/>
+					<box leftPadding="3" rightPadding="3">
+						<leftPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.itemizer2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToTallestObject" x="567" y="45" width="11" height="15"/>
+					<box leftPadding="3" rightPadding="3">
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.itemizer1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" x="567" y="20" width="92" height="25"/>
+					<box leftPadding="3" rightPadding="3">
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.itemizer}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" x="496" y="20" width="71" height="40"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{price}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" x="451" y="20" width="45" height="40"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{level}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" x="409" y="20" width="42" height="40"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{pct}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" mode="Opaque" x="105" y="20" width="110" height="40" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{userPref}.equals("S") ? $R{sku} :
+ ( $P{userPref}.equals("U") ? $R{upc} :
+  ( $P{userPref}.equals("V") ? $R{vi} : $R{mfg} ) )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="20" width="105" height="40" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{p.sitgrp}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="desclbl2" style="Column Header" stretchType="RelativeToBandHeight" mode="Opaque" x="215" y="20" width="194" height="40" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{userPref}.equals("U") ? $R{desc} :
+($P{showUpc}.equals("N") ? $R{desc} :
+$R{upc} + " / " + $R{desc}
+)]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="84">
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement style="Detail" x="689" y="0" width="60" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{EXCEPT_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="659" y="0" width="30" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{MIX_MATCH_NO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="589" y="0" width="70" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITEMIZER_STATUS_ID}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="578" y="0" width="11" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITEMIZER2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="567" y="0" width="11" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITEMIZER1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Opaque" x="496" y="0" width="71" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRICE1_STR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="451" y="0" width="45" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRICE1_STR} == null ? "" : $R{level} + " 1"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="409" y="0" width="42" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERCENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="105" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{GROUP_ID} + " - " + $F{GROUP_DESC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" x="105" y="0" width="110" height="12"/>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{userPref}.equals("S") ? ($F{SKU_NO} == null ? "" : $F{SKU_NO} +" ") :
+ ( $P{userPref}.equals("U") ? $F{UPC_ID} :
+  ( $P{userPref}.equals("V") ? $F{VENDOR_ITEM} : $F{MFG_CD} ) )]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="desc2" style="Detail" x="215" y="0" width="194" height="12"/>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{userPref}.equals("U") ? $F{DESCRIPTION} :
+($P{showUpc}.equals("N") ? $F{DESCRIPTION} :
+$F{UPC_ID} + " / " + $F{DESCRIPTION}
+)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="451" y="12" width="45" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRICE2_STR} == null ? "" : $R{level} + " 2"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="451" y="24" width="45" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRICE3_STR} == null ? "" : $R{level} + " 3"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="451" y="36" width="45" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PKG_PRICE1_STR} == null ? "" : $R{qty} + " 1"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="451" y="48" width="45" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PKG_PRICE2_STR} == null ? "" : $R{qty} + " 2"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="451" y="60" width="45" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PKG_PRICE3_STR} == null ? "" : $R{qty} + " 3"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Opaque" x="496" y="12" width="71" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRICE2_STR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Opaque" x="496" y="24" width="71" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRICE3_STR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Opaque" x="496" y="36" width="71" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PKG_PRICE1_STR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Opaque" x="496" y="48" width="71" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PKG_PRICE2_STR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" mode="Opaque" x="496" y="60" width="71" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PKG_PRICE3_STR}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="451" y="72" width="116" height="12">
+					<printWhenExpression><![CDATA[Boolean.valueOf($P{showPriors}.equals("Y"))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="site_no">
+					<subreportParameterExpression><![CDATA[$F{SITE_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sku_no">
+					<subreportParameterExpression><![CDATA[$F{SKU_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["repo:PriorPrice"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

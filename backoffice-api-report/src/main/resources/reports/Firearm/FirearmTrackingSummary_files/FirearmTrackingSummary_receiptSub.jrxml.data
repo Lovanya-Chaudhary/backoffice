@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FirearmTrackingSummary_receiptSub" language="groovy" pageWidth="167" pageHeight="13" orientation="Landscape" columnWidth="167" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<style name="Detail" isDefault="false" mode="Transparent" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style isDefault="false" style="Detail" mode="Transparent" backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="sku_no" class="java.math.BigDecimal"/>
+	<parameter name="serial_no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT gd.tran_dt rcptdate,  v.name || ' ' || v.adr1 || ' '  || v.city || ' '  || v.state || ' '  || v.zip as rcvdfrom
+  from gunlog_dtl gd, gunlog_hdr gh, vendor v
+WHERE 1=1
+     AND gh.sku_no = gd.sku_no
+     AND gh.vendor_id = v.vendor_id
+     AND gd.seq_no = (SELECT MAX(seq_no) FROM gunlog_dtl gd1 WHERE gd1.sku_no = $P{sku_no} AND gd1.serial_no = $P{serial_no}  AND type_cd IN ('RCVPO','RCVXF'))
+     AND gd.sku_no = $P{sku_no}
+     AND gd.serial_no = $P{serial_no}]]>
+	</queryString>
+	<field name="RCPTDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RCVDFROM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<detail>
+		<band height="13">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" mode="Opaque" x="43" y="0" width="124" height="13" backcolor="#F5F5F5"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RCVDFROM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yy">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="43" height="13" backcolor="#F5F5F5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{RCPTDATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

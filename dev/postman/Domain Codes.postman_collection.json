@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "4933b57e-2761-43c7-b6dc-b5b9954201d0",
+		"name": "Domain Codes",
+		"description": "Global LOVs for the domain codes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "domain entities for the description",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/domain/domaincodes?description=ITEM IDENTIFIER CODES",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"domain",
+						"domaincodes"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "ITEM IDENTIFIER CODES"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "domains description",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/domain/domainsdescription",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"domain",
+						"domainsdescription"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

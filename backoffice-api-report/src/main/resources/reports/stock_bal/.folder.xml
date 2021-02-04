@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder>
+    <parent>/public/Tomax/MMSO</parent>
+    <name>stock_bal</name>
+    <label>Stock Balancing</label>
+    <creationDate>2017-01-31T09:54:57.000-07:00</creationDate>
+    <updateDate>2012-05-22T07:31:12.000-06:00</updateDate>
+    <folder>reports</folder>
+</folder>

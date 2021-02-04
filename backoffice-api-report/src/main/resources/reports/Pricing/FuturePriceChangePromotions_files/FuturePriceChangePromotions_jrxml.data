@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.5.0-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="promotion1" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="PriceChangesBundle" uuid="0736574b-8de9-4674-9de3-7d1075f6f7a1">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="13"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Pricing/Reports/FuturePriceChangePromotions"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository/"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="site_no" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[new java.math.BigDecimal(1)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ad_id" class="java.lang.String"/>
+	<parameter name="batch_id" class="java.lang.Long"/>
+	<parameter name="review_site_no" class="java.math.BigDecimal"/>
+	<parameter name="userPref" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * from (select ibs.sku_no SKU_NO, inv.mfg_cd, vi.vendor_item, iu.upc_id
+,ad.ad_id ad_id
+,ad.site_no ad_site_no
+,ad.group_id group_id
+,ad.description ad_description
+,inv.description DESCRIPTION
+,(ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))CURRENT_PRICE
+,(vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty))CURRENT_COST
+,((((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))-(vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty)))/decode((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1)),0,1,(ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))))) Current_GM_Pct
+
+, CASE  WHEN pchg.markdown_pct != 0 THEN ibs.price1 -  ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1) * pchg.markdown_pct/100
+             WHEN pchg.off_amt != 0 THEN ibs.price1 - pchg.off_amt
+             ELSE decode(pchg.price1,0,1,pchg.price1)/decode(pchg.price_qty1,0,1,pchg.price_qty1)
+             END new_price1
+ , CASE WHEN pchg.markdown_pct != 0 THEN (( ibs.price1 -( (ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pchg.markdown_pct/100)) -(vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty)))/ ( ibs.price1 -  (ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pchg.markdown_pct/100) ) )
+             WHEN pchg.off_amt != 0 THEN ((ibs.price1 - pchg.off_amt) - (vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty))) / (ibs.price1 - pchg.off_amt)
+             ELSE       (decode(pchg.price1,0,1,pchg.price1)/decode(pchg.price_qty1,0,1,pchg.price_qty1)   - (vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty)) ) / decode(pchg.price1,0,1,pchg.price1)/decode(pchg.price_qty1,0,1,pchg.price_qty1)
+             END Future_GM_Pct
+
+,to_char(ad.start_dt) start_dt
+,to_char(ad.stop_dt) stop_dt
+,to_char(pchg.start_dt) pchg_start_dt
+,to_char(pchg.stop_dt) pchg_stop_dt
+,ad.external_ref_id
+from
+pricechg pchg, invtory inv, invbysit ibs, vendor_item vi, adhdr ad, sitgrp_all sg, itemupc iu
+where ad.ad_id = $P{ad_id}
+and ad.site_no = $P{site_no}
+and ad.ad_id = pchg.ad_id
+and ad.site_no = pchg.ad_site_no
+and ad.group_id = pchg.group_id
+and ad.group_id = sg.group_id
+and ibs.sku_no = pchg.sku_no
+and ibs.site_no = sg.site_no
+and ibs.sku_no = inv.sku_no
+and ibs.site_no = vi.site_no
+and ibs.sku_no = vi.sku_no
+and vi.ven_type = 'P'
+and vi.main_vendor_item_fl = 'Y'
+and sg.site_no = $P{review_site_no}
+and  iu.sku_no = pchg.sku_no and iu.upc_seq = 1
+union
+select ibs.sku_no SKU_NO, inv.mfg_cd, vi.vendor_item, iu.upc_id
+,to_char(phdr.batch_id)
+,phdr.site_no
+,phdr.group_id
+,phdr.description
+,inv.description DESCRIPTION
+,(ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))CURRENT_PRICE
+,(vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty))CURRENT_COST
+,((((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))-(vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty)))/decode((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1)),0,1,(ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))))) Current_GM_Pct
+,decode(((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pdtl.price_pct/100)),0
+,(decode(pdtl.price1,0,1,pdtl.price1)/decode(pdtl.price_qty1,0,1,pdtl.price_qty1))
+,ibs.price1 - ((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pdtl.price_pct/100))) New_price1
+,((decode(((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pdtl.price_pct/100)),0
+,(decode(pdtl.price1,0,1,pdtl.price1)/decode(pdtl.price_qty1,0,1,pdtl.price_qty1))
+,ibs.price1 - ((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pdtl.price_pct/100)))
+-(vi.pack_cost/decode(vi.pack_qty,0,1,vi.pack_qty)))
+/decode(((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pdtl.price_pct/100)),0
+ ,(decode(pdtl.price1,0,1,pdtl.price1)/decode(pdtl.price_qty1,0,1,pdtl.price_qty1))
+ ,ibs.price1 - ((ibs.price1/decode(ibs.price_qty1,0,1,ibs.price_qty1))*(pdtl.price_pct/100)))) Future_GM_Pct
+,to_char(phdr.apply_dt) start_dt
+,null stop_date
+,to_char(phdr.apply_dt) pchg_start_dt
+,null pchg_stop_dt
+,phdr.external_ref_id
+from
+pricehdr phdr, pricedtl pdtl, invtory inv, invbysit ibs, vendor_item vi, sitgrp_all sg, itemupc iu
+
+where
+phdr.batch_id = $P{batch_id}
+and phdr.site_no = $P{site_no}
+and phdr.batch_id = pdtl.batch_id
+and phdr.group_id = sg.group_id
+and ibs.sku_no = pdtl.sku_no
+and ibs.site_no = sg.site_no
+and ibs.sku_no = inv.sku_no
+and ibs.site_no = vi.site_no
+and ibs.sku_no = vi.sku_no
+and vi.ven_type = 'P'
+and vi.main_vendor_item_fl = 'Y'
+and sg.site_no = $P{review_site_no}
+and  iu.sku_no = pdtl.sku_no and iu.upc_seq = 1)
+order by
+ CASE WHEN $P{userPref} = 'S' THEN 1 END,
+ CASE WHEN $P{userPref} = 'M' THEN 2 END,
+ CASE WHEN $P{userPref} = 'V' THEN 3 END,
+ CASE WHEN $P{userPref} = 'U' THEN 4 END]]>
+	</queryString>
+	<field name="SKU_NO" class="java.math.BigDecimal"/>
+	<field name="MFG_CD" class="java.lang.String"/>
+	<field name="VENDOR_ITEM" class="java.lang.String"/>
+	<field name="UPC_ID" class="java.lang.String"/>
+	<field name="AD_ID" class="java.lang.String"/>
+	<field name="AD_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="GROUP_ID" class="java.lang.String"/>
+	<field name="AD_DESCRIPTION" class="java.lang.String"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="CURRENT_PRICE" class="java.math.BigDecimal"/>
+	<field name="CURRENT_COST" class="java.math.BigDecimal"/>
+	<field name="CURRENT_GM_PCT" class="java.math.BigDecimal"/>
+	<field name="NEW_PRICE1" class="java.math.BigDecimal"/>
+	<field name="FUTURE_GM_PCT" class="java.math.BigDecimal"/>
+	<field name="START_DT" class="java.lang.String"/>
+	<field name="STOP_DT" class="java.lang.String"/>
+	<field name="PCHG_START_DT" class="java.lang.String"/>
+	<field name="PCHG_STOP_DT" class="java.lang.String"/>
+	<field name="EXTERNAL_REF_ID" class="java.lang.String"/>
+	<group name="Ad Id">
+		<groupExpression><![CDATA[$F{AD_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<textField>
+					<reportElement style="Group1 Header" x="100" y="0" width="100" height="20" uuid="51f7cf54-0c77-4869-b2ec-cb038f7e6f68"/>
+					<textFieldExpression><![CDATA[$F{AD_ID}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Group1 Header" x="0" y="0" width="100" height="20" uuid="f6b7cd43-e08f-4613-82bb-7307e79279e1"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AD_ID/Batch ID:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Group1 Header" x="0" y="20" width="100" height="20" uuid="2558a105-e9e5-4d16-bd95-ddfb5ef713ee"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Author Site:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Group1 Header" x="400" y="0" width="100" height="20" uuid="516b9c1e-2840-49a3-aad9-43a6c34cf4e1"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Start Date:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Group1 Header" x="100" y="20" width="100" height="20" uuid="9aad3176-8749-45b5-b486-83ab8a770a9d"/>
+					<textFieldExpression><![CDATA[$P{site_no}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Group1 Header" x="200" y="0" width="100" height="20" uuid="ae753df8-74b4-4672-85c5-023d10e10a12"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Description:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Group1 Header" x="200" y="20" width="100" height="20" uuid="c57a0856-f358-488c-a228-0189c8b3cb2f"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Group:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Group1 Header" x="400" y="20" width="100" height="20" uuid="51914d48-c6df-417d-a1f7-3c9c2c4c8e30"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Stop Date:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Group1 Header" x="500" y="0" width="300" height="20" uuid="d5fdf86e-b57c-4c1d-8322-822f6cd44d78"/>
+					<textFieldExpression><![CDATA[$F{START_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="300" y="20" width="100" height="20" uuid="84cd0622-291b-4aa8-ade6-97dc872a7275"/>
+					<textFieldExpression><![CDATA[$F{GROUP_ID}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="300" y="0" width="100" height="20" uuid="6ba20544-6292-49c0-9cc9-01c344e8183a"/>
+					<textFieldExpression><![CDATA[$F{AD_DESCRIPTION}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="500" y="20" width="300" height="20" uuid="2acee348-82ac-4139-b9cb-cabd62853a59"/>
+					<textFieldExpression><![CDATA[$F{STOP_DT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column Header" x="350" y="40" width="100" height="15" uuid="406731fa-6639-4177-9aeb-ce20ce84a573"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[New/Promo Price]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="200" y="40" width="100" height="15" uuid="df26033b-2c07-4e0c-963e-7083ea50ab26"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Regular Price]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="100" y="40" width="100" height="15" uuid="d291f816-e7a0-4c78-8d27-80278b7ad955"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="450" y="40" width="50" height="15" uuid="fa90af95-9527-4650-8a96-0b836d8b03d1"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[GM %]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="300" y="40" width="50" height="15" uuid="77ed2fa0-726a-49ed-b82b-bc0e4f1e619d"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[GM %]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="500" y="40" width="100" height="15" uuid="7058cc3e-46f5-495b-b270-4c397b3939aa"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Start Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="600" y="40" width="100" height="15" uuid="0bb446ff-b14b-4095-878a-c6ac648fb09f"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Stop Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="700" y="40" width="100" height="15" uuid="96c39b32-d9ee-4932-8597-10b16015fed7"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[External Ref Id]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="1" y="40" width="99" height="15" uuid="be7a1197-1d87-415f-96bc-de2c777f27ce"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{userPref}.equals("S") ? $R{sku} :
+ ( $P{userPref}.equals("U") ? $R{upc} :
+  ( $P{userPref}.equals("V") ? $R{vi} : $R{mfg} ) )]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="5"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="40">
+			<staticText>
+				<reportElement style="Report Title" x="0" y="0" width="668" height="40" uuid="ab5889bc-53b7-4e12-87fc-7fb2e24a7a86"/>
+				<textElement textAlignment="Left">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Future Price Changes/Promotions]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20">
+			<staticText>
+				<reportElement style="Parameter" x="0" y="0" width="100" height="20" uuid="945d9dd5-5048-4806-a8fa-9c3853a027c6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reviewing Site:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Parameter" x="100" y="0" width="100" height="20" uuid="6937fdd0-e7eb-459e-a41b-b594e47ba98a"/>
+				<textFieldExpression><![CDATA[$P{review_site_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="15">
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="100" height="15" uuid="0ea16ba1-82c4-48b8-bcb5-ddf892489804"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userPref}.equals("S") ? ($F{SKU_NO} == null ? "" : $F{SKU_NO} +" ") :
+ ( $P{userPref}.equals("U") ? $F{UPC_ID} :
+  ( $P{userPref}.equals("V") ? $F{VENDOR_ITEM} : $F{MFG_CD} ) )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="100" y="0" width="100" height="15" uuid="2b62e168-5058-4aac-9fe8-8695bb208186"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail" x="200" y="0" width="100" height="15" uuid="36f05480-fbe2-4b56-807f-f7a5b34d0db6"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CURRENT_PRICE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail" x="350" y="0" width="100" height="15" uuid="744ed9fb-e8a1-4a4e-9778-87acd58c70db"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NEW_PRICE1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0 %">
+				<reportElement style="Detail" x="450" y="0" width="50" height="15" uuid="5927dccc-c769-4a22-bf5a-38a4eeeaf603"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FUTURE_GM_PCT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0 %">
+				<reportElement style="Detail" x="300" y="0" width="50" height="15" uuid="f4339c36-ecaa-4bfd-b7fb-94f0a60beebc"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CURRENT_GM_PCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="500" y="0" width="100" height="15" uuid="651765b9-c616-4b61-a0ab-03561efdbaca"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PCHG_START_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="600" y="0" width="100" height="15" uuid="71f5aa19-6558-497b-b9c8-ad7bf45da60f"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PCHG_STOP_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="700" y="0" width="100" height="15" uuid="88ff8f52-7b1e-43c4-991b-a37f0dae8ecc"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXTERNAL_REF_ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26">
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="761" y="6" width="36" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="c964ce6a-343f-4bd9-94af-505c40d3d02f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="587" y="6" width="170" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="6ee576a5-fcd5-4eb5-9f41-a71540c8b666"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="1" y="6" width="209" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="01af4ce3-9b7c-419b-b8a0-df020c97ebb1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

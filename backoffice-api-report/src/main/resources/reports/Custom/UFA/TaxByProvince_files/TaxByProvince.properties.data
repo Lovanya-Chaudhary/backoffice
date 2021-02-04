@@ -1,0 +1,16 @@
+# Resource Bundle file.
+#
+report_title=Taxes Collected By Province
+province=Province
+from_dt=From Date
+to_dt=To Date
+report_mode=Report Mode
+tran_dt=Tran Date
+tran_no=Tran #
+total_sales=Total Sales
+hstgst_taxes=Total GST/HST Taxes
+total_taxes=Total Taxes
+pst_tax=Total PST Taxes
+total=Totals
+site_no=Site #
+parameters=Report Parameters

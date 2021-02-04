@@ -1,0 +1,187 @@
+error:
+   errors: 
+   
+       GENERIC_ERROR: 
+          status: 500
+          error_code: GENERIC_ERROR
+          message: System Error. Please try after some time.
+       RNET_ERROR: 
+          status: 500
+          error_code: RNET_ERROR
+          message: System Error. Please try after some time.
+       NULL_OBJECT: 
+          status: 400
+          error_code: NULL_OBJECT
+          message: Object %s is required.
+       ILLEGAL_ARGUMENT: 
+          status: 400
+          error_code: ILLEGAL_ARGUMENT
+          message: Validation error.
+       INVALID_CREDENTIALS: 
+          status: 400
+          error_code: INVALID_CREDENTIALS
+          message: Username and password are required.
+       METHOD_ARGUMENT_NOT_VALID: 
+          status: 400
+          error_code: METHOD_ARGUMENT_NOT_VALID
+          message: Validation error.   
+       METHOD_ARGUMENT_MISMATCH: 
+          status: 400
+          error_code: METHOD_ARGUMENT_MISMATCH
+          message: Please check the valid parameters.
+       CUST_NOT_FOUND: 
+          status: 400 
+          error_code: CUST_NOT_FOUND 
+          message: Customer is not found for the Id :%s. 
+       NO_CUSTOMER_CATEGORY_FOUND: 
+          status: 400 
+          error_code: NO_CUSTOMER_CATEGORY_FOUND 
+          message: No Customer Category Codes are found. 
+       CATEGORY_CODE_NOT_FOUND: 
+          status: 400 
+          error_code: CATEGORY_CODE_NOT_FOUND 
+          message: Customer Category Code for category Id :%s is not found.     
+       ITEM_NOT_FOUND: 
+          status: 400 
+          error_code: ITEM_NOT_FOUND 
+          message: Item is not found at site :%d.
+       ITEM_NOT_CREATED: 
+          status: 400 
+          error_code: ITEM_NOT_CREATED 
+          message: Item is not created. 
+       ITEM_TYPE_NOT_FOUND: 
+          status: 400 
+          error_code: ITEM_TYPE_NOT_FOUND 
+          message: Item Creation Type Code is not found :%s.
+       NO_ITEM_TYPE_CODE_FOUND: 
+          status: 400 
+          error_code: NO_ITEM_TYPE_CODE_FOUND 
+          message: No Item Type Code is found.
+       UPC_NOT_CREATED: 
+          status: 400 
+          error_code: UPC_NOT_CREATED 
+          message: UPC is not created for sku :%d
+       UPC_NOT_UPDATED: 
+          status: 400 
+          error_code: UPC_NOT_UPDATED 
+          message: UPC is not updated for sku :%d
+       DUPLICATE_SKU_NO: 
+          status: 400 
+          error_code: DUPLICATE_SKU_NO
+          message: Duplicate sku number is not allowed.
+       INVALID_DEPARTMENT: 
+          status: 400 
+          error_code: INVALID_DEPARTMENT
+          message: Please enter valid department number.
+       INVALID_CLASS: 
+          status: 400 
+          error_code: INVALID_CLASS
+          message: Please enter valid class number.
+       INVALID_LINE: 
+          status: 400 
+          error_code: INVALID_LINE
+          message: Please enter valid line number.
+       MFG_CODE_NOT_ALLOWED: 
+          status: 400 
+          error_code: MFG_CODE_NOT_ALLOWED
+          message: Duplicate MFG code. Please enter a unique value.
+       SITE_GROUP_ID: 
+          status: 400 
+          error_code: SITE_GROUP_ID
+          message: Please enter site group id.
+       PRICE_QTY: 
+          status: 400 
+          error_code: PRICE_QTY
+          message: Price Qty %d should be greater than Price Qty %d.
+       UPC_LENGTH: 
+          status: 400 
+          error_code: UPC_LENGTH
+          message: UPC must be 6 (TYPE II UPCs) , 7, 8, 11, 12, 13 or 14 digits in length.
+       SERIAL_SKU: 
+          status: 400 
+          error_code: SERIAL_SKU
+          message: Sku link entered should not be a serial sku.
+       LINK_SKU: 
+          status: 400 
+          error_code: LINK_SKU
+          message: Sku link %d cannot be linked to a Sku that is linked to another Sku.
+       DEPARTMENT_LINK_SKU: 
+          status: 400 
+          error_code: DEPARTMENT_LINK_SKU
+          message: The Sku Link entered cannot be linked to a Department Sku.   
+       NON_INV_LINK: 
+          status: 400 
+          error_code: NON_INV_LINK
+          message: The Sku link entered is a non-inventory item and cannot be linked.
+       SUPPLY_LINK: 
+          status: 400 
+          error_code: SUPPLY_LINK
+          message: The Sku link entered is a supply item and cannot be linked.
+       WEIGHT_LINK: 
+          status: 400 
+          error_code: WEIGHT_LINK
+          message: A weighed item cannot be linked.  
+       SELF_LINK: 
+          status: 400 
+          error_code: SELF_LINK
+          message: SKU cannot be linked to itself.
+       BREAK_LINK: 
+          status: 400 
+          error_code: BREAK_LINK
+          message: Cannot break the master link when the master sku has quantity on hand, on backorder or in transit.
+       USER_NOT_ALLOWED: 
+          status: 400
+          error_code: USER_NOT_ALLOWED
+          message: User is not allowed to create item.
+       LALO_GM: 
+          status: 500
+          error_code: LALO_GM
+          message: Lalo Gm can not be greater than Halo Gm.
+       INVTORY: 
+          status: 400
+          error_code: INVTORY
+          message: INVTORY object is required
+       INVBYSIT: 
+          status: 400
+          error_code: INVBYSIT
+          message: INVBYSIT object is required.
+       ITEM_UPC: 
+          status: 400
+          error_code: ITEM_UPC
+          message: ITEM UPC object is required.
+       DCL: 
+          status: 500
+          error_code: DCL
+          message: Department / Class / Line numbers are required.
+       DESCRIPTION: 
+          status: 500
+          error_code: DESCRIPTION
+          message: DESCRIPTION is required.
+       REPORT: 
+          status: 500
+          error_code: REPORT
+          message: REPORT is required.
+       STATUS_ID: 
+          status: 500
+          error_code: STATUS_ID
+          message: Invalid status id. Please use F9 for list of values.
+       ATTRIBUTE_NOT_FOUND: 
+          status: 400 
+          error_code: ATTRIBUTE_NOT_FOUND 
+          message: Invalid attribute name. Press F9 for list of values.
+       ITEM_CODE_NOT_FOUND: 
+          status: 400 
+          error_code: ITEM_CODE_NOT_FOUND 
+          message: Invalid user defined code. Please try again or use F9 for list of values.
+       VENDOR_ITEM: 
+          status: 400 
+          error_code: VENDOR_ITEM 
+          message: This is a Supplier vendor and cannot be added to an item.
+       DOMAIN_CODE_NOT_FOUND: 
+          status: 400 
+          error_code: DOMAIN_CODE_NOT_FOUND 
+          message: Invalid domain code. Please try again or use F9 for list of values.
+       INVALID_DATE: 
+          status: 400 
+          error_code: INVALID_DATE
+          message: Please enter date in MM/dd/yy.

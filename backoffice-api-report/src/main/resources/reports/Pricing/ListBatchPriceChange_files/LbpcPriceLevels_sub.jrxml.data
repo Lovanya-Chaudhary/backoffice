@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PriceLevels" pageWidth="210" pageHeight="612" orientation="Landscape" columnWidth="210" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="PriceChangesBundle" uuid="10df762a-3bae-40c0-bbdd-9b55591a1477">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="ireport.jasperserver.url" value="http://ice209bi01.aws.tomax.com:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Pricing/Reports/ListBatchPriceChange_files/LbpcPriceLevels_sub.jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Pricing/Reports/ListBatchPriceChange"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CT287"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="sku_no" class="java.math.BigDecimal"/>
+	<parameter name="site_no" class="java.math.BigDecimal"/>
+	<parameter name="batch_id" class="java.math.BigDecimal"/>
+	<parameter name="seq_no" class="java.math.BigDecimal"/>
+	<parameter name="my_site_no" class="java.math.BigDecimal"/>
+	<parameter name="showPriors" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select
+
+d.price_qty1,d.price_qty2,d.price_qty3,d.price_qty4,d.price_qty5,d.price_qty6,d.price_qty7,d.price_qty8,d.price_qty9,d.price_qty10
+,DECODE(NVL(d.price_pct,0),0,null,to_char(ABS(d.price_pct),'990.00')) as percent
+,DECODE(NVL(d.price_pct,0),0,null,(CASE when NVL(d.price_pct,0) > 0 then '-' else '+'
+  END )) pct_type
+,DECODE(NVL(d.level1_change_pct,0),0,null,to_char(-d.level1_change_pct,'99990.00MI')) as lev1_changepct
+,DECODE(NVL(d.level1_change_amt,0),0,null,to_char(-d.level1_change_amt,'99990.00MI')) as lev1_changeamt
+,CASE when NVL(d.price_qty1,0) > 1 then d.price_qty1 END as price_qty1_str
+,DECODE(h.type,'C',null,DECODE(d.update_level1_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price1,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price1), '99999990.00')),LTRIM(to_char(a.price1, '99999990.00'))),
+             DECODE(NVL(d.price1,0),0,
+                             DECODE(NVL(d.level1_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price1-d.level1_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price1*(1-(d.level1_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price1), '99999990.00')))))) as price1_str
+,DECODE(NVL(d.level2_change_pct,0),0,null,to_char(-d.level2_change_pct,'99990.00MI')) lev2_changepct
+,DECODE(NVL(d.level2_change_amt,0),0,null,to_char(-d.level2_change_amt,'99990.00MI')) lev2_changeamt
+,CASE when NVL(d.price_qty2,0) > 1 then d.price_qty1 END as price_qty2_str
+,DECODE(h.type,'C',null,DECODE(d.update_level2_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price2,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price2), '99999990.00')),LTRIM(to_char(a.price2, '99999990.00'))),
+             DECODE(NVL(d.price2,0),0,
+                             DECODE(NVL(d.level2_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price2-d.level2_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price2*(1-(d.level2_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price2), '99999990.00')))))) price2_str
+,DECODE(NVL(d.level3_change_pct,0),0,null,to_char(-d.level3_change_pct,'99990.00MI')) lev3_changepct
+,DECODE(NVL(d.level3_change_amt,0),0,null,to_char(-d.level3_change_amt,'99990.00MI')) lev3_changeamt
+,CASE when NVL(d.price_qty3,0) > 1 then d.price_qty3 END as price_qty3_str
+,DECODE(h.type,'C',null,DECODE(d.update_level3_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price3,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price3), '99999990.00')),LTRIM(to_char(a.price3, '99999990.00'))),
+             DECODE(NVL(d.price3,0),0,
+                             DECODE(NVL(d.level3_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price3-d.level3_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price3*(1-(d.level3_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price3), '99999990.00')))))) price3_str
+,DECODE(NVL(d.level4_change_pct,0),0,null,to_char(-d.level4_change_pct,'99990.00MI')) as lev4_changepct
+,DECODE(NVL(d.level4_change_amt,0),0,null,to_char(-d.level4_change_amt,'99990.00MI')) as lev4_changeamt
+,CASE when NVL(d.price_qty4,0) > 1 then d.price_qty4 END as price_qty4_str
+,DECODE(h.type,'C',null,DECODE(d.update_level4_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price4,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price4), '99999990.00')),LTRIM(to_char(a.price4, '99999990.00'))),
+             DECODE(NVL(d.price4,0),0,
+                             DECODE(NVL(d.level4_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price4-d.level4_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price4*(1-(d.level4_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price4), '99999990.00')))))) as price4_str
+
+,DECODE(NVL(d.level5_change_pct,0),0,null,to_char(-d.level5_change_pct,'99990.00MI')) as lev5_changepct
+,DECODE(NVL(d.level5_change_amt,0),0,null,to_char(-d.level5_change_amt,'99990.00MI')) as lev5_changeamt
+,CASE when NVL(d.price_qty5,0) > 1 then d.price_qty5 END as price_qty5_str
+,DECODE(h.type,'C',null,DECODE(d.update_level5_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price5,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price5), '99999990.00')),LTRIM(to_char(a.price5, '99999990.00'))),
+             DECODE(NVL(d.price5,0),0,
+                             DECODE(NVL(d.level5_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price5-d.level5_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price5*(1-(d.level5_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price5), '99999990.00')))))) as price5_str
+,DECODE(NVL(d.level6_change_pct,0),0,null,to_char(-d.level6_change_pct,'99990.00MI')) as lev6_changepct
+,DECODE(NVL(d.level6_change_amt,0),0,null,to_char(-d.level6_change_amt,'99990.00MI')) as lev6_changeamt
+,CASE when NVL(d.price_qty6,0) > 1 then d.price_qty6 END as price_qty6_str
+,DECODE(h.type,'C',null,DECODE(d.update_level6_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price6,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price6), '99999990.00')),LTRIM(to_char(a.price6, '99999990.00'))),
+             DECODE(NVL(d.price6,0),0,
+                             DECODE(NVL(d.level6_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price6-d.level6_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price6*(1-(d.level6_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price6), '99999990.00')))))) as price6_str
+,DECODE(NVL(d.level7_change_pct,0),0,null,to_char(-d.level7_change_pct,'99990.00MI')) as lev7_changepct
+,DECODE(NVL(d.level7_change_amt,0),0,null,to_char(-d.level7_change_amt,'99990.00MI')) as lev7_changeamt
+,CASE when NVL(d.price_qty7,0) > 1 then d.price_qty7 END as price_qty7_str
+,DECODE(h.type,'C',null,DECODE(d.update_level7_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price7,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price7), '99999990.00')),LTRIM(to_char(a.price7, '99999990.00'))),
+             DECODE(NVL(d.price7,0),0,
+                             DECODE(NVL(d.level7_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price7-d.level7_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price7*(1-(d.level7_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price7), '99999990.00')))))) as price7_str
+
+,DECODE(NVL(d.level8_change_pct,0),0,null,to_char(-d.level8_change_pct,'99990.00MI')) as lev8_changepct
+,DECODE(NVL(d.level8_change_amt,0),0,null,to_char(-d.level8_change_amt,'99990.00MI')) as lev8_changeamt
+,CASE when NVL(d.price_qty8,0) > 1 then d.price_qty8 END as price_qty8_str
+,DECODE(h.type,'C',null,DECODE(d.update_level8_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price8,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price8), '99999990.00')),LTRIM(to_char(a.price8, '99999990.00'))),
+             DECODE(NVL(d.price8,0),0,
+                             DECODE(NVL(d.level8_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price8-d.level8_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price8*(1-(d.level8_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price8), '99999990.00')))))) as price8_str
+,DECODE(NVL(d.level9_change_pct,0),0,null,to_char(-d.level9_change_pct,'99990.00MI')) as lev9_changepct
+,DECODE(NVL(d.level9_change_amt,0),0,null,to_char(-d.level9_change_amt,'99990.00MI')) as lev9_changeamt
+,CASE when NVL(d.price_qty9,0) > 1 then d.price_qty9 END as price_qty9_str
+,DECODE(h.type,'C',null,DECODE(d.update_level9_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price9,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price9), '99999990.00')),LTRIM(to_char(a.price9, '99999990.00'))),
+             DECODE(NVL(d.price9,0),0,
+                             DECODE(NVL(d.level9_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price9-d.level9_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price9*(1-(d.level9_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price9), '99999990.00')))))) as price9_str
+
+,DECODE(NVL(d.level10_change_pct,0),0,null,to_char(-d.level10_change_pct,'99990.00MI')) as lev10_changepct
+,DECODE(NVL(d.level10_change_amt,0),0,null,to_char(-d.level10_change_amt,'99990.00MI')) as lev10_changeamt
+,CASE when NVL(d.price_qty10,0) > 1 then d.price_qty10 END as price_qty10_str
+,DECODE(h.type,'C',null,DECODE(d.update_level10_fl,'N',null,
+           DECODE(h.status,'A', DECODE(a.price10,NULL,LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price10), '99999990.00')),LTRIM(to_char(a.price10, '99999990.00'))),
+             DECODE(NVL(d.price10,0),0,
+                             DECODE(NVL(d.level10_change_pct,0),0,CASE WHEN LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price10-d.level10_change_amt), '99999990.00')) < 0 THEN '0.00' END, 
+                                                                 LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,ibs.unit_price10*(1-(d.level10_change_pct/100))), '99999990.00'))),
+                   LTRIM(to_char(roundit_pkg.roundit(ibs.site_no,d.price10), '99999990.00')))))) as price10_str
+
+  ,CASE 
+	when h.type <> 'C' and h.status = 'A' then
+    CASE when a.pkg_price1 = a.old_pkg_price1 and a.pkg_price_qty1 = a.old_pkg_price_qty1 then null 
+    			ELSE a.pkg_price_qty1||'/'||LTRIM(to_char(a.pkg_price1, '99999990.00')) END
+  when h.type <> 'C' and h.status <> 'A' then
+    CASE when d.pkg_price1 = ibs.pkg_price1 and d.pkg_price_qty1 = ibs.pkg_price_qty1 then null 
+    			ELSE d.pkg_price_qty1||'/'||LTRIM(to_char(d.pkg_price1, '99999990.00')) END
+	when h.type = 'C' then null
+	ELSE null
+END pkg_price1_qty_str, d.pkg_price_qty1
+  ,CASE 
+	when h.type <> 'C' and h.status = 'A' then
+    CASE when a.pkg_price2 = a.old_pkg_price2 and a.pkg_price_qty2 = a.old_pkg_price_qty2 then null 
+    			ELSE a.pkg_price_qty2||'/'||LTRIM(to_char(a.pkg_price2, '99999990.00')) END
+  when h.type <> 'C' and h.status <> 'A' then
+    CASE when d.pkg_price2 = ibs.pkg_price2 and d.pkg_price_qty2 = ibs.pkg_price_qty2 then null 
+    			ELSE d.pkg_price_qty2||'/'||LTRIM(to_char(d.pkg_price2, '99999990.00')) END
+	when h.type = 'C' then null
+	ELSE null
+END pkg_price2_qty_str, d.pkg_price_qty2
+  ,CASE 
+	when h.type <> 'C' and h.status = 'A' then
+    CASE when a.pkg_price3 = a.old_pkg_price3 and a.pkg_price_qty3 = a.old_pkg_price_qty3 then null 
+    			ELSE a.pkg_price_qty3||'/'||LTRIM(to_char(a.pkg_price3, '99999990.00')) END
+  when h.type <> 'C' and h.status <> 'A' then
+    CASE when d.pkg_price3 = ibs.pkg_price3 and d.pkg_price_qty3 = ibs.pkg_price_qty3 then null 
+    			ELSE d.pkg_price_qty3||'/'||LTRIM(to_char(d.pkg_price3, '99999990.00')) END
+	when h.type = 'C' then null
+	ELSE null
+END pkg_price3_qty_str, d.pkg_price_qty3
+--  
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level1_fl = 'Y' and a.old_price1  is not null then
+       LTRIM(to_char(a.old_price1, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price1, '99999990.00'))
+END prior_price1_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level2_fl = 'Y'  and a.old_price2  is not null then
+       LTRIM(to_char(a.old_price2, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price2, '99999990.00'))
+END prior_price2_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level3_fl = 'Y' and a.old_price3  is not null then
+       LTRIM(to_char(a.old_price3, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price3, '99999990.00'))
+END prior_price3_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level4_fl = 'Y' and a.old_price4  is not null then
+       LTRIM(to_char(a.old_price4, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price4, '99999990.00'))
+END prior_price4_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level5_fl = 'Y' and a.old_price5  is not null then
+       LTRIM(to_char(a.old_price5, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price5, '99999990.00'))
+END prior_price5_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level6_fl = 'Y' and a.old_price6  is not null then
+       LTRIM(to_char(a.old_price6, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price6, '99999990.00'))
+END prior_price6_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level7_fl = 'Y' and a.old_price7  is not null then
+       LTRIM(to_char(a.old_price7, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price7, '99999990.00'))
+END prior_price7_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level8_fl = 'Y' and a.old_price8  is not null then
+       LTRIM(to_char(a.old_price8, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price8, '99999990.00'))
+END prior_price8_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level9_fl = 'Y' and a.old_price9  is not null then
+       LTRIM(to_char(a.old_price9, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price9, '99999990.00'))
+END prior_price9_str
+, CASE when ibs.site_no is not null and h.status = 'A' and d.update_level10_fl = 'Y' and a.old_price10  is not null then
+       LTRIM(to_char(a.old_price10, '99999990.00')) 
+ELSE
+      LTRIM(to_char(ibs.price10, '99999990.00'))
+END prior_price10_str
+
+,CASE when ibs.site_no is not null and h.status = 'A' and a.old_pkg_price1  is not null then
+  CASE when NVL(a.old_pkg_price1,0) >= 0 then
+     CASE when NVL(a.old_pkg_price_qty1,0) >= 0 then a.old_pkg_price_qty1||'/'||LTRIM(to_char(a.old_pkg_price1, '99999990.00')) END
+  END
+ELSE
+  CASE when NVL(ibs.pkg_price1,0) >= 0 then
+     CASE when NVL(ibs.pkg_price_qty1,0) >= 0 then ibs.pkg_price_qty1||'/'||LTRIM(to_char(ibs.pkg_price1, '99999990.00')) END
+  END
+END prior_price1_qty_str
+,CASE when ibs.site_no is not null and h.status = 'A' and a.old_pkg_price2  is not null then
+  CASE when NVL(a.old_pkg_price2,0) >= 0 then
+     CASE when NVL(a.old_pkg_price_qty2,0) >= 0 then a.old_pkg_price_qty2||'/'||LTRIM(to_char(a.old_pkg_price2, '99999990.00')) END
+  END
+ELSE
+  CASE when NVL(ibs.pkg_price2,0) >= 0 then
+     CASE when NVL(ibs.pkg_price_qty2,0) >= 0 then ibs.pkg_price_qty2||'/'||LTRIM(to_char(ibs.pkg_price2, '99999990.00')) END
+  END
+END prior_price2_qty_str
+,CASE when ibs.site_no is not null and h.status = 'A' and a.old_pkg_price3  is not null then
+  CASE when NVL(a.old_pkg_price3,0) >= 0 then
+     CASE when NVL(a.old_pkg_price_qty3,0) >= 0 then a.old_pkg_price_qty3||'/'||LTRIM(to_char(a.old_pkg_price3, '99999990.00')) END
+  END
+ELSE
+  CASE when NVL(ibs.pkg_price3,0) >= 0 then
+     CASE when NVL(ibs.pkg_price_qty3,0) >= 0 then ibs.pkg_price_qty3||'/'||LTRIM(to_char(ibs.pkg_price3, '99999990.00')) END
+  END
+END prior_price3_qty_str
+
+from pricedtl d
+inner join pricehdr h on h.site_no = d.site_no and h.batch_id = d.batch_id and h.batch_id = $P{batch_id}
+join invbysit ibs on ibs.sku_no = d.sku_no and ibs.site_no = DECODE((select site_no from sitgrp_all where group_id = h.group_id and site_no = $P{my_site_no}),null,
+                                                                                                (select site_no from sitgrp_all where group_id = h.group_id and rownum = 1),
+                                                                                                nvl($P{my_site_no},$P{site_no}) )
+left outer join priceapl a on a.site_no = d.site_no and a.batch_id = d.batch_id and a.apply_site_no = ibs.site_no and a.sku_no = d.sku_no
+where d.sku_no = $P{sku_no} and d.site_no = $P{site_no}  and d.seq_no = $P{seq_no}]]>
+	</queryString>
+	<field name="PRICE3_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE4_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE5_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE6_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE7_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE8_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE9_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE10_STR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRICE1_STR" class="java.lang.String"/>
+	<field name="PRICE2_STR" class="java.lang.String"/>
+	<field name="LEV1_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV1_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV2_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV2_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV3_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV3_CHANGEAMT" class="java.lang.String"/>
+	<field name="PRICE_QTY1" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY2" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY3" class="java.math.BigDecimal"/>
+	<field name="PERCENT" class="java.lang.String"/>
+	<field name="PCT_TYPE" class="java.lang.String"/>
+	<field name="PRICE_QTY4" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY5" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY6" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY7" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY8" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY9" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY10" class="java.math.BigDecimal"/>
+	<field name="LEV4_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV4_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV5_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV5_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV6_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV6_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV7_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV7_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV8_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV8_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV9_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV9_CHANGEAMT" class="java.lang.String"/>
+	<field name="LEV10_CHANGEPCT" class="java.lang.String"/>
+	<field name="LEV10_CHANGEAMT" class="java.lang.String"/>
+	<field name="PKG_PRICE1_QTY_STR" class="java.lang.String"/>
+	<field name="PKG_PRICE2_QTY_STR" class="java.lang.String"/>
+	<field name="PKG_PRICE3_QTY_STR" class="java.lang.String"/>
+	<field name="PRICE_QTY1_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY2_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY3_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY4_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY5_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY6_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY7_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY8_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY9_STR" class="java.math.BigDecimal"/>
+	<field name="PRICE_QTY10_STR" class="java.math.BigDecimal"/>
+	<field name="PKG_PRICE_QTY1" class="java.math.BigDecimal"/>
+	<field name="PKG_PRICE_QTY2" class="java.math.BigDecimal"/>
+	<field name="PKG_PRICE_QTY3" class="java.math.BigDecimal"/>
+	<field name="PRIOR_PRICE1_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE2_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE3_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE4_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE5_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE6_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE7_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE8_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE9_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE10_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE1_QTY_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE2_QTY_STR" class="java.lang.String"/>
+	<field name="PRIOR_PRICE3_QTY_STR" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="144" splitType="Prevent">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="0" width="40" height="12" isRemoveLineWhenBlank="true" uuid="668805ac-d78f-4347-b774-1c16f3b32fc6">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE2_STR} == null ? "" : $R{level} + " 2"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="52d857a0-770c-4d1d-84aa-f92f11393ecc">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE2_STR} == null ? "" : $F{PRICE2_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="12" width="40" height="12" isRemoveLineWhenBlank="true" uuid="822b280d-6847-4a6e-8986-3dddbee331cd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE3_STR} == null ? "" : $R{level} + " 3"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="12" width="60" height="12" isRemoveLineWhenBlank="true" uuid="74149065-454a-422c-a459-f69b911dc2bc">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE3_STR} == null ? "" : $F{PRICE3_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="24" width="40" height="12" isRemoveLineWhenBlank="true" uuid="ab3d0adb-a923-4f47-8029-9a7d2a90a54e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE4_STR} == null ? "" : $R{level} + " 4"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="36" width="40" height="12" isRemoveLineWhenBlank="true" uuid="5a2c0c61-bf43-4aff-a7f9-2047d4b89ece">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE5_STR} == null ? "" : $R{level} + " 5"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="48" width="40" height="12" isRemoveLineWhenBlank="true" uuid="93b26daf-ff2d-49d5-badc-88e868dab1d4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE6_STR} == null ? "" : $R{level} + " 6"]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="24" width="60" height="12" isRemoveLineWhenBlank="true" uuid="ff1ea8b4-9e3c-462b-9542-b53477a3b092">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE4_STR} == null ? "" : $F{PRICE4_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="36" width="60" height="12" isRemoveLineWhenBlank="true" uuid="1643e4ce-23de-44cc-9b03-23fc9bbc7043">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE5_STR} == null ? "" : $F{PRICE5_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="48" width="60" height="12" isRemoveLineWhenBlank="true" uuid="055593f1-46a3-4197-8788-9315950b8148">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE6_STR} == null ? "" : $F{PRICE6_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="60" width="40" height="12" isRemoveLineWhenBlank="true" uuid="08aabf2e-bb40-484c-8c5e-633ae7de8556">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE7_STR} == null ? "" : $R{level} + " 7"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="84" width="40" height="12" isRemoveLineWhenBlank="true" uuid="71a9678a-5d78-4993-9f0f-fcdc519ee3eb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE9_STR} == null ? "" : $R{level} + " 9"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="72" width="40" height="12" isRemoveLineWhenBlank="true" uuid="0a8a7013-97e6-472b-b3b3-dbecf43d5c6d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE8_STR} == null ? "" : $R{level} + " 8"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="96" width="40" height="12" isRemoveLineWhenBlank="true" uuid="2324c548-0930-4f99-872c-1e2c8004f68c">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE10_STR} == null ? "" : $R{level} + "10"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="108" width="40" height="12" isRemoveLineWhenBlank="true" uuid="1fd4d184-7710-4d70-b163-18643f88f367">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE1_QTY_STR} == null ? "" : $R{qty} + " 1"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="120" width="40" height="12" isRemoveLineWhenBlank="true" uuid="c499dee1-cf20-4ff5-9e98-cbe3419ede9f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE2_QTY_STR} == null ? "" : $R{qty} + " 2"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="50" y="132" width="40" height="12" isRemoveLineWhenBlank="true" uuid="e4034071-bbce-4e01-be5e-d82e06eb6338">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE3_QTY_STR} == null ? "" : $R{qty} + " 3"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="60" width="60" height="12" isRemoveLineWhenBlank="true" uuid="0390a639-5c19-4c4c-ac7e-3343dd627d7a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE7_STR} == null ? "" : $F{PRICE7_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="72" width="60" height="12" isRemoveLineWhenBlank="true" uuid="152861be-a9bc-4808-82b8-f65d1fd1c841">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE8_STR} == null ? "" : $F{PRICE8_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="84" width="60" height="12" isRemoveLineWhenBlank="true" uuid="5459e003-e6fe-4189-9d9d-870d6d276078">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE9_STR} == null ? "" : $F{PRICE9_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="96" width="60" height="12" isRemoveLineWhenBlank="true" uuid="f8b71392-7698-480e-93ec-0eb3f5a7a5ba">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE10_STR} == null ? "" : $F{PRICE10_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="108" width="60" height="12" isRemoveLineWhenBlank="true" uuid="9cbf92b5-91d9-47ce-b024-12a0bac54c7c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE1_QTY_STR} == null ? "" : $F{PKG_PRICE1_QTY_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="120" width="60" height="12" isRemoveLineWhenBlank="true" uuid="3b4ee28c-976c-45f2-a971-3f1bab73e208">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE2_QTY_STR} == null ? "" : $F{PKG_PRICE2_QTY_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="90" y="132" width="60" height="12" isRemoveLineWhenBlank="true" uuid="6f2e9758-7a62-4414-ba3f-655a35d8073b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE3_QTY_STR} == null ? "" : $F{PKG_PRICE3_QTY_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="0" width="50" height="12" isRemoveLineWhenBlank="true" uuid="f0e436f3-7de9-4c03-8230-3ac9de4f61c7">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV2_CHANGEPCT} == null ? 
+  $F{LEV2_CHANGEAMT} == null ? "" : "$" + $F{LEV2_CHANGEAMT} 
+                                  : "%" + $F{LEV2_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="12" width="50" height="12" isRemoveLineWhenBlank="true" uuid="a38aecce-1251-4cfd-9408-d2a81f674e7f">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV3_CHANGEPCT} == null ? 
+  $F{LEV3_CHANGEAMT} == null ? " " : "$" + $F{LEV3_CHANGEAMT} 
+                                   : "%" + $F{LEV3_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="24" width="50" height="12" isRemoveLineWhenBlank="true" uuid="5cda7b66-002e-4b81-9fa4-4ca30f0bbc3c">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV4_CHANGEPCT} == null ? 
+  $F{LEV4_CHANGEAMT} == null ? " " : "$" + $F{LEV4_CHANGEAMT} 
+                                   : "%" + $F{LEV4_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="36" width="50" height="12" isRemoveLineWhenBlank="true" uuid="5e81266e-0c02-428c-8c9b-8d09c215b910">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV5_CHANGEPCT} == null ? 
+  $F{LEV5_CHANGEAMT} == null ? " " : "$" + $F{LEV5_CHANGEAMT} 
+                                   : "%" + $F{LEV5_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="48" width="50" height="12" isRemoveLineWhenBlank="true" uuid="f01d239c-6ad1-4a8f-bb11-c5cbfb874e5f">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV6_CHANGEPCT} == null ? 
+  $F{LEV6_CHANGEAMT} == null ? " " : "$" + $F{LEV6_CHANGEAMT} 
+                                   : "%" + $F{LEV6_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="60" width="50" height="12" isRemoveLineWhenBlank="true" uuid="9dacf0bd-bd65-46c4-8730-e0157e3c3164">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV7_CHANGEPCT} == null ? 
+  $F{LEV7_CHANGEAMT} == null ? " " : "$" + $F{LEV7_CHANGEAMT} 
+                                   : "%" + $F{LEV7_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="72" width="50" height="12" isRemoveLineWhenBlank="true" uuid="78a9103d-b451-4df6-8ca4-3272b5c0bbc4">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV8_CHANGEPCT} == null ? 
+  $F{LEV8_CHANGEAMT} == null ? " " : "$" + $F{LEV8_CHANGEAMT} 
+                                   : "%" + $F{LEV8_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="84" width="50" height="12" isRemoveLineWhenBlank="true" uuid="a65a3c1b-24e7-4536-a717-55c84082ef19">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV9_CHANGEPCT} == null ? 
+  $F{LEV9_CHANGEAMT} == null ? " " : "$" + $F{LEV9_CHANGEAMT} 
+                                   : "%" + $F{LEV9_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="0" y="96" width="50" height="12" isRemoveLineWhenBlank="true" uuid="d40a9819-6205-4f95-baa0-38e0a821e154">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LEV10_CHANGEPCT} == null ? 
+  $F{LEV10_CHANGEAMT} == null ? " " : "$" + $F{LEV10_CHANGEAMT} 
+                                   : "%" + $F{LEV10_CHANGEPCT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="39ea240c-3e8a-4fcd-bcd1-2dfad5aef55c">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE2_STR} == null ? "" : $F{PRIOR_PRICE2_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="12" width="60" height="12" isRemoveLineWhenBlank="true" uuid="1f1ba660-6ab1-422b-9eef-d4d05b4567b0">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE3_STR} == null ? "" : $F{PRIOR_PRICE3_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="24" width="60" height="12" isRemoveLineWhenBlank="true" uuid="462cfd17-8123-4c5a-84da-26ab1793e77d">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE4_STR} == null ? "" : $F{PRIOR_PRICE4_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="36" width="60" height="12" isRemoveLineWhenBlank="true" uuid="bf6a3f99-90a0-4dbd-b573-b413c0fbaf93">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE5_STR} == null ? "" : $F{PRIOR_PRICE5_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="48" width="60" height="12" isRemoveLineWhenBlank="true" uuid="fd2ca15e-32a0-4bb4-a41e-a09e40301c5b">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE6_STR} == null ? "" : $F{PRIOR_PRICE6_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="60" width="60" height="12" isRemoveLineWhenBlank="true" uuid="90bf51d1-4556-4768-9f30-78a589d24833">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE7_STR} == null ? "" : $F{PRIOR_PRICE7_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="72" width="60" height="12" isRemoveLineWhenBlank="true" uuid="e19b26bc-cfd2-4fb9-9edd-06f84999da48">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE8_STR} == null ? "" : $F{PRIOR_PRICE8_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="84" width="60" height="12" isRemoveLineWhenBlank="true" uuid="ed266831-51b0-4ff8-bb98-7c1e44698116">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE9_STR} == null ? "" : $F{PRIOR_PRICE9_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="96" width="60" height="12" isRemoveLineWhenBlank="true" uuid="de6bc786-e942-443d-a185-a75a6568ee55">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE10_STR} == null ? "" : $F{PRIOR_PRICE10_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="108" width="60" height="12" isRemoveLineWhenBlank="true" uuid="91d7bea7-0312-4325-87d4-d0ab92584932">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE1_QTY_STR} == null ? "" : $F{PRIOR_PRICE1_QTY_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="120" width="60" height="12" isRemoveLineWhenBlank="true" uuid="1f5ea364-091e-40a0-8b29-0315a361940a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE2_QTY_STR} == null ? "" : $F{PRIOR_PRICE2_QTY_STR}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" style="Detail" mode="Opaque" x="150" y="132" width="60" height="12" isRemoveLineWhenBlank="true" uuid="c7ecb7ea-a297-48a2-b531-0e5430b7398d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{showPriors}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_PRICE3_QTY_STR} == null ? "" : $F{PRIOR_PRICE3_QTY_STR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

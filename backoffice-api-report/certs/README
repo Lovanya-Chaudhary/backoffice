@@ -1,0 +1,150 @@
+#   InstallCert.java (https://github.com/escline/InstallCert)
+
+## What is this for?
+
+* Utility used to installed same certificate installed on server machine to client machine .This is required for SSL Handshake.
+
+## Exception:
+* javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+
+## Steps:
+
+# Need to compile, first:
+javac InstallCert.java
+
+# Access server, and retrieve certificate (accept default certificate 1)
+java InstallCert [--proxy=proxyHost:proxyPort] <host>[:port] [passphrase]
+
+# Extract certificate from created jssecacerts keystore
+keytool -exportcert -alias [host]-1 -keystore jssecacerts -storepass changeit -file [host].cer
+
+# Import certificate into system keystore
+keytool -importcert -alias [host] -keystore [path to system keystore] -storepass changeit -file [host].cer
+
+# Example:
+
+#- Compile code 
+-----------------------------------------------------------------------------------------------------
+    D:\InstallCert-master>javac InstallCert.java
+-----------------------------------------------------------------------------------------------------
+
+# Access server, and retrieve certificate ,Run utility to retrieve certificate installed on server @10.2.2.169:8643
+    -https://10.2.2.169:8643/tomax/idm/services/authenticate/JAIX/D%257C4A6%252CD6_baR_/Retail.net/Transaction Service client
+-----------------------------------------------------------------------------------------------------
+  D:\InstallCert-master>java InstallCert 10.2.2.169:8643
+-----------------------------------------------------------------------------------------------------
+
+Loading KeyStore C:\Program Files\Java\jre1.8.0_231\lib\security\cacerts...
+Opening connection to 10.2.2.169:8643 ...
+Starting SSL handshake...
+
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+        at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+        at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+        at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+        at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+        at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+        at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+        at sun.security.ssl.Handshaker.process_record(Unknown Source)
+        at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+        at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+        at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+        at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+        at InstallCert.main(InstallCert.java:150)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+        at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+        at sun.security.validator.Validator.validate(Unknown Source)
+        at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+        at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+        at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+        at InstallCert$SavingTrustManager.checkServerTrusted(InstallCert.java:248)
+        at sun.security.ssl.AbstractTrustManagerWrapper.checkServerTrusted(Unknown Source)
+        ... 9 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+        at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+        at java.security.cert.CertPathBuilder.build(Unknown Source)
+        ... 17 more
+
+Server sent 1 certificate(s):
+
+ 1 Subject EMAILADDRESS=sysadmin@tomax.com, CN=localhost, OU=Software Development, O=Tomax Corporation, L=Salt Lake City, ST=Utah, C=US
+   Issuer  CN=Tomax Root CA, C=US, ST=Utah, L=Salt Lake City, EMAILADDRESS=sysadmin@tomax.com, OU=Managed Services, O=Tomax Corporation
+   sha1    95 f7 8a 0d 35 e1 c5 23 35 4c 6f ba 53 1b c3 37 22 8b 5a bd
+   md5     44 a2 aa 6b 1f 23 1e 4d c2 ca fb 85 c1 52 2c e2
+
+Enter certificate to add to trusted keystore or 'q' to quit: [1]
+
+
+
+#  Press  'Enter' key 
+
+
+[
+[
+  Version: V1
+  Subject: EMAILADDRESS=sysadmin@tomax.com, CN=localhost, OU=Software Development, O=Tomax Corporation, L=Salt Lake City, ST=Utah, C=US
+  Signature Algorithm: SHA256withRSA, OID = 1.2.840.113549.1.1.11
+
+  Key:  Sun RSA public key, 4096 bits
+  modulus: 8589949401833917367308873389517639355120626750144650671955245213658962955655491531915690141947835697652134481547263536440083777673107629773315964934560792329884964224046321864153687016089990885865807413368070184318205795968316490565448723865603294221812399885285469232025482589703088111219
+503642580952360782516949086023180290471411096995604464213512329768181445199790657995843499632177530421994252581980428397696756017229353357461482243409875371311447313135481330946554124902478827209642357220172032851173306483141636858112908332698672930943581901816609974596523263071945852433227063310068
+535011000469529412458340677028553499558258534575710172824680119251654096191707828015780377872728050237993502966488106019038924038790270097149499985970751343053440043533333663792925167243286794560509604123872752649656888532898292314600660062401248196357364943739338886456818607694152931900475197686840
+115468112265727897192035879305730943191186224807485554331710148693512175140787797300186987060384805827977557259292804198666438156246941346252367965191342453539808211913172376723944259296718684192700999322360069046255913585754973434593819662925103142757283802012706776390562579451125557363061543063241
+29760855191378271576107300321052651370360987
+  public exponent: 65537
+  Validity: [From: Sat May 30 02:43:05 IST 2015,
+               To: Tue May 27 02:43:05 IST 2025]
+  Issuer: CN=Tomax Root CA, C=US, ST=Utah, L=Salt Lake City, EMAILADDRESS=sysadmin@tomax.com, OU=Managed Services, O=Tomax Corporation
+  SerialNumber: [    d28f61a7 8fa6dc81]
+
+]
+  Algorithm: [SHA256withRSA]
+  Signature:
+0000: 63 F7 83 FB 5A B1 2D 91   12 A8 DE DD 0A C1 71 BC  c...Z.-.......q.
+0010: 09 0F 61 02 0D B3 AF 6D   09 5A 78 B1 47 50 F0 8F  ..a....m.Zx.GP..
+0020: 2A 46 6C CD 48 43 86 53   EE 68 E5 C1 83 5E 86 71  *Fl.HC.S.h...^.q
+0030: BF 8E CF 08 2F 53 9A 73   57 95 77 37 B1 77 77 5F  ..../S.sW.w7.ww_
+0040: 39 1D 9D BC 69 F3 C0 47   63 74 99 46 8F C7 B0 1E  9...i..Gct.F....
+0050: DF BB FF 11 98 15 C4 BA   A6 3E 48 EC 5E 5A C8 39  .........>H.^Z.9
+0060: 73 14 C9 4E 8C 62 83 6C   2B DF A5 4D 4F D1 AA 65  s..N.b.l+..MO..e
+0070: C1 BA AC 23 81 F6 2E C7   0E BF 98 15 30 F7 2B D4  ...#........0.+.
+
+]
+
+Added certificate to keystore 'jssecacerts' using alias '10.2.2.169-1'
+
+# Export certificate (Extract certificate from created jssecacerts keystore)
+
+-----------------------------------------------------------------------------------------------------
+  D:\InstallCert-master>keytool -exportcert -alias 10.2.2.169-1 -keystore jssecacerts -storepass changeit -file localhost.cer
+-----------------------------------------------------------------------------------------------------
+
+Certificate stored in file <localhost.cer>
+
+# Import Certificate to local keyStore (Import certificate into system keystore)
+Note:- Update 'cacerts' path as per your java installation directory.
+-----------------------------------------------------------------------------------------------------
+D:\InstallCert-master>keytool -importcert -alias 10.2.2.169-1 -keystore "C:\Program Files\Java\jdk1.8.0_121\jre\lib\security\cacerts" -storepass changeit -file localhost.cer
+-----------------------------------------------------------------------------------------------------
+
+Owner: EMAILADDRESS=sysadmin@tomax.com, CN=localhost, OU=Software Development, O=Tomax Corporation, L=Salt Lake City, ST=Utah, C=US
+Issuer: CN=Tomax Root CA, C=US, ST=Utah, L=Salt Lake City, EMAILADDRESS=sysadmin@tomax.com, OU=Managed Services, O=Tomax Corporation
+Serial number: d28f61a78fa6dc81
+Valid from: Sat May 30 02:43:05 IST 2015 until: Tue May 27 02:43:05 IST 2025
+Certificate fingerprints:
+         MD5:  44:A2:AA:6B:1F:23:1E:4D:C2:CA:FB:85:C1:52:2C:E2
+         SHA1: 95:F7:8A:0D:35:E1:C5:23:35:4C:6F:BA:53:1B:C3:37:22:8B:5A:BD
+         SHA256: A6:3F:71:35:3F:B7:F7:93:FD:6D:7E:83:D7:E0:75:F7:7E:FD:66:C4:B9:F4:6E:CD:36:EC:3E:59:64:C4:99:02
+         Signature algorithm name: SHA256withRSA
+         Version: 1
+Trust this certificate? [no]:  
+
+# Enter 'Yes'
+Certificate was added to keystore
+
+# Restart application 
+
+ 

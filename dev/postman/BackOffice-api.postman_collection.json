@@ -1,0 +1,2225 @@
+{
+	"info": {
+		"_postman_id": "846211cf-61fc-44d2-bcd9-ca37481dca2e",
+		"name": "BackOffice-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user authenticate - login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udusername",
+						"value": "LCHAUDHARY"
+					},
+					{
+						"key": "udpassword",
+						"value": "India@123"
+					},
+					{
+						"key": "udtoken",
+						"value": "0-0BE625066416990D15A2072FF5C1E9CAE59941E093C24BDE-1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{localhost}}/authenticate/login",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"authenticate",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createitem new",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "itemCreateDefaultTypeCode",
+						"value": "COPT"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"department_group_no\":2000,\r\n    \"sku_no\":105,\r\n    \"site_group_id\":\"T085\",\r\n    \"vendor_name\":\"Minnesota Mining & Manufacturi\",\r\n    \"inventory_model\":{\r\n        \"packup_action\":1,\r\n        \"item_description\":\"Turtles in NY\",\r\n        \"owner_id\":1,\r\n        \"product_model\":{\r\n            \"department_no\":400,\r\n            \"class_no\":110,\r\n            \"line_no\":10\r\n        },\r\n        \"description_model\":{\r\n            \"receipt_description\":\"test alpha\",\r\n            \"alpha_lookup\":\"test beta\",\r\n            \"product_size\":\"test gamma\"\r\n        },\r\n        \"report_info_model\":{\r\n            \"report_factor\":1,\r\n            \"sell_unit_of_measure\":\"DZ\",\r\n            \"report_unit_of_measure\":\"DZ\"\r\n        },\r\n        \"measurement_info_model\":{\r\n            \"is_catch_weight_fl\":false,\r\n            \"is_measured_item\":false,\r\n            \"unit_measured\":10.55,\r\n            \"unit_code\":12.25,\r\n            \"tare_number\":\"2\"\r\n        },\r\n        \"item_identifiers_info_model\":{\r\n            \"mfg_cd\":\"TLCT8702\"\r\n        },\r\n        \"regional_info_model\":{\r\n            \"is_regional_supersede\":false,\r\n            \"replacement_sku\":60491,\r\n            \"lcu_qty\":20,\r\n            \"item_type\":\"CRD\",\r\n            \"buyer_iD\":\"LCHAUDHARY\",\r\n            \"report_code\":1,\r\n            \"link_sku_number\":10237\r\n        },\r\n        \"inner_pack_info_model\":{\r\n            \"inner_pack_qty\":15,\r\n            \"price_list_seq\":2,\r\n            \"weeks_history\":32,\r\n            \"periods_history\":23,\r\n            \"gl_cat_iD\":1000,\r\n            \"xref_number\":0\r\n        },\r\n        \"label_info_model\":{\r\n            \"equiv_um\":\"DZ\",\r\n            \"equiv_factor\":35,\r\n            \"is_private_label_item\":true,\r\n            \"label_description1\":\"Pepsi Coco Cola\",\r\n            \"label_description2\":\"Butter Cheese\"\r\n        },\r\n        \"tender_certificate_type_info_model\":{\r\n            \"tender_cert_id\":10\r\n        },\r\n        \"serial_items_info_model\":{\r\n            \"is_serialized_item\":false,\r\n            \"is_auto_gen_serial\":false\r\n        },\r\n        \"item_type_flags_info_model\":{\r\n            \"is_non_revenue_item\":false,\r\n            \"is_store_cpn_fl\":false,\r\n            \"is_non_inventory_fl\":false,\r\n            \"is_sub_inv_fl\":false,\r\n            \"is_supply_item_fl\":false,\r\n            \"is_core_fl\":false,\r\n            \"is_flexible_item_fl\":false\r\n        },\r\n        \"general_status_flags_info_model\":{\r\n            \"is_reorder_fl\":false,\r\n            \"is_discontinued_fl\":false,\r\n            \"is_obsolete_fl\":false\r\n        },\r\n        \"pos_flags_info_model\":{\r\n            \"is_capture_order_no_fl\":false,\r\n            \"is_capture_serial_no_fl\":false,\r\n            \"is_download_fl\":true,\r\n            \"is_negative_price_fl\":true\r\n        },\r\n        \"hazardous_info_model\":{\r\n            \"haz_class_id\":\"32\",\r\n            \"haz_un_number_id\":\"154\"\r\n        }\r\n    },\r\n    \"invbysite_model\":{\r\n        \"pricing_model\":{\r\n            \"price1\":10,\r\n            \"price2\":20,\r\n            \"price3\":30,\r\n            \"price4\":40,\r\n            \"price5\":50,\r\n            \"price6\":60,\r\n            \"price7\":70,\r\n            \"price8\":80,\r\n            \"price9\":90,\r\n            \"price10\":100,\r\n            \"msrp_qty\":10,\r\n            \"msrp_price\":2,\r\n            \"additional_tax\":10.55\r\n        },\r\n        \"halo_gm\":10,\r\n        \"lalo_gm\":9,\r\n        \"coupon_pdv_id\":1,\r\n        \"is_authorized\":true,\r\n        \"is_discount_allowed\":true,\r\n        \"is_price_change_allowed\":true,\r\n        \"is_discontinued\":false,\r\n        \"quantity_pricing_model\":{\r\n            \"pkg_price_qty1\":10,\r\n            \"pkg_price1\":100,\r\n            \"pkg_price_qty2\":20,\r\n            \"pkg_price2\":200,\r\n            \"pkg_price_qty3\":30,\r\n            \"pkg_price3\":300\r\n        },\r\n        \"suggested_retail_info_model\":{\r\n            \"suggested_retail_qty\":10,\r\n            \"suggested_retail_price\":2,\r\n            \"suggested_retail_epo\":0\r\n        },\r\n        \"status_info_model\":{\r\n            \"itemizer_status_id\":\"ITEM-2\",\r\n            \"pos_sku_status_id\":\"POSNORETURN\",\r\n            \"restrict_sale_id\":\"B8\",\r\n            \"item_status_id\":\"ACCT-TAXABLE\"\r\n        },\r\n        \"replenishment_info_model\":{\r\n            \"reorder_pt\":3,\r\n            \"reorder_to\":5,\r\n            \"is_automatically_replenished\":true,\r\n            \"is_reorder_points_locked\":true,\r\n            \"is_velocity_code_locked\":true,\r\n            \"velocity_code\":\"A\",\r\n            \"max_order_qty\":10,\r\n            \"exit_velocity_code\":1,\r\n            \"warehouse_inner_pack\":2,\r\n            \"product_start_date\":1602670163100,\r\n            \"product_end_date\":1999670163100,\r\n            \"last_replenishment_date\":1602698763100,\r\n            \"default_dc\":1\r\n        },\r\n        \"commission_cd\":3,\r\n        \"tare_table_no\":\"2\",\r\n        \"link_charges\":2\r\n    },\r\n    \"item_upc_model\":{\r\n        \"type_cd\":\"U\",\r\n        \"upc_id\":\"125686\",\r\n        \"adj_amt_upc\":250,\r\n        \"modifier_upc\":53\r\n    },\r\n    \"vendor_item_model\":{\r\n        \"pack_cost\":5,\r\n        \"pack_qty\":3,\r\n        \"pack_um\":\"EA\",\r\n        \"vendor_id\":\"SEYMOUR\",\r\n        \"vendor_item\":0,\r\n        \"master_pack_qty\":3,\r\n        \"lead_time\":3,\r\n        \"eoq\":3,\r\n        \"order_availability_status\":\"DSDEX\",\r\n        \"pack_weight\":5.55,\r\n        \"pack_cube\":2.25\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/createItem?item_type_code=COPT",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"createItem"
+					],
+					"query": [
+						{
+							"key": "item_type_code",
+							"value": "COPT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "is item already authorised",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/isAuthorised?ship_site_no=120&sku_no=60670",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"isAuthorised"
+					],
+					"query": [
+						{
+							"key": "ship_site_no",
+							"value": "120"
+						},
+						{
+							"key": "sku_no",
+							"value": "60670"
+						},
+						{
+							"key": "vendorId",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorise item at hq",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/authoriseItem?shipSiteNo=120&skuNo=60670&vendorId=",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"authoriseItem"
+					],
+					"query": [
+						{
+							"key": "shipSiteNo",
+							"value": "120"
+						},
+						{
+							"key": "skuNo",
+							"value": "60670"
+						},
+						{
+							"key": "vendorId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current site",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/site",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"site"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item note by sku only",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/itemnotes/60670",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"itemnotes",
+						"60670"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item notes list by sku and site no",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/notes/60670/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"notes",
+						"60670",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create note by sku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "itemCreateDefaultTypeCode",
+						"value": "COPT",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku_no\": 60670,\r\n    \"site_no\": 1,\r\n    \"group_id\": 1,\r\n    \"type_cd\": \"HAZ\",\r\n    \"pos_handling\": \"PRTAC\",\r\n    \"backoffice_handling\": \"PRNT\",\r\n    \"note_text\": \"create validation\",\r\n    \"owner_id\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/createitemnote",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"createitemnote"
+					],
+					"query": [
+						{
+							"key": "itemCreateDefaultTypeCode",
+							"value": "COPT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create note test validations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "itemCreateDefaultTypeCode",
+						"value": "COPT",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"skuNo\" : 60555,\r\n  \"siteNo\" : 1,\r\n  \"groupId\" : \"1\",\r\n  \"typeCd\" : \"HAZ\",\r\n  \"posHandling\" : \"PRTAC\",\r\n  \"backOfficeHandling\" : null,\r\n  \"noteText\" : \"create note haha\",\r\n  \"ownerId\": 1\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/sample/createnote",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"sample",
+						"createnote"
+					],
+					"query": [
+						{
+							"key": "itemCreateDefaultTypeCode",
+							"value": "COPT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update item note",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "itemCreateDefaultTypeCode",
+						"value": "COPT",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku_no\": 60670,\r\n    \"site_no\": 1,\r\n    \"group_id\": 1,\r\n    \"type_cd\": \"HAZ\",\r\n    \"pos_handling\": \"ACK\",\r\n    \"backoffice_handling\": \"PRNT\",\r\n    \"note_text\": \"updated 2\",\r\n    \"owner_id\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/updateitemnote/9818",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"updateitemnote",
+						"9818"
+					],
+					"query": [
+						{
+							"key": "itemCreateDefaultTypeCode",
+							"value": "COPT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del item note",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "itemCreateDefaultTypeCode",
+						"value": "COPT",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku_no\": 60670,\r\n    \"site_no\": 1,\r\n    \"group_id\": 1,\r\n    \"owner_id\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/deleteitemnote/9818",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"deleteitemnote",
+						"9818"
+					],
+					"query": [
+						{
+							"key": "itemCreateDefaultTypeCode",
+							"value": "COPT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item upc by sku and type cd",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/upc/type/60646?upc_type_code=P",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"upc",
+						"type",
+						"60646"
+					],
+					"query": [
+						{
+							"key": "upc_type_code",
+							"value": "P"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item upc by sku only",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/upc/sku/60646",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"upc",
+						"sku",
+						"60646"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create upc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"type_cd\":\"P\",\r\n        \"upc_id\":\"8523697\",\r\n        \"adj_amt_upc\":150,\r\n        \"modifier_upc\":3,\r\n        \"is_primary_upc\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/createupc/60646",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"createupc",
+						"60646"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update upc",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"type_cd\":\"U\",\r\n        \"upc_id\":\"000000495862\",\r\n        \"adj_amt_upc\":150,\r\n        \"modifier_upc\":3,\r\n        \"is_primary_upc\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/updateupc/60646",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"updateupc",
+						"60646"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete upc",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/deleteupc/60646/000000495862/3",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"deleteupc",
+						"60646",
+						"000000495862",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item attributes by functional code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/attrlist",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"attrlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item attributes by attribute and owner ids",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/attributes/658/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"attributes",
+						"658",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item attributes list by sku and site",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/attribute/list/60645/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"attribute",
+						"list",
+						"60645",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item attributes by sku",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/attributeslist/60645",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"attributeslist",
+						"60645"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create attr by sku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku_no\":60670,\r\n    \"attribute_id\":577,\r\n    \"lov_fl\":true,\r\n    \"functional_area_cd\":\"INV\",\r\n    \"attribute_value\":\"BRAND\",\r\n    \"attribute_value_text\": \"testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/createattribute",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"createattribute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update attr by sku",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku_no\": 60670,\r\n    \"attribute_id\": 577,\r\n    \"lov_fl\": true,\r\n    \"functional_area_cd\": \"INV\",\r\n    \"attribute_value\": \"E-COAT\",\r\n    \"attribute_value_text\": \"testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/updateattribute",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"updateattribute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete attr by sku",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku_no\":60670,\r\n    \"attribute_id\":577,\r\n    \"lov_fl\":true,\r\n    \"functional_area_cd\":\"INV\",\r\n    \"attribute_value\":\"\",\r\n    \"attribute_value_text\": \"\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/deleteattribute",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"deleteattribute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sku search by sku and site",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/60631/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"60631",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all sgs",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/allsitegroups",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"allsitegroups"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "456RT",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "111",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search item status",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/status/60395/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"status",
+						"60395",
+						"1"
+					],
+					"query": [
+						{
+							"key": "lookUpCd",
+							"value": "456RT",
+							"disabled": true
+						},
+						{
+							"key": "isUpcId",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "siteNo",
+							"value": "111",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetItemTypeByCode",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/item/SUPPL",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"item",
+						"SUPPL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item create defaults",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/getitemcreatedefaults",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"getitemcreatedefaults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item primary data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/primary/item/1/60389",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"primary",
+						"item",
+						"1",
+						"60389"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get main vendor item",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/main/vendor/item/6357/1/GRACO",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"main",
+						"vendor",
+						"item",
+						"6357",
+						"1",
+						"GRACO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get primary vendor item",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/primary/vendor/item/60670/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"primary",
+						"vendor",
+						"item",
+						"60670",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get primary vendor sku site",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/primary/vendor/item/sku/60389/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"primary",
+						"vendor",
+						"item",
+						"sku",
+						"60389",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item identifiers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/item/identifier/SKU/60388/1/3M",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"item",
+						"identifier",
+						"SKU",
+						"60388",
+						"1",
+						"3M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search vendor item",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/vendor/item/60670/1?isPrimary=true&vendorId=FOOD",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"vendor",
+						"item",
+						"60670",
+						"1"
+					],
+					"query": [
+						{
+							"key": "isPrimary",
+							"value": "true"
+						},
+						{
+							"key": "vendorId",
+							"value": "FOOD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search site group",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/sitegroup/T085",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"sitegroup",
+						"T085"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vendor of items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/items/vendors/1/60389",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"items",
+						"vendors",
+						"1",
+						"60389"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "active vendors of items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/items/active/vendors/1/60390?showActiveVendors=false",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"items",
+						"active",
+						"vendors",
+						"1",
+						"60390"
+					],
+					"query": [
+						{
+							"key": "showActiveVendors",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get deals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/deals/1/2/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"deals",
+						"1",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get costs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/cost/6663/111",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"cost",
+						"6663",
+						"111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find duplicates",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/duplicate/items?lookUpCd=tlct8702&isUpcId=false&siteNo=801",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"duplicate",
+						"items"
+					],
+					"query": [
+						{
+							"key": "lookUpCd",
+							"value": "tlct8702"
+						},
+						{
+							"key": "isUpcId",
+							"value": "false"
+						},
+						{
+							"key": "siteNo",
+							"value": "801"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item global info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/global/60387/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"global",
+						"60387",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item kit info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/kit/60600",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"kit",
+						"60600"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item restrictions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/restriction/60395/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"restriction",
+						"60395",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item pos info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/pos/60395/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"pos",
+						"60395",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item type",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/items",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all department groups",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/deptGroups",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"deptGroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all department groups with departments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/alldepartments",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"alldepartments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all deptartments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/departments/2000",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"departments",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all classes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/classes/400",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"classes",
+						"400"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all lines",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/lines/400/130",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"lines",
+						"400",
+						"130"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get um codes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/umcodes",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"umcodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sites visible",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/visibleSites/115",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"visibleSites",
+						"115"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "site details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/site/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"site",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search vendor by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/vendor/3M",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"vendor",
+						"3M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLoggedInUserName",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/authenticate/user",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"authenticate",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tender certificates",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/certificates",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"certificates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GL categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/glcategories",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"glcategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "countries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/countries",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "states / provinces",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/state/USA",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"state",
+						"USA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "attribute list values",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/attributes/list/658",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"attributes",
+						"list",
+						"658"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "default item creation attr ids",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/itemcreatedefaults/10",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"itemcreatedefaults",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "default attr id global",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/global/attribute",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"global",
+						"attribute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vendor imports",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/vendorimports/60641/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"vendorimports",
+						"60641",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "look up link sku details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/lookup/linksku?linkSkuNo=60467",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"lookup",
+						"linksku"
+					],
+					"query": [
+						{
+							"key": "linkSkuNo",
+							"value": "60467"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bitem sku exist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/item/search/sku/60670?item_type=S",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"item",
+						"search",
+						"sku",
+						"60670"
+					],
+					"query": [
+						{
+							"key": "sku_no",
+							"value": "60670",
+							"disabled": true
+						},
+						{
+							"key": "item_type",
+							"value": "S"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inv by sit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/invbysit/24647/221?pricing_type=current",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"invbysit",
+						"24647",
+						"221"
+					],
+					"query": [
+						{
+							"key": "pricing_type",
+							"value": "current"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item codes by sku",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/search/itemcodes/60665",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"search",
+						"itemcodes",
+						"60665"
+					],
+					"query": [
+						{
+							"key": "sku_no",
+							"value": "60665",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "summary info by sku and sitegroup",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/summaryinfo/60670?site_group_id=ALL",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"summaryinfo",
+						"60670"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60389",
+							"disabled": true
+						},
+						{
+							"key": "site_group_id",
+							"value": "ALL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update inv std json",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"packup_action\":1,\r\n        \"item_description\":\"Turtles in NY\",\r\n        \"owner_id\":1,\r\n        \"product_model\":{\r\n            \"department_no\":400,\r\n            \"class_no\":110,\r\n            \"line_no\":10\r\n        },\r\n        \"description_model\":{\r\n            \"receipt_description\":\"test alpha\",\r\n            \"alpha_lookup\":\"test beta\",\r\n            \"product_size\":\"test gamma\"\r\n        },\r\n        \"report_info_model\":{\r\n            \"report_factor\":1,\r\n            \"sell_unit_of_measure\":\"DZ\",\r\n            \"report_unit_of_measure\":\"DZ\"\r\n        },\r\n        \"measurement_info_model\":{\r\n            \"is_catch_weight_fl\":false,\r\n            \"is_measured_item\":false,\r\n            \"unit_measured\":10.55,\r\n            \"unit_code\":12.25,\r\n            \"tare_number\":\"2\"\r\n        },\r\n        \"item_identifiers_info_model\":{\r\n            \"mfg_cd\":\"PZ892O9\"\r\n        },\r\n        \"regional_info_model\":{\r\n            \"is_regional_supersede\":false,\r\n            \"replacement_sku\":60491,\r\n            \"lcu_qty\":20,\r\n            \"item_type\":\"CRD\",\r\n            \"buyer_iD\":\"LCHAUDHARY\",\r\n            \"report_code\":1,\r\n            \"link_sku_number\":10237\r\n        },\r\n        \"inner_pack_info_model\":{\r\n            \"inner_pack_qty\":15,\r\n            \"price_list_seq\":2,\r\n            \"weeks_history\":32,\r\n            \"periods_history\":23,\r\n            \"gl_cat_iD\":1000,\r\n            \"xref_number\":0\r\n        },\r\n        \"label_info_model\":{\r\n            \"equiv_um\":\"DZ\",\r\n            \"equiv_factor\":2,\r\n            \"is_private_label_item\":true,\r\n            \"label_description1\":\"Pepsi Coco Cola\",\r\n            \"label_description2\":\"Butter Cheese\"\r\n        },\r\n        \"tender_certificate_type_info_model\":{\r\n            \"tender_cert_id\":10\r\n        },\r\n        \"serial_items_info_model\":{\r\n            \"is_serialized_item\":false,\r\n            \"is_auto_gen_serial\":false\r\n        },\r\n        \"item_type_flags_info_model\":{\r\n            \"is_non_revenue_item\":false,\r\n            \"is_store_cpn_fl\":false,\r\n            \"is_non_inventory_fl\":false,\r\n            \"is_sub_inv_fl\":false,\r\n            \"is_supply_item_fl\":false,\r\n            \"is_core_fl\":false,\r\n            \"is_flexible_item_fl\":false\r\n        },\r\n        \"general_status_flags_info_model\":{\r\n            \"is_reorder_fl\":false,\r\n            \"is_discontinued_fl\":false,\r\n            \"is_obsolete_fl\":false\r\n        },\r\n        \"pos_flags_info_model\":{\r\n            \"is_capture_order_no_fl\":false,\r\n            \"is_capture_serial_no_fl\":false,\r\n            \"is_download_fl\":true,\r\n            \"is_negative_price_fl\":true\r\n        },\r\n        \"hazardous_info_model\":{\r\n            \"haz_class_id\":\"32\",\r\n            \"haz_un_number_id\":\"154\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/updateinventory/60640/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"updateinventory",
+						"60640",
+						"1"
+					],
+					"query": [
+						{
+							"key": "sku_no",
+							"value": "60640",
+							"disabled": true
+						},
+						{
+							"key": "site_no",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update invbysit std json",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"pricing_model\":{\r\n            \"price1\":10,\r\n            \"price2\":20,\r\n            \"price3\":30,\r\n            \"price4\":40,\r\n            \"price5\":50,\r\n            \"price6\":60,\r\n            \"price7\":70,\r\n            \"price8\":80,\r\n            \"price9\":90,\r\n            \"price10\":100,\r\n            \"msrp_qty\":1,\r\n            \"msrp_price\":15,\r\n            \"additional_tax\":10.55\r\n        },\r\n        \"halo_gm\":21,\r\n        \"lalo_gm\":19,\r\n        \"coupon_pdv_id\":1,\r\n        \"is_authorized\":true,\r\n        \"is_discount_allowed\":true,\r\n        \"is_price_change_allowed\":true,\r\n        \"is_discontinued\":false,\r\n        \"quantity_pricing_model\":{\r\n            \"pkg_price_qty1\":10,\r\n            \"pkg_price1\":100,\r\n            \"pkg_price_qty2\":20,\r\n            \"pkg_price2\":200,\r\n            \"pkg_price_qty3\":30,\r\n            \"pkg_price3\":300\r\n        },\r\n        \"suggested_retail_info_model\":{\r\n            \"suggested_retail_qty\":1,\r\n            \"suggested_retail_price\":15,\r\n            \"suggested_retail_epo\":5\r\n        },\r\n        \"status_info_model\":{\r\n            \"itemizer_status_id\":\"ITEM-2\",\r\n            \"pos_sku_status_id\":\"POSNORETURN\",\r\n            \"restrict_sale_id\":\"B8\",\r\n            \"item_status_id\":\"ACCT-TAXABLE\"  \r\n        },\r\n        \"replenishment_info_model\":{\r\n            \"reorder_pt\":10,\r\n            \"reorder_to\":12,\r\n            \"is_automatically_replenished\":true,\r\n            \"is_reorder_points_locked\":true,\r\n            \"is_velocity_code_locked\":true,\r\n            \"velocity_code\":\"A\",\r\n            \"max_order_qty\":10,\r\n            \"exit_velocity_code\":1,\r\n            \"warehouse_inner_pack\":2,\r\n            \"product_start_date\":1602670163100,\r\n            \"product_end_date\":1999670163100,\r\n            \"last_replenishment_date\":1602698763100,\r\n            \"default_dc\":1\r\n        },\r\n        \"commission_cd\":3,\r\n        \"tare_table_no\":\"2\",\r\n        \"link_charges\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/updateinvbysit/60665/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"updateinvbysit",
+						"60665",
+						"1"
+					],
+					"query": [
+						{
+							"key": "siteGroupId",
+							"value": "TTTTT",
+							"disabled": true
+						},
+						{
+							"key": "sku_no",
+							"value": "60565",
+							"disabled": true
+						},
+						{
+							"key": "site_no",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "0-0BE625066416990D15A2072FF5C1E9CAE59941E093C24BDE-1"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{localhost}}/authenticate/logout",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"authenticate",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Daily_Customer_Sales_With_Rebates" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="64650faa-37a8-4626-8551-1c10223c8ba8">
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/DailyStore/Reports/Daily_Customer_Sales_With_Rebates"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Border Right">
+		<box>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="tran_dt" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="attribute_name" class="java.lang.String"/>
+	<parameter name="attribute_value" class="java.lang.String"/>
+	<parameter name="group_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ALL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="customer_type" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ALL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cust_type_full_name" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["ALL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_cust_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" "]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_cust_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT inv.sku_no AS item_no,
+     inv.description AS item_desc,
+     SUM(ds.sales_units + ds.markdown_units + ds.promo_units -
+      ds.returns_units) AS sls_units,
+     SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt - ds.returns_amt) AS net_sales,
+     SUM(ds.cogs_amt) AS cost_of_sales,
+     DECODE(SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt -
+       ds.returns_amt),
+      0,
+      0,
+      (SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt -
+        ds.returns_amt) - SUM(ds.cogs_amt)) /
+      SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt -
+       ds.returns_amt)) AS gm_perc,
+
+     DECODE(SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt -
+       ds.returns_amt),
+      0,
+      0,
+      (SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt -
+        ds.returns_amt) -
+      (SUM(ds.cogs_amt) - SUM(dr.accumulated_deal_amt))) /
+      SUM(ds.sales_amt + ds.markdown_amt + ds.promo_amt -
+       ds.returns_amt)) gm_perc_rebate,
+     SUM(dr.accumulated_deal_amt) AS rebate_amt,
+     cus.customer_id,
+     cus.name AS customer_name,
+     site.site_no,
+     site.full_name AS site_name
+   FROM DLYCUSLS ds
+
+  JOIN INVTORY inv ON inv.sku_no = ds.sku_no
+   JOIN CUSTOMER cus ON cus.customer_id = ds.customer_id
+   JOIN SITE site ON site.site_no = ds.site_no
+   LEFT JOIN DLYCUST_REBATE dr ON dr.tran_dt = ds.tran_dt
+         AND dr.site_no = ds.site_no
+         AND dr.sku_no = ds.sku_no
+         AND dr.customer_id = ds.customer_id
+
+ WHERE ds.site_no IN (SELECT DISTINCT site_no
+       FROM sitgrp_all
+         WHERE group_id = $P{group_id})
+    AND ds.tran_dt = NVL($P{tran_dt}, CURRENT_DATE)
+    AND ($P{attribute_name} IS NULL OR
+     ($P{attribute_name} IS NOT NULL AND
+     ds.sku_no IN
+     (SELECT sku_no
+    from ITEM_ATTRIBUTE_VALUE iav, attribute_name an
+      WHERE iav.attribute_id = an.attribute_id
+     AND an.name_text = $P{attribute_name})))
+    AND ($P{attribute_value} IS NULL OR
+     ($P{attribute_value} IS NOT NULL AND
+     ds.sku_no IN (SELECT sku_no
+        from ITEM_ATTRIBUTE_VALUE iav
+       WHERE attribute_value = $P{attribute_value}
+         AND iav.sku_no = ds.sku_no)))
+    AND (cus.cust_category_cd = CASE WHEN $P{customer_type} = 'ALL' THEN
+   cus.cust_category_cd ELSE $P{customer_type}
+   END OR cus.cust_category_cd IS NULL)
+
+    AND ((cus.customer_id BETWEEN NVL($P{from_cust_id}, ' ') AND
+     NVL($P{to_cust_id}, 'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ')) OR
+     (cus.customer_id IN
+     (SELECT DISTINCT customer_id
+    FROM CUSTOMER_ALT_ID
+      WHERE id_value BETWEEN NVL($P{from_cust_id}, ' ') AND
+      NVL($P{to_cust_id}, 'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ'))))
+  GROUP BY inv.description,
+     inv.sku_no,
+     cus.name,
+     site.site_no,
+     site.full_name,
+     cus.cust_category_cd,
+     cus.customer_id
+  ORDER BY site.site_no, cus.customer_id, inv.sku_no]]>
+	</queryString>
+	<field name="ITEM_NO" class="java.math.BigDecimal"/>
+	<field name="ITEM_DESC" class="java.lang.String"/>
+	<field name="SLS_UNITS" class="java.math.BigDecimal"/>
+	<field name="NET_SALES" class="java.math.BigDecimal"/>
+	<field name="COST_OF_SALES" class="java.math.BigDecimal"/>
+	<field name="GM_PERC" class="java.math.BigDecimal"/>
+	<field name="GM_PERC_REBATE" class="java.math.BigDecimal"/>
+	<field name="REBATE_AMT" class="java.math.BigDecimal"/>
+	<field name="CUSTOMER_ID" class="java.lang.String"/>
+	<field name="CUSTOMER_NAME" class="java.lang.String"/>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="SITE_NAME" class="java.lang.String"/>
+	<variable name="salesUnits" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[$F{SLS_UNITS}]]></variableExpression>
+	</variable>
+	<variable name="netSales" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[$F{NET_SALES}]]></variableExpression>
+	</variable>
+	<variable name="costOfSales" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[$F{COST_OF_SALES}]]></variableExpression>
+	</variable>
+	<variable name="rebateAmt" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[($F{REBATE_AMT} == null) ? 0:$F{REBATE_AMT}]]></variableExpression>
+	</variable>
+	<variable name="costOfSalesSite" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[$F{COST_OF_SALES}]]></variableExpression>
+	</variable>
+	<variable name="gm_perc" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[$F{GM_PERC}]]></variableExpression>
+	</variable>
+	<variable name="gm_perc_rebate" class="java.math.BigDecimal" resetType="Group" resetGroup="Customer Group Header" calculation="Sum">
+		<variableExpression><![CDATA[$F{GM_PERC}]]></variableExpression>
+	</variable>
+	<group name="Site Group Header">
+		<groupExpression><![CDATA[$F{SITE_NAME}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<staticText>
+					<reportElement uuid="65874ac6-7a93-4ec6-a4f8-7661a8bf7032" style="Group1 Header" mode="Opaque" x="0" y="0" width="32" height="20" forecolor="#FFFFFF" backcolor="#215C7B"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Site:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="7ba08415-23c3-4890-beef-0292659e75b4" style="Group1 Header" x="32" y="0" width="40" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="a68ce6e4-7d1a-4691-ac8f-05be89b21b43" style="Group1 Header" x="72" y="0" width="128" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{SITE_NAME}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Customer Group Header">
+		<groupExpression><![CDATA[$F{CUSTOMER_NAME}]]></groupExpression>
+		<groupHeader>
+			<band height="16">
+				<staticText>
+					<reportElement uuid="5a48fb2d-0985-4ec7-b08b-d830ebebaf7a" style="Column Header" x="328" y="0" width="80" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Net Sales]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="6ecf6cb3-b0c4-4880-ad64-e4879712f8dc" style="Column Header" x="408" y="0" width="94" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Cost Of Sales]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="6c8c10a2-e857-4b94-a8b0-438f232b2526" style="Column Header" x="502" y="0" width="82" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[GM%]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e0e6be18-cc4c-49f9-bfa8-381ad82f9988" style="Column Header" mode="Transparent" x="74" y="0" width="177" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false" isUnderline="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="67c8f61a-6fa8-4390-b3da-9f1fd815ac51" style="Column Header" mode="Transparent" x="0" y="0" width="74" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false" isUnderline="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Item #]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="20f32a57-8409-4384-8860-5988e85b33cf" style="Column Header" x="251" y="0" width="77" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Sales Units]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0ec1683a-741e-4963-9c25-068274f5d1b1" style="Column Header" x="701" y="0" width="101" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[GM% w/ Rebate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="3bf922d5-ac08-40a9-b2a6-68fe0493d238" style="Column Header" x="584" y="0" width="117" height="16"/>
+					<textElement verticalAlignment="Top">
+						<font isBold="true" isItalic="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Rebate Amount]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="60">
+				<textField>
+					<reportElement uuid="1ad815e1-d7c2-4557-8c16-ac7e98c34121" style="Group2 Header" x="110" y="13" width="141" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{CUSTOMER_NAME}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement uuid="b50cc573-1205-4f07-bd5d-ab6a6828649d" style="Group2 Header" x="584" y="13" width="117" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{rebateAmt}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0 %">
+					<reportElement uuid="abd45f9a-5714-4208-bd9c-2a67da34b5c8" style="Group2 Header" x="701" y="13" width="101" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{gm_perc_rebate}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement uuid="7112dc14-fc2c-4d1b-884a-d7ce512b69f6" style="Group2 Header" x="328" y="13" width="80" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{netSales}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0">
+					<reportElement uuid="e2db3f91-d185-43a6-bcf4-e3eb8ac11b97" style="Group2 Header" x="251" y="13" width="77" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{salesUnits}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement uuid="9e850dbb-951d-4262-95ba-f2cb02e60ac5" style="Group2 Header" x="408" y="13" width="94" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{costOfSales}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0 %">
+					<reportElement uuid="c949a2d5-1b25-4777-ae66-8413da40ef1c" style="Group2 Header" x="502" y="13" width="82" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{gm_perc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="1ad815e1-d7c2-4557-8c16-ac7e98c34121" style="Group2 Header" x="50" y="13" width="60" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{CUSTOMER_ID}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement uuid="192c8f25-ad92-41f0-a917-6a789f0e66dc" key="logo" x="641" y="0" width="161" height="25"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="5c43d58d-282a-4222-858e-92d8eb30a32c" style="Report Title" x="0" y="0" width="641" height="35"/>
+				<textElement textAlignment="Left">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Daily Customer Sales With Rebates]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2f00c355-37fc-4b56-801b-db11be68d45c" style="Parameter" x="0" y="40" width="100" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement uuid="b07aa35e-762b-4b7e-9755-8679bb123d65" style="Parameter" x="100" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{cust_type_full_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ea64d9ee-57d5-418a-9d6f-058c276b3f3b" style="Parameter" x="0" y="60" width="100" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Customer Category:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="0a35c851-216a-4f18-854d-81cf9ab3e3b5" style="Parameter" x="100" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{tran_dt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8047c84a-06cb-47cd-a58f-7a089fac118e" style="Parameter" x="390" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{attribute_value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cec5fedc-fe9e-4721-8e73-f6ffe0ffbb3e" style="Parameter" x="100" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{group_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="55869dbc-572b-4f1d-a966-d60b24db34a6" style="Parameter" x="229" y="20" width="61" height="20">
+					<printWhenExpression><![CDATA[$P{attribute_name} == null?Boolean.TRUE:Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Attribute:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="dad4a528-4812-4bd2-b1a5-0a17edcc8a2c" style="Parameter" x="290" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{attribute_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="248278f5-dc3d-44c9-b359-a8be21386522" style="Parameter Title" x="0" y="0" width="118" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report Parameters]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a1253e21-3f20-4457-9bf4-86dfe14bd8b5" style="Parameter" x="0" y="20" width="100" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Site/Site Group:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField pattern="###0">
+				<reportElement uuid="61e88e4b-0b1e-41b8-ad3e-312b1c1721f2" style="Detail" x="251" y="0" width="77" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{SLS_UNITS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="ccab0e4f-43be-4b72-8dc2-08ea80e98239" style="Detail" x="328" y="0" width="80" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{NET_SALES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="e1275c75-5a44-44d0-80f6-29a4bcd55382" style="Detail" x="408" y="0" width="94" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{COST_OF_SALES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement uuid="b2ad5e46-4e28-413c-bb72-c3db2738b612" style="Detail" x="76" y="0" width="175" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement uuid="1cce27ac-989d-4265-9f98-517fc32a9161" style="Detail" x="0" y="0" width="74" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ITEM_NO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0 %">
+				<reportElement uuid="71ec9287-b4cc-4a8c-bb77-c5dcdfb7b2b4" style="Detail" x="502" y="0" width="82" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{GM_PERC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="2027862a-9b75-4886-ae45-da3d5617ee35" style="Detail" x="584" y="0" width="117" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{REBATE_AMT} == null) ? 0:$F{REBATE_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0 %">
+				<reportElement uuid="94c35090-34c5-4d6a-8b08-f5d40340a2d4" style="Detail" x="701" y="0" width="101" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{GM_PERC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="yyyy.MM.dd &apos;at&apos; HH:mm:ss z">
+				<reportElement uuid="d353ba5c-318a-44d4-b0a9-a7f393e1039a" x="0" y="37" width="153" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="e3e2111c-7c63-45b3-a3dd-264257c75bb5" style="Page Footer" x="726" y="34" width="77" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="877badd4-5d48-4b0f-a4d0-194e5fed8e78" style="Page Footer" x="607" y="34" width="104" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7b714713-ac8c-4ec2-969f-eef8961e50bf" style="Page Footer" x="711" y="34" width="15" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

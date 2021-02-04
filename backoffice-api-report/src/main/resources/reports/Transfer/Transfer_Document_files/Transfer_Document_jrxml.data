@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="xfer_barcode_rep" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d499f31-b8dd-48b2-8250-52fa9355572d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Transfer/Reports/Transfer_Document"/>
+	<property name="ireport.jasperserver.url" value="http://ice209app01.aws.tomax.com:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Transfer/Reports/Transfer_Document_files/Transfer_Document_jrxml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ice209DB"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Column Header_1" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="site_list" class="java.lang.String"/>
+	<parameter name="xfer_site_list" class="java.lang.String"/>
+	<parameter name="ship_site_no" class="java.math.BigDecimal"/>
+	<parameter name="ship_site_noWhere" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{ship_site_no} == null ? " xh.ship_site_no = xh.ship_site_no " :
+							" xh.ship_site_no = " + $P{ship_site_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="recv_site_no" class="java.math.BigDecimal"/>
+	<parameter name="recv_site_noWhere" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{recv_site_no} == null  ? " xh.recv_site_no = xh.recv_site_no " :
+							" xh.recv_site_no = " + $P{recv_site_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_site_no" class="java.math.BigDecimal"/>
+	<parameter name="from_xfer_site_noWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{from_site_no} == null ? " xh.xfer_site_no = xh.xfer_site_no " :
+							" xh.xfer_site_no = " + $P{from_site_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_xfer_no" class="java.math.BigDecimal"/>
+	<parameter name="from_xfer_noWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{from_xfer_no} == null ? " xh.xfer_no = xh.xfer_no " :
+							" xh.xfer_no >= " + $P{from_xfer_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_site_no" class="java.math.BigDecimal"/>
+	<parameter name="to_xfer_no" class="java.math.BigDecimal"/>
+	<parameter name="to_xfer_noWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{to_xfer_no} == null ? " xh.xfer_no = xh.xfer_no " :
+							" xh.xfer_no <= " + $P{to_xfer_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="status_list" class="java.lang.String"/>
+	<parameter name="cost_retail_fl" class="java.lang.String"/>
+	<parameter name="user_pref" class="java.lang.String"/>
+	<parameter name="xfer_list" class="java.lang.String"/>
+	<parameter name="OnServer" class="java.lang.Boolean" isForPrompting="false">
+		<parameterDescription><![CDATA[Are we running on server]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{REPORT_CONTEXT} != null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mainWhere" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{xfer_list} != null && $P{xfer_list}.length() != 0 ?	 " xh.xfer_no in (" + $P{xfer_list} + ")   and xh.xfer_site_no in (" + $P{site_list} + ") and xh.xfer_site_no||xh.xfer_no in (" + $P{xfer_site_list} + ")"
+:	$P{ship_site_noWhere} + "\n"
+	+" and "+$P{recv_site_noWhere} + "\n"
+	+" and "+$P{from_xfer_site_noWhere} + "\n"
+	+" and "+$P{from_xfer_noWhere} + "\n"
+	+" and "+$P{to_xfer_noWhere} + "\n"
+	+" and xh.xfer_status in (" + $P{status_list} + ")"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT xh.xfer_site_no,xh.xfer_no,
+decode(xh.xfer_status,'S','Shipped',
+		'I','Initiated',
+		'N','New',
+		'P','Posted',
+		'C','Cancelled',
+		'Q','Requested',
+		'M','Submitted',
+		'X','Completed',
+		'R','Recorded') xfer_status,
+xd.sku_no, xd.xfer_no, xd.seq_no, xd.xfer_qty, xd.ship_qty, xd.enter_qty, nvl(xd.comment_text,' ') dtl_comment_text,
+xh.ship_site_no, xh.recv_site_no, xh.xfer_by, xh.orig_dt, xh.ship_dt,  nvl(xh.comment_text,' ') hdr_comment_text,
+xh.xfer_invoice_no, xh.xfer_po_site_no, xh.xfer_po_no,
+xh.order_no, xh.box_shipped_qty, box_received_qty, xh.link_xfer_site_no, xh.link_xfer_no, xh.tracking_cd,
+xh.ship_via, xh.xfer_barcode,
+ss.full_name ss_full_name, ss.adr1 ss_adr1, ss.city ss_city, ss.state ss_state, ss.zip ss_zip,
+rs.full_name rs_full_name, rs.adr1 rs_adr1, rs.city rs_city, rs.state rs_state, rs.zip rs_zip,
+inv.sell_um, inv.description, ibs.price1,
+inv.dept_no, nvl(inv.pkg_desc,' ') pkg_desc, nvl(inv.mfg_cd,' ') mfg_cd, inv.use_serial_fl, inv.line_no,
+ibs.warehouse_inner_pack ship_inner_pack, xd.xfer_status, iu.upc_id, vi.vendor_item,
+decode($P{cost_retail_fl},'C',xd.orig_cost,
+		  'R',   decode(xh.xfer_status,
+		  		'S', xd.retail_amt/decode(xd.ship_qty,0,1,xd.ship_qty),
+		  		'X', xd.retail_amt/decode(xd.ship_qty,0,1,xd.ship_qty),
+		  		'P', xd.retail_amt/decode(xd.ship_qty,0,1,xd.ship_qty),
+		  		'R', xd.retail_amt/decode(xd.ship_qty,0,1,xd.ship_qty),
+				'I',  xd.retail_amt/decode(xd.enter_qty,0,1,xd.enter_qty),
+				'N', xd.retail_amt/decode(xd.enter_qty,0,1,xd.enter_qty),
+				'C', xd.retail_amt/decode(xd.enter_qty,0,1,xd.enter_qty),
+				'Q', xd.retail_amt/decode(xd.enter_qty,0,1,xd.enter_qty),
+				      xd.retail_amt/decode(xd.enter_qty,0,1,xd.enter_qty)),
+			xd.retail_amt) cost_amt,
+decode($P{cost_retail_fl},'C',xd.cost,
+										'R',xd.retail_amt,
+										xd.retail_amt) cost_retail_total,
+xh.user_shipped
+from xfer_hdr xh
+JOIN xfer_dtl xd ON xd.xfer_site_no = xh.xfer_site_no and xd.xfer_no = xh.xfer_no
+JOIN invtory inv ON inv.sku_no = xd.sku_no
+JOIN invbysit ibs ON ibs.sku_no = xd.sku_no and ibs.site_no = xh.ship_site_no
+JOIN site ss ON ss.site_no = xh.ship_site_no
+JOIN site rs ON rs.site_no = xh.recv_site_no
+JOIN itemupc iu ON iu.sku_no = inv.sku_no and iu.upc_seq = 1
+LEFT OUTER JOIN vendor_item vi ON vi.site_no = xh.ship_site_no and vi.sku_no = inv.sku_no
+			and vi.ven_type = 'P' and main_vendor_item_fl = 'Y'
+where
+$P!{mainWhere}
+order by xh.xfer_site_no, xh.xfer_no, xd.seq_no]]>
+	</queryString>
+	<field name="XFER_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_STATUS" class="java.lang.String"/>
+	<field name="SKU_NO" class="java.math.BigDecimal"/>
+	<field name="SEQ_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_QTY" class="java.math.BigDecimal"/>
+	<field name="SHIP_QTY" class="java.math.BigDecimal"/>
+	<field name="ENTER_QTY" class="java.math.BigDecimal"/>
+	<field name="SHIP_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="RECV_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_BY" class="java.lang.String"/>
+	<field name="ORIG_DT" class="java.sql.Timestamp"/>
+	<field name="SHIP_DT" class="java.sql.Timestamp"/>
+	<field name="XFER_INVOICE_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_PO_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_PO_NO" class="java.math.BigDecimal"/>
+	<field name="ORDER_NO" class="java.math.BigDecimal"/>
+	<field name="BOX_SHIPPED_QTY" class="java.math.BigDecimal"/>
+	<field name="BOX_RECEIVED_QTY" class="java.math.BigDecimal"/>
+	<field name="LINK_XFER_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="LINK_XFER_NO" class="java.math.BigDecimal"/>
+	<field name="TRACKING_CD" class="java.lang.String"/>
+	<field name="SHIP_VIA" class="java.lang.String"/>
+	<field name="XFER_BARCODE" class="java.lang.String"/>
+	<field name="SS_FULL_NAME" class="java.lang.String"/>
+	<field name="SS_ADR1" class="java.lang.String"/>
+	<field name="SS_CITY" class="java.lang.String"/>
+	<field name="SS_STATE" class="java.lang.String"/>
+	<field name="SS_ZIP" class="java.lang.String"/>
+	<field name="RS_FULL_NAME" class="java.lang.String"/>
+	<field name="RS_ADR1" class="java.lang.String"/>
+	<field name="RS_CITY" class="java.lang.String"/>
+	<field name="RS_STATE" class="java.lang.String"/>
+	<field name="RS_ZIP" class="java.lang.String"/>
+	<field name="SELL_UM" class="java.lang.String"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="PRICE1" class="java.math.BigDecimal"/>
+	<field name="DEPT_NO" class="java.math.BigDecimal"/>
+	<field name="PKG_DESC" class="java.lang.String"/>
+	<field name="MFG_CD" class="java.lang.String"/>
+	<field name="USE_SERIAL_FL" class="java.lang.String"/>
+	<field name="LINE_NO" class="java.math.BigDecimal"/>
+	<field name="SHIP_INNER_PACK" class="java.math.BigDecimal"/>
+	<field name="UPC_ID" class="java.lang.String"/>
+	<field name="VENDOR_ITEM" class="java.lang.String"/>
+	<field name="COST_AMT" class="java.math.BigDecimal"/>
+	<field name="COLUMN_5" class="java.math.BigDecimal"/>
+	<field name="DTL_COMMENT_TEXT" class="java.lang.String"/>
+	<field name="HDR_COMMENT_TEXT" class="java.lang.String"/>
+	<field name="COLUMN_47" class="java.lang.String"/>
+	<field name="COST_RETAIL_TOTAL" class="java.math.BigDecimal"/>
+	<field name="USER_SHIPPED" class="java.lang.String"/>
+	<variable name="qty_exp_total" class="java.math.BigDecimal" resetType="Group" resetGroup="xfer_number" calculation="Sum">
+		<variableExpression><![CDATA[$F{ENTER_QTY}]]></variableExpression>
+	</variable>
+	<variable name="qty_ship_total" class="java.math.BigDecimal" resetType="Group" resetGroup="xfer_number" calculation="Sum">
+		<variableExpression><![CDATA[$F{SHIP_QTY}]]></variableExpression>
+	</variable>
+	<variable name="ext_cost_total" class="java.math.BigDecimal" resetType="Group" resetGroup="xfer_number" calculation="Sum">
+		<variableExpression><![CDATA[$F{COST_RETAIL_TOTAL}]]></variableExpression>
+	</variable>
+	<group name="xfer_number" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{XFER_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="210">
+				<staticText>
+					<reportElement x="2" y="95" width="80" height="12" uuid="3c734271-802a-4a80-855d-d7cbe23dcf96"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Transfered By:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="143" y="2" width="100" height="15" uuid="40b52a28-77d4-443d-a903-a4bac1a2be67"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="2" width="81" height="15" uuid="0fa8e23b-faaf-40e8-8718-1079bb82ada9"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Transfer #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="66" width="90" height="12" uuid="885e4315-ccda-4818-b458-3885df2f76d2"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Receiving Site No:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="42" width="90" height="12" uuid="3c6f125d-3b91-4cf5-9ce9-b73bb11d9c3f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Shipping Site No:]]></text>
+				</staticText>
+				<textField pattern="###0;-###0">
+					<reportElement x="83" y="2" width="50" height="15" uuid="6fbc4c73-5339-499c-84ee-2b5030221578"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0;-###0">
+					<reportElement x="92" y="42" width="30" height="12" uuid="779807a4-c7c0-475f-a39e-fcb4a43f5d24"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0;-###0">
+					<reportElement x="92" y="66" width="30" height="12" uuid="4e49ed02-fc74-414b-98b0-e15acbd3ae6a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="82" y="95" width="100" height="12" uuid="b060e81c-44d8-4a42-9a9e-074c9bc355ad"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_BY}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="133" y="2" width="10" height="15" uuid="e65ccdc2-1dc2-4ff6-9c4f-827ae66fe611"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="580" y="189" width="40" height="20" uuid="5ca525a2-5a43-4ca0-ad98-7835fb36ab73"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Unit]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="520" y="178" width="60" height="31" uuid="a4849313-d6e3-4ca9-ae3e-16d9a4e2547b"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantity Shipped]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="290" y="189" width="70" height="20" uuid="46a81c46-a2ca-4a1f-a045-ecb6f800f890"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pack Desc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="460" y="178" width="60" height="31" uuid="e38064ff-1332-4916-b1af-dc53f735d065"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantity Expected]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="115" y="189" width="135" height="20" uuid="2106381f-d158-4b4c-a25e-a1b04c1c31ee"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Item Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="0" y="189" width="40" height="20" uuid="d9e2d3c7-98e7-47c5-a938-8b4d102b79d7"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Line]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column Header" x="250" y="189" width="40" height="20" uuid="ffaf98aa-5ec5-4f12-ac1e-3fab70b430d3"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dept]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="252" y="2" width="77" height="15" uuid="33db601f-81c1-4f87-b328-399e38640d6c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Date Prepared:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="252" y="17" width="77" height="15" uuid="a58d4f5b-9725-49f5-b2e5-5650712a7052"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Date Shipped:]]></text>
+				</staticText>
+				<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement x="329" y="2" width="64" height="15" uuid="28cebc47-31c4-427d-bb9d-0d6312fdab1d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ORIG_DT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement x="329" y="17" width="64" height="15" uuid="cbb06096-c887-44d9-9ca7-983ae8412a24"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="133" y="42" width="100" height="12" uuid="d50a8c85-1053-42d3-9059-0a79d09bda01"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SS_FULL_NAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="133" y="54" width="100" height="12" uuid="81b0a3f7-1770-4b1f-9a91-87011d1da848"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SS_ADR1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="233" y="54" width="100" height="12" uuid="46faf1ba-a701-48ec-8be7-eea96e6641ba"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SS_CITY}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="333" y="54" width="50" height="12" uuid="2a051d06-f4a9-4de7-a19b-5f45f0d2c51d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SS_STATE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="383" y="54" width="100" height="12" uuid="f7e4a80a-20cf-490c-8076-d16c99162369"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SS_ZIP}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="233" y="78" width="100" height="12" uuid="b6bb1521-2fce-4060-80ad-e1df360900e6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RS_CITY}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="383" y="78" width="100" height="12" uuid="49bed6fe-5c84-484b-a634-4838d3c162cc"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RS_ZIP}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="333" y="78" width="50" height="12" uuid="2266cade-8c57-46c8-baf7-5f187455f29d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RS_STATE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="133" y="78" width="100" height="12" uuid="443b2fb9-2070-4d9c-8f16-7f0063ffb40e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RS_ADR1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="133" y="66" width="100" height="12" uuid="b510ec2b-9338-4989-92c3-bc99b3df48a5"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RS_FULL_NAME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="107" width="80" height="12" uuid="ef490850-a19d-49bc-ad2d-14f9225a4799"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Transfer Invoice #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="253" y="107" width="100" height="12" uuid="d21aabde-8241-46a7-a642-37a34733ba06"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Transfer P.O. #:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="82" y="107" width="80" height="12" uuid="4d042626-bc0c-4e47-a4d5-fba13112ea35"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_INVOICE_NO}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="353" y="107" width="30" height="12" uuid="0f119c83-82ca-4188-913d-e86265ea0310"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_PO_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="393" y="107" width="100" height="12" uuid="427945e4-3200-4d42-807e-1cb92fc745c4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_PO_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="383" y="107" width="10" height="12" uuid="c7e96561-428a-4af4-94fb-d61ccc63ac7d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="119" width="80" height="12" uuid="1cf99876-e9a7-4170-9a12-9cf242f920e7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Order #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="131" width="80" height="12" uuid="6a48e3d2-4cc1-4e42-ba1c-42db6eec68a1"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Box Shipped Qty:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="143" width="80" height="12" uuid="9865622e-7fa1-4bdc-b3fb-896fe40c2f15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Link Transfer #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="155" width="80" height="12" uuid="c9b0513b-a3c7-4c31-8b24-9f0c5fffcca6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Tracking Code:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="82" y="155" width="100" height="12" uuid="a8b2c1b6-ae32-43ce-bc61-013628505c15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TRACKING_CD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="82" y="143" width="30" height="12" uuid="afc0fc5c-78b3-4689-8169-1f42ee346649"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LINK_XFER_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="122" y="143" width="70" height="12" uuid="3985fb3b-76b2-494b-acaf-7c0a4198d368"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LINK_XFER_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="112" y="143" width="10" height="12" uuid="db724afa-6ff9-49fb-856e-212ecf91be3f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[-]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="82" y="131" width="100" height="12" uuid="3e420b64-2ba8-4d7f-ae82-ffc88456f47f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BOX_SHIPPED_QTY}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="82" y="119" width="100" height="12" uuid="e9a1f0f5-f86d-4e46-b5df-be325b849d66"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ORDER_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="253" y="119" width="100" height="12" uuid="8e30202e-4db3-47bb-886d-4f4d1e581717"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Ship Via:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="253" y="131" width="100" height="12" uuid="6b663094-446c-4a7e-b5c5-9795a329d55b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Box Received Qty:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="353" y="119" width="100" height="12" uuid="f5b1ba7e-c79a-4be5-bcfa-81c5cd17cd21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_VIA}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="353" y="131" width="100" height="12" uuid="c9d12d1d-277f-4c15-adca-eafc0c147426"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BOX_RECEIVED_QTY}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="417" y="2" width="36" height="15" uuid="fd2135f1-90d9-4bdc-a6ce-ceeda1594f6f"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Status:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="453" y="2" width="67" height="15" uuid="b570092c-ae6d-472f-a645-e288d363888e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_STATUS}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="640" y="2" width="100" height="50" uuid="7e603cde-822e-4c9e-a988-ebd74b37509a">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="none">
+						<jr:codeExpression><![CDATA[$F{XFER_BARCODE}]]></jr:codeExpression>
+					</jr:Code128>
+				</componentElement>
+				<textField>
+					<reportElement style="Column Header" x="40" y="189" width="75" height="20" uuid="fed9c780-39d5-4be1-8370-2874a726910f"/>
+					<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? "SKU" :
+   $P{user_pref}.equals("M") ? "MFG" :
+   $P{user_pref}.equals("U") ? "UPC" :
+   $P{user_pref}.equals("V") ? "Vendor Item" : "SKU"]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement key="" mode="Transparent" x="0" y="0" width="752" height="170" uuid="ab8e0350-e944-4428-a757-8bb7b22f7468">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</rectangle>
+				<textField>
+					<reportElement style="Column Header" x="360" y="189" width="100" height="20" uuid="fd6672fb-f197-46a0-bbdf-9a3cca4fc387"/>
+					<textFieldExpression><![CDATA[$P{user_pref}.equals("M") ? "" : "MFG #"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="620" y="189" width="55" height="20" uuid="ac141556-9ca5-4d28-89a4-c457e3c0cfd9"/>
+					<textFieldExpression><![CDATA[$P{cost_retail_fl}.equals("C") ? "Cost" : "Retail"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="675" y="189" width="65" height="20" uuid="b451c359-5fe0-442e-b9e8-d2b0943d109f"/>
+					<textFieldExpression><![CDATA[$P{cost_retail_fl}.equals("C") ? "Ext. Cost" : "Ext. Retail"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="630" y="53" width="120" height="15" uuid="9c2ee6a6-7cd3-4e44-91be-d63bcb502564">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_BARCODE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="353" y="143" width="387" height="12" uuid="c5127e07-4d15-44a5-a6e3-83b451c03c45"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{HDR_COMMENT_TEXT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="253" y="143" width="100" height="12" uuid="7d70191c-4796-404d-abd9-b9945f198c5a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Header Notes:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement key="" x="253" y="95" width="100" height="12" uuid="a46c5cb4-ae38-4ffc-8514-91a0a4c1edb1">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[Shipped By:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement key="" x="353" y="95" width="100" height="12" uuid="afeedbfe-4e24-4e16-8187-8d685fcf8381">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{USER_SHIPPED}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<staticText>
+					<reportElement x="351" y="0" width="100" height="15" uuid="e4d0c0d1-900e-4494-aecd-9cca54bc9b9d"/>
+					<text><![CDATA[Totals:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="460" y="0" width="60" height="15" uuid="1cec92e6-4f41-4952-9600-ee796bffcca6"/>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{qty_exp_total}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="520" y="0" width="60" height="15" uuid="3332561b-8d38-434e-9525-d5c538f91e82"/>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{qty_ship_total}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement x="675" y="0" width="64" height="15" uuid="6bc2bcc0-5129-44c9-b5d8-bc14c0696e3f"/>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{ext_cost_total}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Report Title" x="0" y="0" width="293" height="20" uuid="a450b6f8-f988-4601-916e-8e84a03786d2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transfer Documents]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter Title" x="0" y="20" width="120" height="20" uuid="51d480b6-b533-4618-b458-a8c642df7eac">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report Parameters]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="40" width="90" height="15" isRemoveLineWhenBlank="true" uuid="addb39a8-8975-45e1-9254-706a01a1cc01">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Ship Site:]]></text>
+			</staticText>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="image-1" x="597" y="0" width="155" height="40" uuid="2ddc0da8-4fc3-4d2d-a847-06212d46a1d2"/>
+				<box leftPadding="2"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="55" width="90" height="15" isRemoveLineWhenBlank="true" uuid="f627bb4e-2e60-4a7f-8509-d2ac3406fae3">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Receive Site:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="70" width="90" height="15" isRemoveLineWhenBlank="true" uuid="88eb9c65-7ba0-4f48-860c-8ed2e03e6a23">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[From Transfer#:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="85" width="90" height="15" isRemoveLineWhenBlank="true" uuid="66effae9-4c1b-4b36-ad3e-a691e5b6c8da">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[To Transfer #:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="115" width="90" height="15" isRemoveLineWhenBlank="true" uuid="13fc9bf5-8644-415f-87e3-b4284656fdbf">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Print:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Parameter" x="0" y="100" width="90" height="15" isRemoveLineWhenBlank="true" uuid="45f9726f-feae-4b35-aa09-92eefca74bd8">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Transfer Status]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="100" width="100" height="15" isRemoveLineWhenBlank="true" uuid="aa9c255c-5fdf-4803-9271-9a8d93c72115">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{status_list}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0;-###0" isBlankWhenNull="true">
+				<reportElement x="125" y="70" width="65" height="15" isRemoveLineWhenBlank="true" uuid="e503a8b9-af5b-48e4-86d6-4db23c2dd82b">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from_xfer_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="120" y="85" width="5" height="15" isRemoveLineWhenBlank="true" uuid="28138455-7c16-40a9-852d-d5dc3074ff6c">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField pattern="###0;-###0">
+				<reportElement style="Parameter" x="90" y="40" width="100" height="15" isRemoveLineWhenBlank="true" uuid="b816653f-645e-4209-bdb7-1c3de353e6d5">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{ship_site_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0;-###0" isBlankWhenNull="true">
+				<reportElement x="90" y="85" width="30" height="15" isRemoveLineWhenBlank="true" uuid="f0de14de-c8f1-45d0-b11b-c2984fa21d61">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to_site_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="120" y="70" width="5" height="15" isRemoveLineWhenBlank="true" uuid="b20a6aae-e181-4e31-997f-adc936e1b897">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField pattern="###0;-###0" isBlankWhenNull="true">
+				<reportElement x="90" y="70" width="30" height="15" isRemoveLineWhenBlank="true" uuid="515f37ea-0c8d-4e3e-a9f5-0c18bf9cee29">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from_site_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0;-###0" isBlankWhenNull="true">
+				<reportElement x="125" y="85" width="65" height="15" isRemoveLineWhenBlank="true" uuid="c144f4a2-11b2-49a6-a8bd-bf63818aefb4">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to_xfer_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0;-###0">
+				<reportElement style="Parameter" x="90" y="55" width="100" height="15" isRemoveLineWhenBlank="true" uuid="71767686-bcef-48fd-bf4d-cf10abefda20">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{recv_site_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="115" width="100" height="15" isRemoveLineWhenBlank="true" uuid="37b95363-3b23-4157-878a-a75a0ace7e26">
+					<printWhenExpression><![CDATA[$P{xfer_list} == null || $P{xfer_list}.length() == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{cost_retail_fl}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="40" height="12" uuid="d3931abe-d920-4134-83b6-90981f382e5b"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SEQ_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="40" y="0" width="75" height="12" uuid="8803cca4-b062-43c8-868f-95af45f72131"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? $F{SKU_NO} :
+   $P{user_pref}.equals("M") ? $F{MFG_CD} :
+   $P{user_pref}.equals("V") ? $F{VENDOR_ITEM} :
+   $P{user_pref}.equals("U") ? $F{UPC_ID} : "$F{SKU_NO}"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="115" y="0" width="135" height="12" uuid="a7b33cf9-47ef-4cb7-bf22-4b8d0770cd9f"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="250" y="0" width="40" height="12" uuid="55efafeb-5606-44f0-a734-04515fffdc52"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEPT_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="290" y="0" width="70" height="12" uuid="de55197e-7b74-4e05-9b75-b4c9d4306487"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="360" y="0" width="100" height="12" uuid="334a733e-4f58-471a-9052-f4b2a37c1d06"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_pref}.equals("M") ? "" : $F{MFG_CD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="60" height="12" uuid="32829931-6728-4fd4-8a3c-f4004e5ee50b"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ENTER_QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="520" y="0" width="60" height="12" uuid="0d3abf57-8396-4694-b5d2-867f7572f0a1"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIP_QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="580" y="0" width="40" height="12" uuid="f61506d2-f151-41d9-b673-5f81652efafb"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SELL_UM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail" x="620" y="0" width="55" height="12" uuid="0a567bd9-a743-40c1-9151-ca6c0a82992d"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COST_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail" x="675" y="0" width="65" height="12" uuid="24f99ace-00f0-4a8a-9f67-4fd0b03b8e15"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COST_RETAIL_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement style="Detail" x="57" y="12" width="683" height="12" isRemoveLineWhenBlank="true" uuid="039e4bac-0d67-4421-97a0-e57d09a11861"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DTL_COMMENT_TEXT}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="53" y="24" width="687" height="12" isRemoveLineWhenBlank="true" uuid="7ee1613b-fd5b-469a-8048-6b8dd4014cbf">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<subreportParameter name="xfer_site_no">
+					<subreportParameterExpression><![CDATA[$F{XFER_SITE_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="xfer_no">
+					<subreportParameterExpression><![CDATA[$F{XFER_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="seq_no">
+					<subreportParameterExpression><![CDATA[$F{SEQ_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sku_no">
+					<subreportParameterExpression><![CDATA[$F{SKU_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{OnServer}.booleanValue() ? "repo:transfer_serial_item_subreport.jrxml" : 
+"transfer_serial_item_subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="616" y="0" width="100" height="17" uuid="012179fe-aa13-4e23-a0f8-2debc5b2eff9"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="5" y="0" width="136" height="17" uuid="60692f77-df5f-4aa1-9d4e-3f33b724da5f"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="716" y="0" width="36" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="cc103338-973a-42c9-a043-44b50ffe8834"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None">
+					<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="CP1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

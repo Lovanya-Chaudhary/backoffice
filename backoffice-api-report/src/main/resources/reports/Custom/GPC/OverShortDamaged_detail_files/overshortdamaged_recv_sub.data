@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="overshortdamaged_recv_sub" language="groovy" pageWidth="572" pageHeight="792" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="overshortdamaged" uuid="7dc451a5-c0ae-4a03-bbe2-c704cb7123b0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Custom/GPC/Reports/OverShortDamaged_detail"/>
+	<property name="ireport.jasperserver.url" value="http://172.21.156.62:8080/jasperserver-pro/services/repository/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Custom/GPC/Reports/OverShortDamaged_detail_files/overshortdamaged_recv_sub"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="gpc2"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="site_no" class="java.math.BigDecimal"/>
+	<parameter name="doc_no" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT rd.site_no, rd.doc_no, rd.receive_dt, rl.sku_no, i.description, i.mfg_cd, ph.po_no,
+              pd.order_qty*pd.pack_qty order_qty, pd.received_qty*pd.pack_qty received_qty, ad.ship_qty asn_qty,
+   (pd.received_qty*pd.pack_qty)-   decode(ad.ship_qty,NULL,pd.order_qty,ad.ship_qty)  disc_qty,
+ -(decode(ad.ship_qty,NULL,(pd.order_qty*pd.cost-pd.received_qty*pd.cost),(ad.ship_qty*pd.cost-pd.received_qty*pd.cost))) discrepancy_cost,
+       nvl(i.attribute1_value,' ') product_line, nvl(i.attribute2_value,' ') group_code, nvl(ibs.class_code,' ') classification
+FROM rcvdoc rd
+JOIN po_hdr ph ON ph.po_site_no = rd.po_site_no AND ph.po_no = rd.po_no
+JOIN po_dtl pd ON pd.po_site_no = rd.po_site_no AND pd.po_no = rd.po_no AND pd.po_status != 'C'
+JOIN rcvlin rl ON rl.site_no = rd.site_no AND rl.doc_no = rd.doc_no AND rl.sku_no = pd.sku_no
+JOIN invtory i ON i.sku_no = rl.sku_no
+join invbysit ibs on ibs.sku_no = rl.sku_no and ibs.site_no = $P{site_no}
+join asn_dtl ad on ad.source_doc_site_no = ph.po_site_no and ad.source_doc_no = ph.po_no and ad.source_doc_type_cd = 'P' and ad.sku_no = pd.sku_no and ad.source_doc_seq_no = pd.seq_no
+
+WHERE ad.doc_no = $P{doc_no}
+     AND ad.site_no = $P{site_no}
+   --  AND pd.order_qty != pd.received_qty
+     AND  ((pd.received_qty*pd.pack_qty)- decode(ad.ship_qty,NULL,pd.order_qty,ad.ship_qty) != 0
+      OR   (decode(ad.ship_qty,NULL,(pd.order_qty*pd.cost-pd.received_qty*pd.cost),(ad.ship_qty*pd.cost-pd.received_qty*pd.pack_qty*pd.cost))) != 0)
+   --  AND   (rl.received_qty != 0 OR rl.backordered_qty != 0)
+order by rd.site_no, ph.po_no, rd.doc_no]]>
+	</queryString>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="DOC_NO" class="java.math.BigDecimal"/>
+	<field name="RECEIVE_DT" class="java.sql.Timestamp"/>
+	<field name="SKU_NO" class="java.math.BigDecimal"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="MFG_CD" class="java.lang.String"/>
+	<field name="PO_NO" class="java.math.BigDecimal"/>
+	<field name="ORDER_QTY" class="java.math.BigDecimal"/>
+	<field name="RECEIVED_QTY" class="java.math.BigDecimal"/>
+	<field name="ASN_QTY" class="java.math.BigDecimal"/>
+	<field name="DISC_QTY" class="java.math.BigDecimal"/>
+	<field name="DISCREPANCY_COST" class="java.math.BigDecimal"/>
+	<field name="PRODUCT_LINE" class="java.lang.String"/>
+	<field name="GROUP_CODE" class="java.lang.String"/>
+	<field name="CLASSIFICATION" class="java.lang.String"/>
+	<variable name="discrepancy_qty" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DISC_QTY}]]></variableExpression>
+	</variable>
+	<variable name="discrepancy_amt" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DISCREPANCY_COST}]]></variableExpression>
+	</variable>
+	<group name="receive_doc">
+		<groupExpression><![CDATA[$F{SITE_NO} + $F{PO_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="17">
+				<textField>
+					<reportElement x="0" y="0" width="142" height="15" uuid="33182f0e-d069-42e1-9126-cdf97209a6f8"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["PO Number: " + $F{SITE_NO} + "-" + $F{PO_NO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="113" y="0" width="110" height="15" uuid="d7b21811-480f-453d-bae8-bd2bffcd6f23"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="54" y="0" width="59" height="15" uuid="af6722bb-0744-40ae-b617-41a424cb4014"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MFG_CD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="373" y="0" width="33" height="15" uuid="19670532-d97d-43a4-9411-4330c7944cca"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RECEIVED_QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="307" y="0" width="33" height="15" uuid="1c8705d9-87f4-476f-b99f-860c2279abb0"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORDER_QTY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="340" y="0" width="33" height="15" uuid="86a847e8-f067-40fc-85b6-f780d215f65d"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ASN_QTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail" x="406" y="0" width="68" height="15" uuid="31d68edf-b556-4f08-91e4-a581c2639f72"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCREPANCY_COST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="54" height="15" uuid="e376bf81-3afd-4cde-a8fd-6df81d08eb79"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRODUCT_LINE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="223" y="0" width="47" height="15" uuid="3d552a36-e787-469c-a853-01286f486a14"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GROUP_CODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="270" y="0" width="37" height="15" uuid="45647fc4-d716-43fe-8e9a-a655dafb27d2"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CLASSIFICATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="50" height="15" uuid="4cc06690-6ff1-4a55-92aa-b0bb4efc71f3"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOC_NO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yy">
+				<reportElement x="524" y="0" width="48" height="15" uuid="1c6ea70c-ba61-4930-a97e-67844a3fa87e"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RECEIVE_DT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="20">
+			<textField>
+				<reportElement x="225" y="2" width="34" height="15" uuid="eff66f11-297e-4bff-badd-fbff970d1e32"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{discrepancy_qty}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="406" y="2" width="68" height="15" uuid="bbe2c703-d4cb-4eb9-ac65-e1e828c0cb2a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{discrepancy_amt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="2" width="129" height="15" uuid="92300d60-11bd-409f-848d-357bed072640"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{receive_disc_amt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="2" width="155" height="15" uuid="ca79e34a-2d35-46dc-a412-723b414342e4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{receive_disc_qty}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="572" height="1" uuid="ec6875c9-f649-4c54-bad8-fee3472a6afa"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "8c7ff030-93a2-4429-9eac-ba98b02d7769",
+		"name": "LOVController",
+		"description": "It will provide all the list of values available globally for all the forms.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buyers Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/buyers/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"buyers",
+						"1"
+					],
+					"query": [
+						{
+							"key": "siteNo",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inventory Type",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/invtype",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"invtype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Code Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/codetype?type_code=GALLON",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"codetype"
+					],
+					"query": [
+						{
+							"key": "type_code",
+							"value": "GALLON"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tare Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/taredetails",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"taredetails"
+					],
+					"query": [
+						{
+							"key": "typeCode",
+							"value": "gallon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/reportdetails",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"reportdetails"
+					],
+					"query": [
+						{
+							"key": "typeCode",
+							"value": "gallon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tender Programs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/tenderprograms",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"tenderprograms"
+					],
+					"query": [
+						{
+							"key": "typeCode",
+							"value": "gallon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GLCategories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/glcategories",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"glcategories"
+					],
+					"query": [
+						{
+							"key": "typeCode",
+							"value": "gallon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Commission Codes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/commissioncodes",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"commissioncodes"
+					],
+					"query": [
+						{
+							"key": "typeCode",
+							"value": "gallon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Link Charges",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/linkcharges",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"linkcharges"
+					],
+					"query": [
+						{
+							"key": "typeCode",
+							"value": "gallon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Status Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/statusdetails?status_item=POS&flexible_item=true",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"statusdetails"
+					],
+					"query": [
+						{
+							"key": "status_item",
+							"value": "POS"
+						},
+						{
+							"key": "flexible_item",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/itemstatus?status_item=ITEM&status_id=FEE_CHARGE",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"itemstatus"
+					],
+					"query": [
+						{
+							"key": "status_item",
+							"value": "ITEM"
+						},
+						{
+							"key": "status_id",
+							"value": "FEE_CHARGE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Default DC",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/defaultdc",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"defaultdc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suppliers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/suppliers",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"suppliers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suppliers by type code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/suppliersbytypecode?type_code=S",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"suppliersbytypecode"
+					],
+					"query": [
+						{
+							"key": "type_code",
+							"value": "S"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "site details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/sites",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "site details for invbysit for sku",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/lov/sitesinvbysit/60670",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"lov",
+						"sitesinvbysit",
+						"60670"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

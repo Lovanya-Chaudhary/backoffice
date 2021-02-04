@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PriceChangeSummary" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="PriceChangeSummary" uuid="5934bd70-033c-49c3-8bd6-92076c44f9d2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Pricing/Reports/PriceChangeSummary"/>
+	<property name="ireport.jasperserver.url" value="http://ice209app01.aws.tomax.com:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Pricing/Reports/PriceChangeSummary_files/main_jrxml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ice239DB"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#EBEBEB" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="TMX_TIME_INTERVAL" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["previous_week"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_BREAKDOWN_BY" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["empty"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_MERCHANDISE_HIERARCHY" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_MERCH_HIERARCHY_LEVEL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_LOCATION_HIERARCHY" class="java.lang.Long" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_LOC_HIERARCHY_LEVEL" class="java.lang.Long" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDMUserRoleHierarchy" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDMUserRoleSites" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="site_group" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ALL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="begin_date" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="end_date" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deptgrp_no" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dept_no" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="class_no" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="line_no" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vendor_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="report_code" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="separateSite" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Y"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="isGroup" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{site_group}.matches("\\D*") ? "Y" : "N"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="item_attribute" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="attribute_value" class="java.lang.String"/>
+	<parameter name="userPref" class="java.lang.String">
+		<defaultValueExpression><![CDATA["S"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="showUPC" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Y"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="attrib_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="OnServer" class="java.lang.Boolean" isForPrompting="false">
+		<parameterDescription><![CDATA[Are we running on server]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{REPORT_CONTEXT} != null]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  'X' , (select description from dept where dept_no = $P{dept_no}) dept_description,
+              (select description from class where dept_no = $P{dept_no} and class_no = $P{class_no}) class_description,
+              (select description from line where dept_no = $P{dept_no} and class_no = $P{class_no} and line_no = $P{line_no}) line_description,
+              (select description from groups where group_id = $P{site_group}) group_description,
+              (select name from vendor where vendor_id = $P{vendor_id}) vendor_name,
+	      (select description from rptcod where report_cd = $P{report_code}) report_code_description,
+              (select attribute_id from attribute_name where name_text = $P{item_attribute}) attrib_id
+from dual]]>
+	</queryString>
+	<field name="&apos;X&apos;" class="java.lang.String"/>
+	<field name="DEPT_DESCRIPTION" class="java.lang.String"/>
+	<field name="CLASS_DESCRIPTION" class="java.lang.String"/>
+	<field name="LINE_DESCRIPTION" class="java.lang.String"/>
+	<field name="GROUP_DESCRIPTION" class="java.lang.String"/>
+	<field name="VENDOR_NAME" class="java.lang.String"/>
+	<field name="REPORT_CODE_DESCRIPTION" class="java.lang.String"/>
+	<field name="ATTRIB_ID" class="java.math.BigDecimal"/>
+	<pageHeader>
+		<band height="83">
+			<textField>
+				<reportElement key="Report Title" style="Report Title" x="0" y="0" width="521" height="25" uuid="983e8b00-3d7a-46f6-b40a-01b1089c7202"/>
+				<textFieldExpression><![CDATA[$R{reporttitle}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="556" y="0" width="196" height="39" uuid="ce654e5b-4fa7-4602-a1ff-dcbc2ee2057c"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement key="Parameter 3" style="Parameter" x="201" y="39" width="72" height="14" uuid="1742b9c8-a076-4ff3-b6dc-b24427efe01c"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{ToDate} + ": "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="25" width="153" height="14" uuid="24d4397b-3b70-4dd5-9b05-606629fd06da"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{site_group} + "   " + $F{GROUP_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="273" y="39" width="100" height="14" uuid="12a51102-6359-4c6a-8604-96e18b939a2a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{end_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="273" y="25" width="100" height="14" uuid="ae632da1-6417-4ffc-a617-4392aeb26a02"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{begin_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="201" y="25" width="72" height="14" uuid="e63c6fc0-b8a1-4adc-847e-0206771fee66"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{FromDate} + ": "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 1" style="Parameter" x="0" y="25" width="39" height="14" uuid="524e38b1-e250-47b1-9f7b-088a66ca2f77"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{Site} + ": "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="0" y="39" width="39" height="14" uuid="b1849c73-d383-4390-8927-ec45cabe02e9"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{DeptNo} + ": "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="39" y="39" width="153" height="14" uuid="ef5e91c3-28d9-4de2-8935-3dc16515f6ce"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dept_no}.equals(null) ? "" :$P{dept_no} + "   " + $F{DEPT_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="0" y="53" width="39" height="14" uuid="71c21eae-c117-49b8-b7b7-87dbcfc0d7dc"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{ClassNo} + ": "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="39" y="53" width="153" height="14" uuid="394b0318-a1d3-4b60-90f0-459b2f458eb3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{class_no}.equals(null) ? " ": $P{class_no} + "   " + $F{CLASS_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="0" y="67" width="39" height="14" uuid="fce85031-a7d0-4efa-b0a8-f0eec81376a3"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{LineNo} + ": "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="39" y="67" width="153" height="14" uuid="bd15aa41-222e-4098-aaef-0cf64736759a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{line_no}.equals(null) ? " ": $P{line_no} + "   " + $F{LINE_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="53" width="89" height="14" uuid="efe406a8-0068-4304-aa5d-078fe96e1781"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VENDOR_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="201" y="53" width="72" height="14" uuid="9717dc4c-1d66-4075-8bf3-ec175edb399e"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{VendorId} + ": "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="273" y="53" width="39" height="14" uuid="9a4b8a3f-c203-43b6-91b5-605f85b9b97f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vendor_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="273" y="67" width="25" height="14" uuid="e54e8779-79e4-45ab-ad72-ba53af454b6a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{report_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="201" y="67" width="72" height="14" uuid="8f9c347a-6562-4e13-b4ff-ce2c26870f7c"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{ReportCode} + ": "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="298" y="67" width="103" height="14" uuid="cd74935d-3ba0-46b5-b3fa-39d3a8ec64b6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REPORT_CODE_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="475" y="53" width="200" height="14" uuid="26287a5f-8dcc-4b11-a999-284274c9d7c2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{item_attribute}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 3" style="Parameter" x="418" y="53" width="57" height="14" uuid="76c77c54-ffd9-4eac-bd2f-1c5ec6811295"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{AttributeName} + ": "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 3" style="Parameter" x="418" y="67" width="57" height="14" uuid="12819b89-e31c-49cc-b2bc-12a80c8df0d1"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{AttributeValue} + ": "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="475" y="67" width="200" height="14" uuid="3bd4f1da-4931-46c2-a834-cfd2eb7cfa94"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{attribute_value}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="14">
+			<subreport>
+				<reportElement x="1" y="0" width="751" height="14" uuid="045f19c7-286d-4327-bb97-9ad898a171c4">
+					<printWhenExpression><![CDATA[!($P{isGroup}.equals("Y") && $P{separateSite}.equals("N"))]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="item_attribute">
+					<subreportParameterExpression><![CDATA[$P{item_attribute}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="line_no">
+					<subreportParameterExpression><![CDATA[$P{line_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deptgrp_no">
+					<subreportParameterExpression><![CDATA[$P{deptgrp_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="begin_date">
+					<subreportParameterExpression><![CDATA[$P{begin_date}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="report_code">
+					<subreportParameterExpression><![CDATA[$P{report_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="vendor_id">
+					<subreportParameterExpression><![CDATA[$P{vendor_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="attrib_id">
+					<subreportParameterExpression><![CDATA[$F{ATTRIB_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="attribute_value">
+					<subreportParameterExpression><![CDATA[$P{attribute_value}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IDMUserRoleSites">
+					<subreportParameterExpression><![CDATA[$P{IDMUserRoleSites}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="end_date">
+					<subreportParameterExpression><![CDATA[$P{end_date}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="class_no">
+					<subreportParameterExpression><![CDATA[$P{class_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="separateSite">
+					<subreportParameterExpression><![CDATA[$P{separateSite}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dept_no">
+					<subreportParameterExpression><![CDATA[$P{dept_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isGroup">
+					<subreportParameterExpression><![CDATA[$P{isGroup}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="userPref">
+					<subreportParameterExpression><![CDATA[$P{userPref}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="site_group">
+					<subreportParameterExpression><![CDATA[$P{site_group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="showUPC">
+					<subreportParameterExpression><![CDATA[$P{showUPC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{OnServer}.booleanValue() 
+? "repo:PriceChangeSummary_bySiteSub.jrxml"
+: "PriceChangeSummary_bySiteSub.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="1" y="0" width="751" height="14" uuid="e3b3fc79-663f-4931-a201-3a5fdcffea5e">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$P{isGroup}.equals("Y") && $P{separateSite}.equals("N")]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="item_attribute">
+					<subreportParameterExpression><![CDATA[$P{item_attribute}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="line_no">
+					<subreportParameterExpression><![CDATA[$P{line_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deptgrp_no">
+					<subreportParameterExpression><![CDATA[$P{deptgrp_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="begin_date">
+					<subreportParameterExpression><![CDATA[$P{begin_date}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="report_code">
+					<subreportParameterExpression><![CDATA[$P{report_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="vendor_id">
+					<subreportParameterExpression><![CDATA[$P{vendor_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="attrib_id">
+					<subreportParameterExpression><![CDATA[$F{ATTRIB_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="attribute_value">
+					<subreportParameterExpression><![CDATA[$P{attribute_value}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IDMUserRoleSites">
+					<subreportParameterExpression><![CDATA[$P{IDMUserRoleSites}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="end_date">
+					<subreportParameterExpression><![CDATA[$P{end_date}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="class_no">
+					<subreportParameterExpression><![CDATA[$P{class_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="separateSite">
+					<subreportParameterExpression><![CDATA[$P{separateSite}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dept_no">
+					<subreportParameterExpression><![CDATA[$P{dept_no}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isGroup">
+					<subreportParameterExpression><![CDATA[$P{isGroup}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="userPref">
+					<subreportParameterExpression><![CDATA[$P{userPref}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="site_group">
+					<subreportParameterExpression><![CDATA[$P{site_group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="showUPC">
+					<subreportParameterExpression><![CDATA[$P{showUPC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{OnServer}.booleanValue() 
+? "repo:PriceChangeSummary_byGroupSub.jrxml"
+: "PriceChangeSummary_byGroupSub.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField evaluationTime="Report">
+				<reportElement style="Page Footer" x="675" y="0" width="77" height="20" uuid="b3417ba7-32c0-40ce-a67e-bb25a22a004e"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="556" y="0" width="104" height="20" uuid="492d4f64-baf1-4897-a20e-08524a658b70"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="660" y="0" width="15" height="20" uuid="4100d3b8-cb5f-4fb0-bcda-503e6462b0ca"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy.MM.dd &apos;at&apos; HH:mm:ss z">
+				<reportElement style="Page Footer" x="0" y="0" width="556" height="20" uuid="09e7fe9b-8f2c-435a-9f62-3dcf6d754f23"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

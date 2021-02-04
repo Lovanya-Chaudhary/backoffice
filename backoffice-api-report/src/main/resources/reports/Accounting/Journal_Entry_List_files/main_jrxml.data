@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Journal_Entry_List" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2436eda9-30a7-4ce5-b452-43c4c047a741">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Accounting/Reports/Journal_Entry_List"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="TMX_TIME_INTERVAL" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["previous_week"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_BREAKDOWN_BY" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["empty"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_MERCHANDISE_HIERARCHY" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_MERCH_HIERARCHY_LEVEL" class="java.lang.Long" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_LOCATION_HIERARCHY" class="java.lang.Long" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TMX_LOC_HIERARCHY_LEVEL" class="java.lang.Long" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Long(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDMUserRoleHierarchy" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDMUserRoleSites" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period_no" class="java.lang.String"/>
+	<parameter name="site_no" class="java.lang.String"/>
+	<parameter name="tran_dt" class="java.lang.String"/>
+	<parameter name="export_dt" class="java.lang.String"/>
+	<parameter name="description" class="java.lang.String"/>
+	<parameter name="from_journal_no" class="java.lang.String"/>
+	<parameter name="to_journal_no" class="java.lang.String"/>
+	<parameter name="year" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT Distinct jh.Year,
+                jh.Header_no,
+                jh.Period_no,
+                Reference,
+                jh.Site_no,
+                jh.Status,
+	      export_dt,
+	      jh.tran_dt,
+	      jh.description header_description,
+	      to_char(jh.create_dt,'MM/DD/RR HH:MM AM') c_create_dt,
+	      nvl(to_char(jh.export_dt,'MM/DD/RR HH:MM AM'),'Not Exported') c_export_dt,
+	      jd.acct_no, jd.owner_id, jd.site_id, jd.dept_no,
+                 case when jd.amount >= 0 then amount end as debit,
+                 case when jd.amount < 0 then -amount end as credit,
+	       jd.detail_no,
+	      a.description
+ FROM je_hdr jh
+ JOIN sitgrp sg ON sg.site_no = jh.site_no
+ JOIN site st ON st.site_no = jh.site_no
+ JOIN je_dtl jd ON jd.header_no = jh.header_no
+ JOIN account a ON a.account_no = jd.acct_no
+WHERE Year = NVL($P{year},YEAR)
+  AND   Period_no = NVL($P{period_no},PERIOD_NO)
+  and   jh.site_no = NVL($P{site_no}, jh.site_no)
+  and   TRUNC(tran_dt) = NVL($P{tran_dt},TRUNC(tran_dt))
+  and   NVL(TRUNC(export_dt),'01/01/01') = NVL($P{export_dt},NVL(TRUNC(export_dt),'01/01/01'))
+  and   NVL(jh.description,'X') = NVL($P{description},NVL(jh.description,'X'))
+  AND   jh.Header_no >= $P{from_journal_no}
+  AND   jh.Header_no <= $P{to_journal_no}
+   and st.franchise_fl = tmxgbl.is_a_franchise_site
+  and sg.group_id = decode(tmxgbl.my_franchise_site_type,'M',decode(tmxgbl.my_franchise_group_id,null,decode(tmxgbl.is_a_franchise_site,'N',sg.group_id,to_char(tmxgbl.my_site)),tmxgbl.my_franchise_group_id),'R',to_char(tmxgbl.my_site),sg.group_id)
+          ORDER BY jh.header_no, jd.acct_no, jd.detail_no]]>
+	</queryString>
+	<field name="YEAR" class="java.math.BigDecimal"/>
+	<field name="HEADER_NO" class="java.math.BigDecimal"/>
+	<field name="PERIOD_NO" class="java.math.BigDecimal"/>
+	<field name="REFERENCE" class="java.lang.String"/>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="STATUS" class="java.lang.String"/>
+	<field name="EXPORT_DT" class="java.sql.Timestamp"/>
+	<field name="TRAN_DT" class="java.sql.Timestamp"/>
+	<field name="HEADER_DESCRIPTION" class="java.lang.String"/>
+	<field name="C_CREATE_DT" class="java.lang.String"/>
+	<field name="C_EXPORT_DT" class="java.lang.String"/>
+	<field name="ACCT_NO" class="java.math.BigDecimal"/>
+	<field name="OWNER_ID" class="java.math.BigDecimal"/>
+	<field name="SITE_ID" class="java.math.BigDecimal"/>
+	<field name="DEPT_NO" class="java.math.BigDecimal"/>
+	<field name="DEBIT" class="java.math.BigDecimal"/>
+	<field name="CREDIT" class="java.math.BigDecimal"/>
+	<field name="DETAIL_NO" class="java.math.BigDecimal"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<variable name="Debits" class="java.math.BigDecimal" resetType="Group" resetGroup="Group_1" calculation="Sum">
+		<variableExpression><![CDATA[$F{DEBIT}]]></variableExpression>
+	</variable>
+	<variable name="Credits" class="java.math.BigDecimal" resetType="Group" resetGroup="Group_1" calculation="Sum">
+		<variableExpression><![CDATA[$F{CREDIT}]]></variableExpression>
+	</variable>
+	<group name="Group_1">
+		<groupExpression><![CDATA[$F{HEADER_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="62">
+				<textField>
+					<reportElement style="Group1 Header" x="0" y="0" width="62" height="14" uuid="0e6bc3f9-5343-410a-8858-de97a054a4e3"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Entry #:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="62" y="0" width="82" height="14" uuid="148030bc-8282-4313-9ed2-22b4bb3d68f6"/>
+					<textFieldExpression><![CDATA[$F{HEADER_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="0" y="14" width="62" height="14" uuid="8e49de86-f4df-4ccf-99b0-e7fc30706ebf"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Period:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="62" y="14" width="82" height="14" uuid="392825ad-f6fa-4a9d-9437-1cbb682356ee"/>
+					<textFieldExpression><![CDATA[$F{YEAR} + "-" + $F{PERIOD_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="0" y="28" width="62" height="14" uuid="8f710942-e00d-4e67-9740-9c0af28a8e49"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Site #:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="144" y="28" width="93" height="14" uuid="789c2d4e-1637-417f-abc5-40c32d4161d6"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Export Date:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="62" y="28" width="82" height="14" uuid="32b07fd6-1cbe-4102-b4b2-0a6e46c22faf"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="144" y="0" width="92" height="14" uuid="fe01e575-702c-475e-a05f-dc651979f9b0"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Trans Date:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="332" y="0" width="76" height="14" uuid="35608acb-a617-425a-a2d8-30c0e24453ac"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Description:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="144" y="14" width="92" height="14" uuid="84de33d2-02c8-4e12-91c9-2263439a9f36"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Create Date:"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="237" y="28" width="334" height="14" uuid="3fe65bd7-afe9-44f3-90a1-a6d0992e341f"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{C_EXPORT_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="408" y="0" width="164" height="14" uuid="c5c63836-d53d-4188-8155-acbfa9f54499"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{HEADER_DESCRIPTION}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd/yy">
+					<reportElement style="Group1 Header" x="236" y="0" width="96" height="14" uuid="711d09fb-ba7d-48a7-959d-f891f3b24b6c"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{TRAN_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Group1 Header" x="236" y="14" width="335" height="14" uuid="f8b90e78-0a66-40dd-aaef-d79b7ae89355"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{C_CREATE_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="0" y="45" width="93" height="16" uuid="9804c411-66db-4b6a-a4f0-2a0688332eef"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Account #"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="372" y="44" width="101" height="17" uuid="f7acb484-5d12-4fe6-93d1-2e96090c3d98"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Debits"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="473" y="44" width="99" height="17" uuid="b7cd8a0b-dd73-472f-a138-2501eade4ff6"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Credits"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="93" y="45" width="219" height="16" uuid="ca004c5f-7645-4162-9cf9-4417ba7044a0"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Account Description"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="312" y="44" width="60" height="17" uuid="118ab667-f5f4-4e02-b672-50f0995d5846"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Dept #"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="29">
+				<textField>
+					<reportElement style="Group1 Header" x="312" y="3" width="60" height="14" uuid="1da86868-2bee-47f9-a4bf-2f59cfda6305"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Totals:"]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement style="Group1 Header" x="372" y="3" width="101" height="14" uuid="3163c1b8-e504-4e87-9db0-2b6b1bcb9cf9"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{Debits}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement style="Group1 Header" x="473" y="3" width="99" height="14" uuid="3581d7cc-0167-4c8f-8389-f8eb990de29f"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{Credits}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="25">
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="410" y="0" width="161" height="25" uuid="551deaa8-85cc-4b2f-b054-b135b90de6bf"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement key="Report Title" style="Report Title" x="1" y="0" width="228" height="25" uuid="ab8b00ac-1341-4ec7-a3f2-91cab144c5c0"/>
+				<textFieldExpression><![CDATA["Journal Entry List"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="2"/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="16">
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="93" height="16" forecolor="#000000" uuid="829f597d-1ca1-46f9-8777-8c113b9d690d"/>
+				<box leftPadding="2" rightPadding="6"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCT_NO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" x="472" y="0" width="100" height="16" uuid="e79d6948-84e7-4c3f-b709-144b15cec416"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CREDIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="93" y="0" width="219" height="16" forecolor="#000000" uuid="1b5bef46-afdb-4083-b150-9a0b97a2501b"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" x="372" y="0" width="100" height="16" uuid="a05be033-95f0-45e4-803a-9ed976183064"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DEBIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="312" y="0" width="60" height="16" uuid="768a03d4-b315-4a39-84ba-0b470e6b9150"/>
+				<box leftPadding="2" rightPadding="4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{DEPT_NO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField evaluationTime="Report">
+				<reportElement style="Page Footer" x="494" y="0" width="77" height="20" uuid="b9298a26-4b97-4684-aba4-534d9ecb1367"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="375" y="0" width="104" height="20" uuid="de6a48e5-5292-4fb1-87d0-9ba72763359f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="479" y="0" width="15" height="20" uuid="febed2af-143d-46c7-b2ee-fd0ba0f9f0af"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy.MM.dd &apos;at&apos; HH:mm:ss z">
+				<reportElement style="Page Footer" x="0" y="0" width="360" height="20" uuid="45b8df3b-3d09-4822-b289-01b48fd67d4b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="2"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context-registry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://cvs1.tmx.com/maven/xsd/tmx-context-registry-1.4.xsd">
+	<contexts>
+		<context id="com.tomax.wfo.hq" configurationId="wfo.hq" />
+		<context id="com.tomax.wfo" configurationId="wfo.store" />
+
+		<!-- deprecated -->
+		<context id="com.tomax.rnet.concurrency.hq" configurationId="concurrency.hq" />
+		<context id="com.tomax.rnet.concurrency.store" configurationId="concurrency.store" />
+		<context id="com.tomax.rnet.hq" configurationId="api.hq" />
+		<context id="com.tomax.rnet" configurationId="api.store" />
+
+		<context id="com.tomax.debug.api.hq" configurationId="debug.api.hq" />
+		<context id="com.tomax.debug.api.store" configurationId="debug.api.store" />
+		<context id="com.tomax.debug.api.local" configurationId="debug.api.local" />
+		
+		<!-- new contexts -->
+		<context id="com.tomax.api.hq" configurationId="api.hq" />
+		<context id="com.tomax.api.store" configurationId="api.store" />
+		<context id="com.tomax.api.local" configurationId="api.local" />
+		<context id="com.tomax.api.peristence.local" configurationId="api.persistence.local" />
+
+		<context id="com.tomax.backoffice.hq" configurationId="backoffice.hq" />
+		<context id="com.tomax.backoffice.store" configurationId="backoffice.store" />
+		<context id="com.tomax.backoffice.local" configurationId="backoffice.local" />
+
+		<context id="com.tomax.concurrency.hq" configurationId="concurrency.hq" />
+		<context id="com.tomax.concurrency.store" configurationId="concurrency.store" />
+		<context id="com.tomax.concurrency.local" configurationId="concurrency.local" />
+		
+		<context id="com.tomax.idm.client.hq" configurationId="idm.client.hq" />
+		<context id="com.tomax.idm.client.store" configurationId="idm.client.store" />
+		<context id="com.tomax.idm.client.local" configurationId="idm.client.local" />
+		
+		<context id="com.tomax.idm.admin.hq" configurationId="idm.admin.hq" />
+		<context id="com.tomax.idm.admin.store" configurationId="idm.admin.store" />
+		<context id="com.tomax.idm.admin.local" configurationId="idm.admin.local" />
+	</contexts>
+
+	<configurations>
+		<jboss7Ejb id="debug.api.hq">
+			<jndiName value="ejb:/RNetDomainDebug/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="debug.api.store">
+			<jndiName value="ejb:/RNetDomainDebug/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jndi id="debug.api.local">
+			<jndiName value="java:global/RNetDomainDebug/api/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+
+		<jboss7Ejb id="concurrency.hq">
+			<jndiName value="ejb:RNet/concurrency/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="concurrency.store">
+			<jndiName value="ejb:RNet/concurrency/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+
+		<!-- new configurations -->
+		<!-- RNet API -->
+		<jboss7Ejb id="api.hq">
+			<jndiName value="ejb:RNet/api/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="api.store">
+			<jndiName value="ejb:RNet/api/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jndi id="api.local">
+			<jndiName value="java:global/RNet/api/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+
+		<!-- RNet API -->
+		<jboss7Ejb id="backoffice.hq">
+			<jndiName value="ejb:Backoffice/api/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="backoffice.store">
+			<jndiName value="ejb:Backoffice/api/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jndi id="backoffice.local">
+			<jndiName value="java:global/Backoffice/api/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+
+		<!-- Persistence -->
+		<jndi id="api.persistence.local">
+			<jndiName value="java:global/RNet/persistence/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+		<jndi id="concurrency.local">
+			<jndiName value="java:global/RNet/concurrency/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+
+		<!-- WFO -->
+		<jboss7Ejb id="wfo.hq">
+			<jndiName value="ejb:WFM/com.tomax.wfo/hq/WFM${classSimpleName}!${className}" />
+		</jboss7Ejb>
+		<jboss7Ejb id="wfo.store">
+			<jndiName value="ejb:WFM/com.tomax.wfo/store/WFM${classSimpleName}!${className}" />
+		</jboss7Ejb>
+		
+		<!-- RNet API -->
+		<jboss7Ejb id="backoffice.hq">
+			<jndiName value="ejb:Backoffice/api/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="backoffice.store">
+			<jndiName value="ejb:Backoffice/api/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jndi id="backoffice.local">
+			<jndiName value="java:global/Backoffice/api/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+		
+		<!-- IDM Admin -->
+		<jboss7Ejb id="idm.admin.hq">
+			<jndiName value="ejb:idm-service/idm-server-admin-ejbs/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="idm.admin.store">
+			<jndiName value="ejb:idm-service/idm-server-admin-ejbs/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jndi id="idm.admin.local">
+			<jndiName value="java:global/ejb:idm-service/idm-server-admin-ejbs/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+		
+		<!-- IDM Client -->
+		<jboss7Ejb id="idm.client.hq">
+			<jndiName value="ejb:idm-service/idm-server-client-ejbs/hq/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jboss7Ejb id="idm.client.store">
+			<jndiName value="ejb:idm-service/idm-server-client-ejbs/store/${classSimpleName}_EJB!${className}_EJBRemote" />
+		</jboss7Ejb>
+		<jndi id="idm.client.local">
+			<jndiName value="java:global/ejb:idm-service/idm-server-client-ejbs/${classSimpleName}_EJB!${className}_EJBLocal" />
+		</jndi>
+	</configurations>
+</context-registry>

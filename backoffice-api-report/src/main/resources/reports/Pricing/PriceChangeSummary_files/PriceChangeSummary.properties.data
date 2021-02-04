@@ -1,0 +1,31 @@
+# Resource Bundle file.
+#
+reporttitle=Price Change Summary Report
+GroupID=Group ID
+EffectiveDate=Eff Date
+Markdown=Markdown $
+ProdCode=Product Code
+SKU=SKU #
+UPC=UPC
+VI=Vendor Item
+MFG=MFG Code
+Desc=Description
+Old=Old
+New=New
+Price=Price
+QOH=QOH
+Batch=Batch
+Site=Site
+ID=ID
+DepartmentTotal=Department Total:
+DeptNo=Dept
+ClassNo=Class
+LineNo=Line
+VendorId=Vendor
+FromDate=From Date
+ToDate=To Date
+ReportCode=Report Code
+AttributeName=Attribute
+AttributeValue=Value
+SiteTotal=Site Total:
+ReportTotal=Report Total:

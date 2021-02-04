@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.5.0-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="overshortdamaged_detail" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="overshortdamaged" uuid="6d757d01-c802-4542-8f0f-a785514f53cc">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/Custom/GPC/Reports/OverShortDamaged_detail"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/services/repository/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/Custom/GPC/Reports/OverShortDamaged_detail_files/main_jrxml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="gpc2"/>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group4 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#597177" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group5 Header" mode="Opaque" forecolor="#000000" backcolor="#B7C5C7" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="0.25" lineColor="#999999"/>
+			<leftPen lineWidth="0.25" lineColor="#999999"/>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+			<rightPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Page Footer" forecolor="#000000" backcolor="#FFFFFF" vAlign="Bottom" isBlankWhenNull="true" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="0" rightPadding="0"/>
+	</style>
+	<style name="Report Total" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="date_type" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="from_date" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="to_date" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="group_id" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\code\\JasperReport\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="po_num" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="po_site_no" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT ah.site_no site_no, ah.doc_no doc_no, ph.vendor_id, name, 'R' rec_type, nvl(ah.asn_id,' ') asn_id,  1 orderby
+ FROM po_hdr ph
+JOIN   po_dtl pd ON pd.po_site_no = ph.po_site_no AND pd.po_no = ph.po_no  --AND pd.po_status != 'C'
+JOIN rcvdoc rd ON rd.po_no = ph.po_no AND rd.po_site_no = ph.po_site_no
+JOIN rcvlin rl ON rl.site_no = rd.site_no AND rl.doc_no = rd.doc_no AND rl.sku_no = pd.sku_no
+join   invtory i ON i.sku_no = pd.sku_no
+join   vendor v  ON v.vendor_id = ph.vendor_id
+join asn_dtl ad on ad.source_doc_site_no = ph.po_site_no and ad.source_doc_no = ph.po_no and ad.source_doc_type_cd = 'P' and ad.sku_no = pd.sku_no and ad.source_doc_seq_no = pd.seq_no
+join asn_hdr ah on ah.site_no = ad.site_no and ah.doc_no = ad.doc_no
+WHERE 1=1
+   AND (nvl($P{po_num},0) = 0 AND (($P{date_type} = 'R' AND rd.receive_dt BETWEEN $P{from_date} AND $P{to_date}
+                               OR ($P{date_type} = 'P' AND ph.origin_dt BETWEEN $P{from_date} AND $P{to_date})))
+                              AND ph.ship_site_no in (select site_no from sitgrp_all where group_id = $P{group_id})
+    OR (nvl($P{po_num},0) > 0 AND ph.po_no = $P{po_num} AND ph.po_site_no = $P{po_site_no}))
+   AND pd.order_qty != pd.received_qty
+UNION
+SELECT ph.po_site_no site_no, ph.po_no doc_no, ph.vendor_id, name, 'A' rec_type, nvl(r.asn_id,' ') asn_id,  2 orderby
+ FROM po_hdr ph
+join   vendor v  ON v.vendor_id = ph.vendor_id
+JOIN   po_dtl pd ON pd.po_site_no = ph.po_site_no AND pd.po_no = ph.po_no
+JOIN rcvdoc r ON r.po_no = ph.po_no AND r.po_site_no = ph.po_site_no
+JOIN adjust a ON a.link_site_no = r.site_no AND a.link_reference_no = r.doc_no
+JOIN rcvlin rl ON rl.doc_no = r.doc_no AND rl.sku_no = a.sku_no
+JOIN invtory i ON i.sku_no = a.sku_no
+WHERE 1=1
+   AND a.adj_type = 'R'
+   AND r.asn_id is not null
+   AND (nvl($P{po_num},0) = 0 AND (($P{date_type} = 'R' AND r.receive_dt BETWEEN $P{from_date} AND $P{to_date}
+                               OR ($P{date_type} = 'P' AND ph.origin_dt BETWEEN $P{from_date} AND $P{to_date})))
+                              AND ph.ship_site_no in (select site_no from sitgrp_all where group_id = $P{group_id})
+    OR (nvl($P{po_num},0) > 0 AND ph.po_no = $P{po_num} AND ph.po_site_no = $P{po_site_no}))
+
+
+ORDER BY 3,1,6,7]]>
+	</queryString>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="DOC_NO" class="java.math.BigDecimal"/>
+	<field name="VENDOR_ID" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="REC_TYPE" class="java.lang.String"/>
+	<field name="ASN_ID" class="java.lang.String"/>
+	<field name="ORDERBY" class="java.math.BigDecimal"/>
+	<variable name="tot_disc_qty" class="java.math.BigDecimal" resetType="Group" resetGroup="PO" calculation="Sum"/>
+	<variable name="tot_disc_amt" class="java.math.BigDecimal" resetType="Group" resetGroup="PO" calculation="Sum"/>
+	<variable name="gt_disc_qty" class="java.math.BigDecimal" resetType="None" calculation="Sum">
+		<variableExpression><![CDATA[$V{tot_disc_qty}]]></variableExpression>
+	</variable>
+	<variable name="gt_disc_amt" class="java.math.BigDecimal" incrementType="Group" incrementGroup="PO" calculation="Sum">
+		<variableExpression><![CDATA[$V{tot_disc_amt}]]></variableExpression>
+	</variable>
+	<group name="Vendor" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{VENDOR_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="15">
+				<textField>
+					<reportElement style="Group1 Header" x="0" y="0" width="478" height="15" uuid="77beb74a-4934-422f-9cce-ce7fb1b65d22"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Vendor : " + $F{VENDOR_ID} + " - " + $F{NAME}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="PO">
+		<groupExpression><![CDATA[$F{SITE_NO} + $F{ASN_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="47">
+				<textField>
+					<reportElement style="Group1 Header" x="0" y="0" width="478" height="15" uuid="a175bd97-3536-4942-835f-c055f893cf3b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{ASN_ID}.equals(" ")? " ":"ASN ID: " + $F{ASN_ID})]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="¤ #,##0.00">
+					<reportElement style="Column Header" x="374" y="19" width="33" height="27" uuid="645e7320-ca23-4900-a8d3-c2cd8168874a"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{actual_qty}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Column Header" x="271" y="19" width="37" height="27" uuid="522335e3-0d1b-4ba9-b841-851d137e12a3"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{class}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Column Header" x="341" y="19" width="33" height="27" uuid="543fb404-1fec-4734-8267-9be9efe7cfff"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{asn_qty}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="55" y="19" width="59" height="27" uuid="a2c023a6-e351-4eaa-ae30-802ef0d539b8"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{item_no}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Column Header" x="224" y="19" width="47" height="27" uuid="595e50ba-8afb-474d-a7b6-ac823b26c092"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{group_code}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Column Header" x="308" y="19" width="33" height="27" uuid="62c8adbe-379e-448a-a132-0970fc387d81"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{order_qty}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column Header" x="1" y="19" width="54" height="27" forecolor="#000000" uuid="5be797a1-3f83-41f7-9f25-52a0603ed420"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{product_line}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="">
+					<reportElement style="Column Header" x="407" y="19" width="68" height="27" uuid="20692c3c-01ce-4d1a-813f-b774a024f99f"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{disc_cost}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yy">
+					<reportElement style="Column Header" x="114" y="19" width="110" height="27" uuid="e13c9fed-cabf-468b-8e47-14421d29d4c5"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{description}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="">
+					<reportElement style="Column Header" x="475" y="19" width="98" height="27" uuid="a02c592e-1577-43de-8b76-17ca4fd888e0"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{reason}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="23">
+				<textField pattern="###0" isBlankWhenNull="true">
+					<reportElement style="Report Total" x="225" y="3" width="34" height="15" uuid="e34fabb0-e9db-4abb-a1e3-164b9eb38683"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tot_disc_qty}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement style="Report Total" x="407" y="3" width="67" height="15" uuid="08ba0768-253e-44e5-8ab0-54025d65aa66"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tot_disc_amt}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Report Total" x="54" y="3" width="171" height="15" uuid="8226fa64-86a6-41af-84e0-d3a76f5799a2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{total_disc_qty}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Report Total" x="259" y="3" width="148" height="15" uuid="30cdfc06-ab3b-407e-92ca-166be8415b33"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{total_disc_amt}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<textField>
+				<reportElement key="Parameter" style="Parameter Title" x="4" y="27" width="133" height="14" uuid="23be25fa-d920-4451-8c80-2261a022951a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Report Parameters"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Report Title" style="Report Title" x="0" y="0" width="400" height="23" uuid="8c488384-08e2-446f-a3b1-bcf9da1c6a5f"/>
+				<textFieldExpression><![CDATA[$R{report_title_detail}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement key="logo" x="400" y="0" width="172" height="23" uuid="2fc7e6f0-3591-42e9-9ec6-8cafd01da0ee"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="3" y="42" width="51" height="14" uuid="c8829415-fc95-4080-a177-42803ba68c00"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{group_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="68" y="56" width="16" height="14" uuid="7db1a9a3-cc10-4155-a926-e19e1fa0f340">
+					<printWhenExpression><![CDATA[new Boolean(!$P{po_num}.equals(null) && $P{po_num}.length() > 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" = "]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement key="Parameter 2" style="Parameter" x="68" y="70" width="68" height="14" uuid="97222fad-cd77-4354-b99a-61d53a057fbd">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="68" y="42" width="68" height="14" uuid="89c69ab0-190a-4ffb-bee9-45f9b5108bf8"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{group_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="56" width="63" height="15" uuid="2f8be97a-ab32-4fa5-963c-8d188d73576a">
+					<printWhenExpression><![CDATA[new Boolean(!$P{po_num}.equals(null) && $P{po_num}.length() > 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Specific PO #"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="3" y="70" width="51" height="14" uuid="175c896a-c841-410e-ac60-424f82d1c496">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{to_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Parameter" x="136" y="56" width="394" height="14" uuid="003ebaa0-177a-4f58-bff5-af62576ff6ae">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date_type}.equals("P")?"Based on Purchase Order Date":"Based on Receipt Date"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="3" y="56" width="51" height="14" uuid="fa8f8534-7a2a-4fcd-a096-6e267e294f94">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{from_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="54" y="56" width="14" height="14" uuid="d2f25e96-0033-4e00-9e37-a4600019e85e">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" = "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="54" y="42" width="14" height="14" uuid="84ae5ca8-f937-457d-ac46-6273ca44828b"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" = "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="Parameter 2" style="Parameter" x="54" y="70" width="14" height="14" uuid="75ff06b6-4e07-41ad-b06a-46c4f38105a1">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" = "]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement key="Parameter 2" style="Parameter" x="68" y="56" width="68" height="14" uuid="85a01e37-6d8b-4691-b8b6-386be230cd2a">
+					<printWhenExpression><![CDATA[new Boolean($P{po_num}.equals(null) || $P{po_num}.length() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="56" width="58" height="14" uuid="66abdd29-2d39-4ac0-8a32-6dc7d2e4e146">
+					<printWhenExpression><![CDATA[new Boolean(!$P{po_num}.equals(null) && $P{po_num}.length() > 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{po_num}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="15" uuid="90aca60f-4438-440c-b28c-b747a52d7e5a">
+					<printWhenExpression><![CDATA[$F{REC_TYPE}.equals("R")]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="doc_no">
+					<subreportParameterExpression><![CDATA[$F{DOC_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="site_no">
+					<subreportParameterExpression><![CDATA[$F{SITE_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="discrepancy_qty" toVariable="tot_disc_qty" calculation="Sum"/>
+				<returnValue subreportVariable="discrepancy_amt" toVariable="tot_disc_amt" calculation="Sum"/>
+				<subreportExpression><![CDATA["repo:overshortdamaged_recv_sub"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="15" isRemoveLineWhenBlank="true" uuid="89fbdbca-10f7-416f-9b2e-399e19f00272">
+					<printWhenExpression><![CDATA[$F{REC_TYPE}.equals("COMMENT OUT FOR NOW")]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="po_no">
+					<subreportParameterExpression><![CDATA[$F{DOC_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="po_site_no">
+					<subreportParameterExpression><![CDATA[$F{SITE_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="discrepancy_qty" toVariable="tot_disc_qty" calculation="Sum"/>
+				<returnValue subreportVariable="discrepancy_amt" toVariable="tot_disc_amt" calculation="Sum"/>
+				<subreportExpression><![CDATA["repo:overshortdamaged_rtv_sub"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="15" uuid="40c9db05-c738-4bac-a270-de6fa21ba413">
+					<printWhenExpression><![CDATA[$F{REC_TYPE}.equals("A")]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="po_no">
+					<subreportParameterExpression><![CDATA[$F{DOC_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="po_site_no">
+					<subreportParameterExpression><![CDATA[$F{SITE_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="discrepancy_qty" toVariable="tot_disc_qty" calculation="Sum"/>
+				<returnValue subreportVariable="discrepancy_amt" toVariable="tot_disc_amt" calculation="Sum"/>
+				<subreportExpression><![CDATA["repo:overshortdamaged_adj_sub"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement style="Page Footer" x="374" y="1" width="104" height="20" uuid="528f7484-ab03-48d0-89ff-cb469f00b976"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Page Footer" x="493" y="1" width="77" height="20" uuid="e28c3085-16c4-4074-86fd-f6527075924f"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Page Footer" x="478" y="1" width="15" height="20" uuid="ac6c25e8-893c-409b-8b7f-58f664b0fa69"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy.MM.dd &apos;at&apos; HH:mm:ss z">
+				<reportElement style="Page Footer" x="0" y="1" width="374" height="20" uuid="d7d4e599-3650-44be-afba-c12231aa810a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

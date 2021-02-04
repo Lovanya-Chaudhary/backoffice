@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "6c7c8308-1650-4b80-8be8-0e9f36fdf05a",
+		"name": "Vendor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "owner id from vendor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/ownerId/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"ownerId",
+						"1"
+					],
+					"query": [
+						{
+							"key": "site_no",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all suppliers for sku",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/allsuppliers/60600",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"allsuppliers",
+						"60600"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save suppliers for sku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"supplier_name\" : [\r\n        \"3M\",\r\n        \"A-1\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/supplier/60600",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"supplier",
+						"60600"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						},
+						{
+							"key": "supplierName",
+							"value": "ALLWAY",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update suppliers for sku",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"update_supplier\": [\r\n        {\r\n            \"new_supplier\" : \"ACCUSPRAY\",\r\n            \"previous_supplier\" : \"3M\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/updatesupplier/60600",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"updatesupplier",
+						"60600"
+					],
+					"query": [
+						{
+							"key": "supplierName",
+							"value": "ALLWAY",
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete suppliers",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"supplier_name\" : [\r\n        \"ASM\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/deletesupplier/60600",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"deletesupplier",
+						"60600"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60481",
+							"disabled": true
+						},
+						{
+							"key": "supplierName",
+							"value": "ALLWAY",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all vendor items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/allvendors/60688?site_group_id=1&vendor_id=",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"allvendors",
+						"60688"
+					],
+					"query": [
+						{
+							"key": "site_group_id",
+							"value": "1"
+						},
+						{
+							"key": "skuNo",
+							"value": "60545",
+							"disabled": true
+						},
+						{
+							"key": "vendor_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item codes update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"value": "{{udtoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code1_id\" : \".25\",\r\n    \"code2_id\" : \"D\",\r\n    \"code3_id\" : \"90\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/inventory/itemcodes/60665/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"inventory",
+						"itemcodes",
+						"60665",
+						"1"
+					],
+					"query": [
+						{
+							"key": "code1Id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "code2Id",
+							"value": "A",
+							"disabled": true
+						},
+						{
+							"key": "code3Id",
+							"value": "180",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vendor item create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pack_cost\":5,\r\n    \"pack_qty\":31,\r\n    \"pack_um\":\"DZ\",\r\n    \"vendor_id\":\"DAY\",\r\n    \"vendor_item\":\"12\",\r\n    \"master_pack_qty\":62,\r\n    \"lead_time\":3,\r\n    \"eoq\":3,\r\n    \"oa_status\":\"ACT\",\r\n    \"pack_weight\":25,\r\n    \"pack_cube\":25,\r\n    \"vendor_type\":\"P\",\r\n    \"main_flag\":\"Y\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/vendorItem/1/60688?site_group_id=T085",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"vendorItem",
+						"1",
+						"60688"
+					],
+					"query": [
+						{
+							"key": "siteNo",
+							"value": "115",
+							"disabled": true
+						},
+						{
+							"key": "skuNo",
+							"value": "60545",
+							"disabled": true
+						},
+						{
+							"key": "site_group_id",
+							"value": "T085"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update vendor item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"copy_from_vendor_item\":12,\r\n    \"copy_from_pack_qty\":31,\r\n    \"vendor_id\":\"DAY\",\r\n    \"primary\":true,\r\n    \"main\":true,\r\n    \"vendor_item\":17,\r\n    \"pack_um\":\"EA\",\r\n    \"pack_qty\":11,\r\n    \"master_pack_qty\":33,\r\n    \"lead_time\":11,\r\n    \"eoq\":11,\r\n    \"oa_status\":\"DSDEX\",\r\n    \"pack_cost\":25.56,\r\n    \"update_primary_fl\":true,\r\n    \"update_main_fl\":true,\r\n    \"update_vendor_item_fl\":true,\r\n    \"update_pack_um_fl\":true,\r\n    \"update_pack_qty_fl\":true,\r\n    \"update_master_pack_qty_fl\":true,\r\n    \"update_lead_time_fl\":true,\r\n    \"update_eoq_fl\":true,\r\n    \"update_oa_status_fl\":true,\r\n    \"update_pack_cost_fl\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/updatevendorItem/1/60688?site_group_id=1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"updatevendorItem",
+						"1",
+						"60688"
+					],
+					"query": [
+						{
+							"key": "skuNo",
+							"value": "60545",
+							"disabled": true
+						},
+						{
+							"key": "site_group_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete vendor",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/v1/vendor/deletevendorItem/28666443",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"v1",
+						"vendor",
+						"deletevendorItem",
+						"28666443"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

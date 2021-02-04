@@ -1,0 +1,11 @@
+# Resource Bundle file.
+#
+report_title=Stylist Pricing Report
+site_no=Site #
+parameters=Report Parameters
+report_mode=Report Mode
+employee=Employee
+sku_no=SKU #
+description=Description
+price=Employee Price
+tier_price=Tier Price

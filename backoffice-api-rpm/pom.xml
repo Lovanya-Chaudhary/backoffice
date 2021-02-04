@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+		xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.rediron.platform</groupId>
+		<artifactId>backoffice-api-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.rediron.platform</groupId>
+	<artifactId>backoffice-api-rpm</artifactId>
+	<name>backoffice-api-rpm :: RPM</name>
+	<description>Back Office API RPM Project</description>
+	<packaging>${packaging}</packaging>
+
+	<properties>
+		<packaging>pom</packaging>
+		<app.user>rap</app.user>
+		<rpm.name>backoffice-api-rpm</rpm.name>
+		<app.home>/u01/app/api-platform/BOPOC/backoffice-api</app.home>
+		<prefix>${app.home}</prefix>
+		<!--	TODO These value will be picked from Bamboo Server -->
+		<bamboo.buildNumber>1</bamboo.buildNumber>
+		<env.bamboo_signKey></env.bamboo_signKey>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.rediron.platform</groupId>
+			<artifactId>backoffice-api-core</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>rpm-linux</id>
+			<activation>
+				<file>
+					<exists>/usr/bin/rpmbuild</exists>
+				</file>
+			</activation>
+			<properties>
+				<packaging>rpm</packaging>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.rediron.platform</groupId>
+									<artifactId>backoffice-api-core</artifactId>
+									<version>${project.version}</version>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+						<executions>
+							<execution>
+								<id>unpack</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<configuration>
+							<!--<copyright>Copyright 2020</copyright>-->
+							<distribution>Retail.Net-1.0 distribution</distribution>
+							<release>${bamboo.buildNumber}</release>
+							<keyname>${env.bamboo_signKey}</keyname>
+							<group>Application/Databases</group>
+							<packager>info@redirontech.com</packager>
+							<prefix>${prefix}</prefix>
+							<requires>
+								<require>rap-infrastructure &gt;= 2.0.2</require>
+							</requires>
+							<defaultDirmode>755</defaultDirmode>
+							<defaultFilemode>644</defaultFilemode>
+							<defaultGroupname>tomax</defaultGroupname>
+							<defaultUsername>${app.user}</defaultUsername>
+							<name>${rpm.name}</name>
+							<mappings>
+								<mapping>
+									<directory>${app.home}</directory>
+									<sources>
+										<source>
+											<location>${project.build.directory}/dependency</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>${app.home}/bin</directory>
+									<filemode>755</filemode>
+									<groupname>tomax</groupname>
+									<username>${app.user}</username>
+									<sources>
+										<source>
+											<location>${project.build.directory}/dependency/bin</location>
+										</source>
+									</sources>
+								</mapping>
+							</mappings>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<executable>rpm</executable>
+							<arguments>
+								<argument>-qpi</argument>
+								<argument>--qf</argument>
+								<argument>[%-13{FILEMODES:perms} %-8{FILEUSERNAME}
+									%-8{FILEGROUPNAME} %-10{FILESIZES} %{FILENAMES}\n]</argument>
+								<argument>${project.build.directory}/rpm/${project.artifactId}/RPMS/noarch/*.rpm</argument>
+							</arguments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

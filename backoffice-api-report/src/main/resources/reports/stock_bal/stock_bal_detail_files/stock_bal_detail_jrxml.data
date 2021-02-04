@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.5.0-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="stock_balance_2" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="24cadc43-6f9f-4ea9-86f1-1cc991b1197e">
+	<property name="ireport.jasperserver.reportUnit" value="/public/Tomax/MMSO/stock_bal/reports/stock_bal_detail"/>
+	<property name="ireport.jasperserver.url" value="http://dev01.tmx.com:8080/jasperserver-pro/"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DA-CT209"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/Tomax/MMSO/stock_bal/reports/stock_bal_detail_files/stock_bal_detail_jrxml"/>
+	<style name="Column Header" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3">
+			<leftPen lineWidth="0.75" lineColor="#000000"/>
+			<bottomPen lineWidth="0.75" lineColor="#000000"/>
+			<rightPen lineWidth="0.75" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Detail" mode="Opaque" forecolor="#000000" backcolor="#F5F5F5" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="2" rightPadding="2">
+			<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2 == 0)]]></conditionExpression>
+			<style mode="Transparent" backcolor="#FFFFFF" fontName="Arial"/>
+		</conditionalStyle>
+	</style>
+	<style name="Group2 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#3E7899" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Parameter" forecolor="#000000" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Group1 Header_1" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Report Title" mode="Transparent" forecolor="#3E7899" backcolor="#FFFFFF" hAlign="Left" vAlign="Top" isBlankWhenNull="true" fontName="Arial" fontSize="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+	<style name="Parameter Title" forecolor="#000000" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box>
+			<bottomPen lineWidth="0.25" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="Group1 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#215C7B" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<style name="Group3 Header" mode="Opaque" forecolor="#FFFFFF" backcolor="#5C93AD" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Arial" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold">
+		<box leftPadding="3" rightPadding="3"/>
+	</style>
+	<parameter name="stock_bal_no" class="java.math.BigDecimal"/>
+	<parameter name="first_xfer_no" class="java.math.BigDecimal"/>
+	<parameter name="last_xfer_no" class="java.math.BigDecimal"/>
+	<parameter name="user_pref" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select sbh.xfer_site_no, sbh.xfer_no, sbh.ship_site_no, sbh.recv_site_no,
+	sbh.orig_dt, sbh.ship_dt, sbh.xfer_by, sbh.xfer_invoice_no, sbh.order_no, sbh.box_shipped_qty,
+	sbh.link_xfer_no, sbh.tracking_cd, sbh.xfer_po_no, sbh.ship_via, sbh.box_received_qty,
+	sbd.seq_no, sbd.sku_no,  inv.mfg_cd, iu.upc_id, vi.vendor_item, sbd.xfer_qty, sbd.ship_qty,sbd.cost,
+	inv.description, inv.dept_no, inv.mfg_cd, inv.report_um, inv.pkg_desc,
+	s1.site_no, s1.full_name ship_name, s1.adr1 ship_adr1, s1.city ship_city, s1.state ship_state,
+	s1.zip ship_zip,
+	s2.site_no, s2.full_name recv_name, s2.adr1 recv_adr1, s2.city recv_city, s2.state recv_state,
+	s2.zip recv_zip,
+ (select time_zone_cd from site where site_no = 1) as time_zone_cd
+from site s, site s1, site s2, stock_balance_hdr_stage sbh, stock_balance_dtl_stage sbd, invtory inv, itemupc iu, vendor_item vi
+where sbh.stock_bal_no = $P{stock_bal_no}
+and sbh.stock_bal_no = sbd.stock_bal_no
+and sbh.xfer_site_no = s.site_no
+and sbh.ship_site_no = s1.site_no
+and sbh.recv_site_no = s2.site_no
+and sbh.xfer_site_no = sbd.xfer_site_no
+and sbh.xfer_no = sbd.xfer_no
+and inv.sku_no = sbd.sku_no
+and iu.sku_no  = inv.sku_no and iu.upc_seq = 1
+and vi.site_no = s.site_no and vi.sku_no = inv.sku_no and vi.ven_type = 'P'
+order by sbh.xfer_site_no, sbh.xfer_no, sbd.seq_no]]>
+	</queryString>
+	<field name="XFER_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_NO" class="java.math.BigDecimal"/>
+	<field name="SHIP_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="RECV_SITE_NO" class="java.math.BigDecimal"/>
+	<field name="ORIG_DT" class="java.sql.Timestamp"/>
+	<field name="SHIP_DT" class="java.sql.Timestamp"/>
+	<field name="XFER_BY" class="java.lang.String"/>
+	<field name="XFER_INVOICE_NO" class="java.math.BigDecimal"/>
+	<field name="ORDER_NO" class="java.math.BigDecimal"/>
+	<field name="BOX_SHIPPED_QTY" class="java.math.BigDecimal"/>
+	<field name="LINK_XFER_NO" class="java.math.BigDecimal"/>
+	<field name="TRACKING_CD" class="java.lang.String"/>
+	<field name="XFER_PO_NO" class="java.math.BigDecimal"/>
+	<field name="SHIP_VIA" class="java.lang.String"/>
+	<field name="BOX_RECEIVED_QTY" class="java.math.BigDecimal"/>
+	<field name="SEQ_NO" class="java.math.BigDecimal"/>
+	<field name="SKU_NO" class="java.math.BigDecimal"/>
+	<field name="XFER_QTY" class="java.math.BigDecimal"/>
+	<field name="SHIP_QTY" class="java.math.BigDecimal"/>
+	<field name="COST" class="java.math.BigDecimal"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="DEPT_NO" class="java.math.BigDecimal"/>
+	<field name="MFG_CD" class="java.lang.String"/>
+	<field name="REPORT_UM" class="java.lang.String"/>
+	<field name="PKG_DESC" class="java.lang.String"/>
+	<field name="SITE_NO" class="java.math.BigDecimal"/>
+	<field name="SHIP_NAME" class="java.lang.String"/>
+	<field name="SHIP_ADR1" class="java.lang.String"/>
+	<field name="SHIP_CITY" class="java.lang.String"/>
+	<field name="SHIP_STATE" class="java.lang.String"/>
+	<field name="SHIP_ZIP" class="java.lang.String"/>
+	<field name="RECV_NAME" class="java.lang.String"/>
+	<field name="RECV_ADR1" class="java.lang.String"/>
+	<field name="RECV_CITY" class="java.lang.String"/>
+	<field name="RECV_STATE" class="java.lang.String"/>
+	<field name="RECV_ZIP" class="java.lang.String"/>
+	<field name="TIME_ZONE_CD" class="java.lang.String"/>
+	<field name="UPC_ID" class="java.lang.String"/>
+	<field name="VENDOR_ITEM" class="java.lang.String"/>
+	<variable name="Total_expected" class="java.math.BigDecimal" resetType="Group" resetGroup="xfer_no" calculation="Sum">
+		<variableExpression><![CDATA[$F{XFER_QTY}]]></variableExpression>
+	</variable>
+	<variable name="Total_shipped" class="java.math.BigDecimal" resetType="Group" resetGroup="xfer_no" calculation="Sum">
+		<variableExpression><![CDATA[$F{SHIP_QTY}]]></variableExpression>
+	</variable>
+	<variable name="Total_cost" class="java.math.BigDecimal" resetType="Group" resetGroup="xfer_no" calculation="Sum">
+		<variableExpression><![CDATA[$F{SHIP_QTY} * $F{COST}]]></variableExpression>
+	</variable>
+	<group name="xfer_no" isResetPageNumber="true">
+		<groupExpression><![CDATA[$F{XFER_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="255">
+				<staticText>
+					<reportElement x="0" y="176" width="100" height="15" uuid="f329dc0c-70ec-4b18-bb99-3326e7915fd0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Box Shipped Qty:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="255" y="15" width="81" height="15" uuid="3fd0a8bc-c67a-4917-8c83-a80e1683f034"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date Shipped:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="146" width="140" height="15" uuid="63d906a3-25a5-4a37-ba61-26608fcc495b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_INVOICE_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="131" width="100" height="15" uuid="d89714a0-b0c2-4c6a-867e-7c25c97b441e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Initiated By:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="105" width="120" height="15" uuid="4b2f44e8-5ee6-41d0-abbd-93e6d15bee6f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_ZIP}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="191" width="140" height="15" uuid="9aae9f06-63df-4350-bfa8-b8d77852984a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LINK_XFER_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="75" width="120" height="15" uuid="04e26c51-ec42-4be1-8acd-4d46d7f4f0c9"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_CITY}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="350" y="146" width="100" height="15" uuid="137f135b-e6fa-4620-b266-9713d76091d3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_VIA}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="206" width="140" height="15" uuid="597e5863-15a8-45bd-8732-852c91944db2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TRACKING_CD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="191" width="100" height="15" uuid="60d0e4f5-4e8a-4b86-9b04-85b18d00166e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Link Transfer #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="161" width="100" height="15" uuid="91e44b83-c37a-4617-ade1-e20c70e5ce3c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Order #:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="450" y="105" width="120" height="15" uuid="5300c4c5-a60d-454b-9fa3-39143bff3865"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_ZIP}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="255" y="146" width="95" height="15" uuid="17c34e5e-d8ee-4495-b3b5-c9fe068f4316"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ship Via:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="105" y="45" width="35" height="15" uuid="eb4392f7-6127-46e5-8dc1-4179fe9c46e1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="350" y="161" width="100" height="15" uuid="a8da6989-73ce-40b8-9c58-5e2760424fcd"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BOX_RECEIVED_QTY}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MMMMM.dd yyyy hh:mm aaa" isBlankWhenNull="true">
+					<reportElement x="336" y="0" width="100" height="15" uuid="60f83083-8cd0-46ad-b9f4-0d313c8b18e8"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ORIG_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="103" y="0" width="55" height="15" uuid="3a945ca4-32ff-446a-9a61-2dd4c827828f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="255" y="131" width="95" height="15" uuid="db040440-ace1-41ea-ba54-02d14325547b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Transfer P.O. #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="255" y="161" width="95" height="15" uuid="06438ad2-260b-48d8-9f91-22794010d04e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Box Received Qty:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="176" width="140" height="15" uuid="8c36cc97-28e2-4dcc-afe9-cd74cb07eaa3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BOX_SHIPPED_QTY}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="350" y="131" width="100" height="15" uuid="9d63195f-0037-4a4e-825c-248c24e9c6b9"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_PO_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="45" width="120" height="15" uuid="06ee4a88-b495-470b-93af-d03f8a35dc65"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_NAME}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="131" width="140" height="15" uuid="a3ebc2a3-ed5c-4805-8223-ac5b2aceb89e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_BY}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="93" y="0" width="10" height="15" uuid="16986b49-f662-43d5-a80e-d4efec67c0a9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[-]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="45" width="120" height="15" uuid="9071598d-1ed8-4607-97d8-5cf63079b9bc"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_NAME}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="161" width="140" height="15" uuid="82ee615a-027c-4afd-a2ec-21bc5787bc82"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ORDER_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="60" width="120" height="15" uuid="6db8eb84-8f5a-42d0-9764-a6184e2c78de"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_ADR1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="140" y="60" width="120" height="15" uuid="af41ab6f-4331-4d28-bd26-c99701ec1fbe"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_ADR1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="90" width="120" height="15" uuid="fb9e4ad2-f322-4057-a078-990c20d2d39d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_STATE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="58" height="15" uuid="89fdfac5-0671-4de0-8171-6ab80a6353ae"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Transfer #:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="75" width="120" height="15" uuid="d6529de9-6630-4e75-af53-8bba38472e70"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_CITY}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="320" y="45" width="90" height="15" uuid="946da2f8-38b6-471c-bffc-753c1fefe284"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Receiving Site #:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="90" width="120" height="15" uuid="8a8e8551-2905-4a78-9240-540ebb5dd2b1"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_STATE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="146" width="100" height="15" uuid="6152891b-141b-404b-8325-0ff6b4801c50"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Transfer Invoice #:]]></text>
+				</staticText>
+				<textField pattern="MMMMM.dd yyyy hh:mm aaa" isBlankWhenNull="true">
+					<reportElement x="336" y="15" width="100" height="15" uuid="d2d8d3cf-51c8-4fa6-803f-e8cf4c7d80e9"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIP_DT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="420" y="45" width="30" height="15" uuid="196fc497-c305-410d-9781-eb293f37ddf6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RECV_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="58" y="0" width="35" height="15" uuid="d0be1435-73a5-47ac-8904-43b2519b8fb7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{XFER_SITE_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="45" width="90" height="15" uuid="912d8847-9eaa-48e2-8947-c732a142ce48"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Shipping Site #:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="255" y="0" width="81" height="15" uuid="5eb22d12-6252-4994-bcbc-6889611c837b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date Prepared:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="206" width="100" height="15" uuid="774c6307-4d2f-43c0-811e-7b08223cd91e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tracking Code:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="535" y="220" width="40" height="30" uuid="3c16a75f-3835-4cc4-a0bd-b1cd91cd0dd6">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qty  Ship]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="365" y="230" width="50" height="20" uuid="89ccc825-0539-4f7d-8d92-cb54161828a3"/>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dept]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="575" y="230" width="40" height="20" uuid="96170d68-e288-437c-b79d-19dd96b002d0">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Units]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="495" y="220" width="40" height="30" uuid="8a6ea5cf-7117-4fb6-b8de-f5ec597aabf0">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qty Expctd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="250" y="230" width="115" height="20" uuid="a4f3a19e-8c80-4441-8ba3-54a858a75652">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="665" y="220" width="60" height="30" uuid="e4d632ef-64cc-4d7c-bb24-3f6127470b75">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Extended
+Cost]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="415" y="230" width="80" height="20" uuid="8cd12422-4d72-40f2-abb0-b4171f79a230">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Package Desc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="615" y="220" width="50" height="30" uuid="ae90049e-213d-4930-92f9-016a7fd5348e">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantity
+Cost]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="30" y="230" width="120" height="20" uuid="db72c9f4-cf52-4980-9bc5-2e024cd925fa">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? "SKU" :
+  ( $P{user_pref}.equals("U") ? "UPC" :
+  ( $P{user_pref}.equals("V") ? "Vendor Item" :
+  ( $P{user_pref}.equals("M") ? "MFG Code" : "SKU" )))]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="150" y="230" width="100" height="20" uuid="95779f3a-d712-4e05-8d1c-81443e380b83">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? "MFG Code" :
+  ( $P{user_pref}.equals("U") ? "MFG Code" :
+  ( $P{user_pref}.equals("V") ? "MFG Code" :
+  ( $P{user_pref}.equals("M") ? "SKU" : "MFG Code" )))]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="230" width="30" height="20" uuid="309a050a-5813-405f-a8f3-e3adf85b67b8">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+					</reportElement>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Line]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<property name="local_mesure_unitheight" value="pixel"/>
+				<textField>
+					<reportElement x="495" y="5" width="40" height="15" uuid="e5e10940-141e-42d7-8057-278595f6999a">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Total_expected}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="380" y="5" width="100" height="15" uuid="7ae395b7-090e-43e7-9e82-c5d50f49bc6d"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Totals]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="535" y="5" width="40" height="15" uuid="9c6a3ad2-e9cd-469f-8483-518ae15aeb3c">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Total_shipped}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement x="655" y="5" width="70" height="15" uuid="9f4ea79f-9dc6-4cf3-b40d-c979e1f540c6"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Total_cost}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="0" width="250" height="25" uuid="66643058-99f4-404b-899e-884aa2b1c92a">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transfer Documents]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="45" width="45" height="15" uuid="31f868fc-b52c-438c-83e2-bab4e499148b">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{first_xfer_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Parameter Title" x="0" y="25" width="120" height="20" uuid="bfd5afc3-1f30-436c-be8a-43a3a6e20e30">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report Parameters]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="100" height="15" uuid="2279c9bd-ddb2-43ba-8363-7d98f908414e">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From Transfer No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="100" height="15" uuid="c6dfdc8c-ef61-4d47-9dd0-fe529a4859b9">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To Transfer No:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="60" width="45" height="15" uuid="0ac60b85-a5f5-40c4-9128-a06a3161bd2a">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{last_xfer_no}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="629" y="0" width="100" height="50" uuid="1a3c793f-c7e0-46f8-b4d2-90bc1307dbe7"/>
+				<imageExpression><![CDATA["repo:logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="150" y="0" width="100" height="25" uuid="42fe3b62-4f4d-4caa-bb80-01cbc9e76cd3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? "MFG Code" :
+  ( $P{user_pref}.equals("U") ? "MFG Code" :
+  ( $P{user_pref}.equals("V") ? "MFG Code" :
+  ( $P{user_pref}.equals("M") ? "SKU" : "MFG Code" )))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="535" y="0" width="40" height="25" uuid="d58953a9-d35b-4b59-a8a0-358552136335">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty  Ship]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="0" width="120" height="25" uuid="cf987ccc-56fa-4f3d-ba4e-d8609b2f49a4">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? "SKU" :
+  ( $P{user_pref}.equals("U") ? "UPC" :
+  ( $P{user_pref}.equals("V") ? "Vendor Item" :
+  ( $P{user_pref}.equals("M") ? "MFG Code" : "SKU" )))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="665" y="0" width="60" height="25" uuid="8efcdd4d-a4d0-4479-86d6-6bfb7829828b">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Extended
+Cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="0" width="40" height="25" uuid="c7e2be1c-1194-4940-a44c-6580eb546bfd">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty Expctd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="575" y="0" width="40" height="25" uuid="281ed687-9aaf-4103-8c14-4fbe19f8a119">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Units]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="0" width="80" height="25" uuid="b6d5f75b-6945-4cf5-aca4-baf9cda78945">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Package Desc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="615" y="0" width="50" height="25" uuid="a61bf8dc-6b9e-4045-ad79-20c597ada1f7">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity
+Cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="115" height="25" uuid="1616bcd1-3c85-44a2-b74a-90d80e23ee33">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="25" uuid="42044f07-1fac-4d72-b5c9-ffa3a482e9ca">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Line]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="0" width="50" height="25" uuid="b19699a6-426f-4d9b-b182-f57d745718b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dept]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="15" uuid="0bc4035e-f2ff-40ee-b9fa-26f0400a7809">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box rightPadding="1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SEQ_NO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="0" width="120" height="15" uuid="16ae812f-ad2d-4f65-9fbe-2fce36cf38b2">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="1" rightPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? $F{SKU_NO} :
+  ( $P{user_pref}.equals("U") ? $F{UPC_ID} :
+  ( $P{user_pref}.equals("V") ? $F{VENDOR_ITEM} :
+  ( $P{user_pref}.equals("M") ? $F{MFG_CD} : $F{SKU_NO} )))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="115" height="15" uuid="6effe929-f890-4f23-b2c1-a1194ade4628">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="0" width="50" height="15" uuid="4e074bed-45dc-468b-af64-5109f6de05f3">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEPT_NO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="0" width="100" height="15" uuid="ddd66bdd-b2c7-41f7-ad36-118e83981f9d">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_pref}.equals("S") ? $F{MFG_CD} :
+  ( $P{user_pref}.equals("U") ? $F{MFG_CD} :
+  ( $P{user_pref}.equals("V") ? $F{MFG_CD} :
+  ( $P{user_pref}.equals("M") ? $F{SKU_NO} : $F{MFG_CD} )))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="0" width="40" height="15" uuid="a2dc72d8-d169-4b74-8e45-cf996525b7b2">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{XFER_QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="535" y="0" width="40" height="15" uuid="383ac883-8751-4d1c-9b57-12c517998b29">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIP_QTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="615" y="0" width="50" height="15" uuid="78c47a96-4683-4a46-a31f-86bf1f046823">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="575" y="0" width="40" height="15" uuid="55d51c08-f483-494b-abac-10387be1bacc">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{REPORT_UM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="665" y="0" width="60" height="15" uuid="8306cb1b-6eba-411e-931b-b2d5a1317dfb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIP_QTY} * $F{COST}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="415" y="0" width="80" height="15" uuid="45466cf4-ce34-476a-80fe-e0f4b61a51ff">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PKG_DESC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="643" y="0" width="72" height="20" uuid="4211795f-9665-4ec9-ac18-482875c9bf3a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="715" y="0" width="35" height="20" uuid="e997e537-695f-434e-87aa-e4a0976e91d9"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="3" y="0" width="136" height="17" uuid="c9846343-f448-4ef4-b6ec-41718e73ee57"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</summary>
+</jasperReport>

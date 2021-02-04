@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "16f486a0-dea5-4142-9ca3-89dae9845fa8",
+		"name": "Reports",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cash drawer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{rlocalhost}}/v1/reports/report?report_name=CASH_DRAWER_CONTENTS&p_site=1&p_site_desc=SITE-1&export_type=XLS",
+					"host": [
+						"{{rlocalhost}}"
+					],
+					"path": [
+						"v1",
+						"reports",
+						"report"
+					],
+					"query": [
+						{
+							"key": "report_name",
+							"value": "CASH_DRAWER_CONTENTS"
+						},
+						{
+							"key": "p_site",
+							"value": "1"
+						},
+						{
+							"key": "p_site_desc",
+							"value": "SITE-1"
+						},
+						{
+							"key": "export_type",
+							"value": "XLS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cash on hand",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{rlocalhost}}/v1/reports/report?report_name=CASH_ON_HAND&group_id=1&sep_sites=Y&dont_show_zeros=N&site_name=SITE-1&employee_id=LCHAUDHARY&export_type=PDF",
+					"host": [
+						"{{rlocalhost}}"
+					],
+					"path": [
+						"v1",
+						"reports",
+						"report"
+					],
+					"query": [
+						{
+							"key": "report_name",
+							"value": "CASH_ON_HAND"
+						},
+						{
+							"key": "group_id",
+							"value": "1"
+						},
+						{
+							"key": "sep_sites",
+							"value": "Y"
+						},
+						{
+							"key": "dont_show_zeros",
+							"value": "N"
+						},
+						{
+							"key": "site_name",
+							"value": "SITE-1"
+						},
+						{
+							"key": "employee_id",
+							"value": "LCHAUDHARY"
+						},
+						{
+							"key": "export_type",
+							"value": "PDF"
+						},
+						{
+							"key": "params",
+							"value": "{\"TUI\" : \"OIP\"}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "purchase order report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "udtoken",
+						"type": "text",
+						"value": "{{udtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{rlocalhost}}/v1/reports/report?p_buyer_id=&p_vendor_id=&p_ship_site_no=1&p_from_po_no=828851&p_to_po_no=828851&p_from_po_site_no=1&p_to_po_site_no=1&p_sort_by=S&p_secondary_display=V&p_attr1=N&p_attr2=N&p_attr3=N&p_print_item_notes=N&p_print_item_haz_notes=N&p_print_source_po=N&p_print_allocated=Y&p_print_po_policy=N&p_site_level_breakdown=N&p_consolidated_orders=N&p_direct_ship_orders=N&p_automatic_orders=N&p_internal_orders=N&p_master_po=N&p_retail=N&p_po_site_no=1&export_type=PDF&report_name=PURCHASE_ORDER",
+					"host": [
+						"{{rlocalhost}}"
+					],
+					"path": [
+						"v1",
+						"reports",
+						"report"
+					],
+					"query": [
+						{
+							"key": "p_from_date",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "p_to_date",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "p_buyer_id",
+							"value": ""
+						},
+						{
+							"key": "p_vendor_id",
+							"value": ""
+						},
+						{
+							"key": "p_ship_site_no",
+							"value": "1"
+						},
+						{
+							"key": "p_from_po_no",
+							"value": "828851"
+						},
+						{
+							"key": "p_to_po_no",
+							"value": "828851"
+						},
+						{
+							"key": "p_from_po_site_no",
+							"value": "1"
+						},
+						{
+							"key": "p_to_po_site_no",
+							"value": "1"
+						},
+						{
+							"key": "p_sort_by",
+							"value": "S"
+						},
+						{
+							"key": "p_secondary_display",
+							"value": "V"
+						},
+						{
+							"key": "p_attr1",
+							"value": "N"
+						},
+						{
+							"key": "p_attr2",
+							"value": "N"
+						},
+						{
+							"key": "p_attr3",
+							"value": "N"
+						},
+						{
+							"key": "p_print_item_notes",
+							"value": "N"
+						},
+						{
+							"key": "p_print_item_haz_notes",
+							"value": "N"
+						},
+						{
+							"key": "p_print_source_po",
+							"value": "N"
+						},
+						{
+							"key": "p_print_allocated",
+							"value": "Y"
+						},
+						{
+							"key": "p_print_po_policy",
+							"value": "N"
+						},
+						{
+							"key": "p_site_level_breakdown",
+							"value": "N"
+						},
+						{
+							"key": "p_consolidated_orders",
+							"value": "N"
+						},
+						{
+							"key": "p_direct_ship_orders",
+							"value": "N"
+						},
+						{
+							"key": "p_automatic_orders",
+							"value": "N"
+						},
+						{
+							"key": "p_internal_orders",
+							"value": "N"
+						},
+						{
+							"key": "p_master_po",
+							"value": "N"
+						},
+						{
+							"key": "p_retail",
+							"value": "N"
+						},
+						{
+							"key": "p_po_site_no",
+							"value": "1"
+						},
+						{
+							"key": "export_type",
+							"value": "PDF"
+						},
+						{
+							"key": "report_name",
+							"value": "PURCHASE_ORDER"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
